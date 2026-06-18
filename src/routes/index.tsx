@@ -2,6 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import heroBg from "@/assets/hero-bg.png.asset.json";
 import logo from "@/assets/logo.png.asset.json";
+import reviewsImg from "@/assets/reviews.png.asset.json";
+import n8n1 from "@/assets/n8n-1.png.asset.json";
+import n8n2 from "@/assets/n8n-2.png.asset.json";
+import whatsappAuto from "@/assets/whatsapp-auto.png.asset.json";
+
+const WHATSAPP_NUMBER = "917439668751";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi SMad Works, I'd like to know more about your services.")}`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,6 +27,7 @@ const nav = [
   ["Automations", "#automations"],
   ["Process", "#process"],
   ["Industries", "#industries"],
+  ["Reviews", "#reviews"],
   ["Contact", "#contact"],
 ];
 
@@ -275,7 +283,57 @@ function Index() {
         </div>
       </section>
 
+      {/* AUTOMATION SHOWCASE */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="max-w-2xl">
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">In action</p>
+            <h2 className="mt-4 font-display text-4xl sm:text-5xl">Real automation flows we build.</h2>
+            <p className="mt-5 text-muted-foreground">A look inside the n8n workflows, lead-scoring pipelines and WhatsApp conversation trees powering our clients.</p>
+          </div>
+
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            <figure className="overflow-hidden rounded-3xl border border-border bg-[#0b0b0e] shadow-[var(--shadow-soft)]">
+              <img src={n8n1.url} alt="n8n workflow automation built by SMad Works" className="w-full object-cover" />
+              <figcaption className="border-t border-white/10 px-6 py-4 text-sm text-white/70">
+                <span className="font-semibold text-white">n8n Workflow</span> · Form intake → AI enrichment → CRM record
+              </figcaption>
+            </figure>
+            <figure className="overflow-hidden rounded-3xl border border-border bg-background shadow-[var(--shadow-soft)]">
+              <img src={n8n2.url} alt="AI-powered lead scoring pipeline" className="w-full object-cover" />
+              <figcaption className="border-t border-border px-6 py-4 text-sm text-muted-foreground">
+                <span className="font-semibold text-foreground">AI Lead Scoring</span> · Auto-classified leads with intent and budget signals
+              </figcaption>
+            </figure>
+          </div>
+
+          <div className="mt-6 overflow-hidden rounded-3xl border border-border bg-background shadow-[var(--shadow-soft)]">
+            <div className="relative h-[420px] overflow-hidden">
+              <div className="animate-marquee-x flex h-full w-max">
+                <img src={whatsappAuto.url} alt="WhatsApp chatbot automation flow built by SMad Works" className="h-full w-auto object-cover" />
+                <img src={whatsappAuto.url} alt="" aria-hidden className="h-full w-auto object-cover" />
+              </div>
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent" />
+            </div>
+            <div className="border-t border-border px-6 py-4 text-sm text-muted-foreground">
+              <span className="font-semibold text-foreground">WhatsApp Automation</span> · Multi-language conversational flows for support, hiring and lead capture
+            </div>
+          </div>
+
+          <div className="mt-10 flex flex-wrap gap-3">
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:opacity-90">
+              Automate on WhatsApp
+            </a>
+            <a href="#contact" className="rounded-full border border-border bg-background px-6 py-3 text-sm font-medium transition-colors hover:border-gold/40">
+              Discuss your workflow
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* INDUSTRIES */}
+
       <section id="industries" className="border-t border-border bg-secondary/30">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">
@@ -294,6 +352,36 @@ function Index() {
           </div>
         </div>
       </section>
+
+      {/* REVIEWS */}
+      <section id="reviews" className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Reviews</p>
+              <h2 className="mt-4 font-display text-4xl sm:text-5xl">What clients are saying.</h2>
+              <p className="mt-5 text-muted-foreground">Verified feedback from teams we've delivered for — across QA, automation, video and design.</p>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span className="text-2xl text-gold">★★★★★</span>
+              <span>Avg 4.9 / 5</span>
+            </div>
+          </div>
+
+          <div className="mt-12 overflow-hidden rounded-3xl border border-border bg-background shadow-[var(--shadow-soft)]">
+            <div className="relative h-[460px] overflow-hidden">
+              <div className="animate-marquee-y flex flex-col">
+                <img src={reviewsImg.url} alt="Client reviews for SMad Works" className="w-full object-cover" />
+                <img src={reviewsImg.url} alt="" aria-hidden className="w-full object-cover" />
+              </div>
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-background to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background to-transparent" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+
 
       {/* WHY */}
       <section className="border-t border-border">
@@ -349,7 +437,7 @@ function Index() {
                 <button type="submit" className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:opacity-90">
                   Send Message
                 </button>
-                <a href="https://wa.me/" target="_blank" rel="noreferrer" className="rounded-full border border-border bg-background px-6 py-3 text-sm font-medium transition-colors hover:border-gold/40">
+                <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="rounded-full border border-border bg-background px-6 py-3 text-sm font-medium transition-colors hover:border-gold/40">
                   Chat on WhatsApp
                 </a>
               </div>
