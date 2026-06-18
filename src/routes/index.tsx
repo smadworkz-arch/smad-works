@@ -303,6 +303,36 @@ function Index() {
         </div>
       </section>
 
+      {/* REVIEWS */}
+      <section id="reviews" className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Reviews</p>
+              <h2 className="mt-4 font-display text-4xl sm:text-5xl">What clients are saying.</h2>
+              <p className="mt-5 text-muted-foreground">Verified feedback from teams we've delivered for — across QA, automation, video and design.</p>
+            </div>
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <span className="text-2xl text-gold">★★★★★</span>
+              <span>Avg 4.9 / 5</span>
+            </div>
+          </div>
+
+          <div className="mt-12 overflow-hidden rounded-3xl border border-border bg-background shadow-[var(--shadow-soft)]">
+            <div className="relative h-[460px] overflow-hidden">
+              <div className="animate-marquee-y flex flex-col">
+                <img src={reviewsImg.url} alt="Client reviews for SMad Works" className="w-full object-cover" />
+                <img src={reviewsImg.url} alt="" aria-hidden className="w-full object-cover" />
+              </div>
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-background to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-background to-transparent" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
       {/* WHY */}
       <section className="border-t border-border">
         <div className="mx-auto max-w-7xl px-6 py-24">
