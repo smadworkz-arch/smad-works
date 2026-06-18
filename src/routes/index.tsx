@@ -357,7 +357,7 @@ function Index() {
                 <button type="submit" className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:opacity-90">
                   Send Message
                 </button>
-                <a href="https://wa.me/" target="_blank" rel="noreferrer" className="rounded-full border border-border bg-background px-6 py-3 text-sm font-medium transition-colors hover:border-gold/40">
+                <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="rounded-full border border-border bg-background px-6 py-3 text-sm font-medium transition-colors hover:border-gold/40">
                   Chat on WhatsApp
                 </a>
               </div>
