@@ -2,6 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import heroBg from "@/assets/hero-bg.png.asset.json";
 import logo from "@/assets/logo.png.asset.json";
+import reviewsImg from "@/assets/reviews.png.asset.json";
+import n8n1 from "@/assets/n8n-1.png.asset.json";
+import n8n2 from "@/assets/n8n-2.png.asset.json";
+import whatsappAuto from "@/assets/whatsapp-auto.png.asset.json";
+
+const WHATSAPP_NUMBER = "917439668751";
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi SMad Works, I'd like to know more about your services.")}`;
 
 export const Route = createFileRoute("/")({
   head: () => ({
