@@ -27,7 +27,6 @@ const nav = [
   ["Automations", "#automations"],
   ["Process", "#process"],
   ["Industries", "#industries"],
-  ["Industries", "#industries"],
   ["Reviews", "#reviews"],
   ["Contact", "#contact"],
 ];
