@@ -81,12 +81,12 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground font-sans">
       {/* NAV */}
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
-          <a href="#home" className="flex items-center gap-2.5">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-black">
-              <img src={logo.url} alt="SMad Works" className="h-7 w-7 object-contain" />
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
+          <a href="#home" className="flex items-center gap-3">
+            <span className="grid h-14 w-14 place-items-center rounded-xl bg-black sm:h-16 sm:w-16">
+              <img src={logo.url} alt="SMad Works" className="h-12 w-12 object-contain sm:h-14 sm:w-14" />
             </span>
-            <span className="text-base font-semibold tracking-tight">
+            <span className="text-lg font-semibold tracking-tight sm:text-xl">
               SMad<span className="text-gold">Works</span>
             </span>
           </a>
