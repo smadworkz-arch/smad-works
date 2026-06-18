@@ -81,12 +81,12 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground font-sans">
       {/* NAV */}
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
-          <a href="#home" className="flex items-center gap-2.5">
-            <span className="grid h-9 w-9 place-items-center rounded-lg bg-black">
-              <img src={logo.url} alt="SMad Works" className="h-7 w-7 object-contain" />
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
+          <a href="#home" className="flex items-center gap-3">
+            <span className="grid h-14 w-14 place-items-center rounded-xl bg-black sm:h-16 sm:w-16">
+              <img src={logo.url} alt="SMad Works" className="h-12 w-12 object-contain sm:h-14 sm:w-14" />
             </span>
-            <span className="text-base font-semibold tracking-tight">
+            <span className="text-lg font-semibold tracking-tight sm:text-xl">
               SMad<span className="text-gold">Works</span>
             </span>
           </a>
@@ -116,62 +116,48 @@ function Index() {
       </header>
 
       {/* HERO */}
-      <section id="home" className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
-          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="animate-fade-up">
-              <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-3 py-1 text-xs font-medium text-muted-foreground">
-                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                Design • Develop • Deliver
-              </div>
-              <h1 className="mt-6 font-display text-5xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-                We build smart digital solutions that help businesses <em className="text-gold not-italic">grow</em>.
-              </h1>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                SMad Works combines AI, automation, creativity and technology to simplify operations and create powerful digital experiences.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href="#services" className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:opacity-90">
-                  Explore Services
-                </a>
-                <a href="#contact" className="rounded-full border border-border bg-background px-6 py-3 text-sm font-medium text-foreground transition-all hover:bg-secondary">
-                  Start Your Project
-                </a>
-              </div>
-
-              <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
-                {[
-                  ["100+", "Projects Delivered"],
-                  ["95%", "Client Satisfaction"],
-                  ["AI", "Smart Solutions"],
-                  ["Fast", "Delivery"],
-                ].map(([n, l]) => (
-                  <div key={l}>
-                    <dt className="font-display text-3xl text-foreground">{n}</dt>
-                    <dd className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{l}</dd>
-                  </div>
-                ))}
-              </dl>
+      <section id="home" className="relative isolate overflow-hidden bg-black text-white">
+        <img
+          src={heroBg.url}
+          alt="SMad Works — love work love"
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/55 to-black/30" />
+        <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32 lg:pt-36 lg:pb-40">
+          <div className="max-w-3xl animate-fade-up">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+              Design • Develop • Deliver
+            </div>
+            <h1 className="mt-6 font-display text-5xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+              We build smart digital solutions that help businesses{" "}
+              <em className="text-gold not-italic">grow</em>.
+            </h1>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
+              SMad Works combines AI, automation, creativity and technology to simplify operations and create powerful digital experiences.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#services" className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-all hover:bg-white/90">
+                Explore Services
+              </a>
+              <a href="#contact" className="rounded-full border border-white/30 bg-transparent px-6 py-3 text-sm font-medium text-white transition-all hover:bg-white/10">
+                Start Your Project
+              </a>
             </div>
 
-            <div className="relative animate-fade-up">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-black shadow-[var(--shadow-card)]">
-                <img src={heroBg.url} alt="SMad Works — love work love" className="h-full w-full object-cover" />
-              </div>
-              <div className="absolute -bottom-6 -left-4 hidden rounded-2xl border border-border bg-background p-4 shadow-[var(--shadow-soft)] sm:block">
-                <div className="flex items-center gap-3">
-                  <span className="grid h-10 w-10 place-items-center rounded-full bg-gold/15 text-gold">✓</span>
-                  <div>
-                    <div className="text-sm font-semibold">Automation live</div>
-                    <div className="text-xs text-muted-foreground">12 new leads captured</div>
-                  </div>
+            <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
+              {[
+                ["100+", "Projects Delivered"],
+                ["95%", "Client Satisfaction"],
+                ["AI", "Smart Solutions"],
+                ["Fast", "Delivery"],
+              ].map(([n, l]) => (
+                <div key={l}>
+                  <dt className="font-display text-3xl text-white">{n}</dt>
+                  <dd className="mt-1 text-xs uppercase tracking-wider text-white/60">{l}</dd>
                 </div>
-              </div>
-              <div className="absolute -top-5 -right-4 hidden rounded-2xl border border-border bg-background px-4 py-3 shadow-[var(--shadow-soft)] md:block">
-                <div className="text-xs text-muted-foreground">Uptime</div>
-                <div className="font-display text-2xl">99.9%</div>
-              </div>
-            </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
