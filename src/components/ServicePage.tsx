@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import logo from "@/assets/logo.png.asset.json";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 const WHATSAPP_NUMBER = "917439668751";
 const waUrl = (msg: string) =>
@@ -59,54 +60,6 @@ const allServices: RelatedLink[] = [
   { to: "/logo-creative-design-services", title: "Logo & Creative Design" },
 ];
 
-function SiteHeader() {
-  const [open, setOpen] = useState(false);
-  return (
-    <header className="sticky top-0 z-40 border-b border-black/10 bg-white/85 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo.url} alt="SMad Works" className="h-9 w-9 object-contain" />
-          <span className="text-lg font-semibold tracking-tight">SMad <span className="text-gold">Works</span></span>
-        </Link>
-        <nav className="hidden items-center gap-7 text-sm text-black/70 md:flex">
-          <Link to="/" className="hover:text-black">Home</Link>
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="flex items-center gap-1 hover:text-black"
-          >
-            Services <span className="text-xs">▾</span>
-          </button>
-          <a href="/#process" className="hover:text-black">Process</a>
-          <a href="/#reviews" className="hover:text-black">Reviews</a>
-          <a href="/#contact" className="hover:text-black">Contact</a>
-        </nav>
-        <a
-          href={waUrl("Hi SMad Works, I'd like to book a consultation.")}
-          target="_blank" rel="noreferrer"
-          className="hidden rounded-full border border-black bg-black px-4 py-2 text-xs font-medium text-white transition hover:bg-gold hover:border-gold hover:text-black sm:inline-flex"
-        >
-          Book Consultation
-        </a>
-      </div>
-      {open && (
-        <div className="border-t border-black/10 bg-white">
-          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-2 px-5 py-4 text-sm md:grid-cols-3">
-            {allServices.map((s) => (
-              <Link
-                key={s.to}
-                to={s.to}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2 text-black/70 transition hover:bg-black/5 hover:text-black"
-              >
-                {s.title}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-    </header>
-  );
-}
 
 function Hero(p: ServicePageProps) {
   return (
@@ -359,40 +312,5 @@ function Field({ name, label, type = "text", required }: { name: string; label: 
         className="mt-1 w-full rounded-lg border border-black/15 bg-white px-3 py-2 text-sm outline-none transition focus:border-gold"
       />
     </div>
-  );
-}
-
-function SiteFooter() {
-  return (
-    <footer className="bg-black py-12 text-white/70">
-      <div className="mx-auto grid max-w-7xl gap-8 px-5 md:grid-cols-3">
-        <div>
-          <div className="flex items-center gap-2">
-            <img src={logo.url} alt="SMad Works" className="h-8 w-8 object-contain" />
-            <div className="text-lg font-semibold text-white">SMad <span className="text-gold">Works</span></div>
-          </div>
-          <p className="mt-2 max-w-xs text-sm">Design • Develop • Deliver — AI, automation and digital solutions for modern businesses.</p>
-        </div>
-        <div>
-          <div className="text-xs uppercase tracking-[0.18em] text-gold">Services</div>
-          <ul className="mt-3 space-y-1 text-sm">
-            {allServices.slice(0, 6).map((s) => (
-              <li key={s.to}><Link to={s.to} className="hover:text-white">{s.title}</Link></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <div className="text-xs uppercase tracking-[0.18em] text-gold">More</div>
-          <ul className="mt-3 space-y-1 text-sm">
-            {allServices.slice(6).map((s) => (
-              <li key={s.to}><Link to={s.to} className="hover:text-white">{s.title}</Link></li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 px-5 pt-6 text-xs text-white/50">
-        © {new Date().getFullYear()} SMad Works. All rights reserved.
-      </div>
-    </footer>
   );
 }
