@@ -142,7 +142,7 @@ const process = [
   ["06", "Support", "We continuously improve."],
 ];
 
-const industries = ["Healthcare", "Education", "Real Estate", "E-Commerce", "Startups", "Recruitment", "Service Businesses", "Agencies"];
+const industries = ["Healthcare", "Education", "Real Estate", "E-Commerce", "Startups", "Small Businesses", "Agencies", "Creators", "Corporate Teams", "Research Students"];
 
 const SERVICE_OPTIONS: string[] = [
   "Automation",
