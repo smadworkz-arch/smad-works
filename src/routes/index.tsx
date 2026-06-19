@@ -32,12 +32,68 @@ const nav = [
   ["Home", "#home"],
   ["About", "#about"],
   ["Services", "#services"],
+  ["Courses", "#courses"],
   ["Automations", "#automations"],
   ["Process", "#process"],
   ["Industries", "#industries"],
   ["Reviews", "#reviews"],
+  ["FAQ", "#faq"],
   ["Contact", "#contact"],
 ];
+
+const courses = [
+  {
+    title: "AI Video Generation Masterclass",
+    tag: "Creator Track",
+    desc: "Master modern AI video tools, prompts and storytelling to create scroll-stopping content for brands and creators.",
+    items: [
+      "AI Video Tools",
+      "Prompt Engineering",
+      "Image to Video Creation",
+      "AI Storytelling",
+      "Social Media Content",
+      "Monetization Strategies",
+    ],
+  },
+  {
+    title: "AI Automation Masterclass",
+    tag: "Business Track",
+    desc: "Build real-world automations end-to-end — workflows, AI agents, WhatsApp, CRM and API integrations.",
+    items: [
+      "Workflow Automation",
+      "AI Agents",
+      "WhatsApp Automation",
+      "CRM Automation",
+      "n8n Automation",
+      "API Integration",
+      "Business Automation Setup",
+    ],
+  },
+];
+
+const faqs = [
+  {
+    q: "What does SMad Works actually do?",
+    a: "We design and build AI, automation, content and operations systems that help businesses, creators and institutes work smarter and grow faster.",
+  },
+  {
+    q: "Do you work with small businesses and startups?",
+    a: "Yes. A large part of our work is helping small businesses, startups and solo founders adopt automation and AI without a heavy engineering team.",
+  },
+  {
+    q: "How long does a typical project take?",
+    a: "Most automation, content and design projects ship within 1–3 weeks. Larger systems and custom builds are scoped with a clear weekly milestone plan.",
+  },
+  {
+    q: "Do you offer training and courses?",
+    a: "Yes — our AI Video Generation and AI Automation masterclasses are beginner-friendly, hands-on and built around real projects.",
+  },
+  {
+    q: "How do I get started?",
+    a: "Use the contact form or tap the WhatsApp button. Share what you want to build and we'll respond within one business day.",
+  },
+];
+
 
 const services = [
   {
@@ -86,7 +142,7 @@ const process = [
   ["06", "Support", "We continuously improve."],
 ];
 
-const industries = ["Healthcare", "Education", "Real Estate", "E-Commerce", "Startups", "Recruitment", "Service Businesses", "Agencies"];
+const industries = ["Healthcare", "Education", "Real Estate", "E-Commerce", "Startups", "Small Businesses", "Agencies", "Creators", "Corporate Teams", "Research Students"];
 
 const SERVICE_OPTIONS: string[] = [
   "Automation",
@@ -372,8 +428,50 @@ function Index() {
         </div>
       </section>
 
+      {/* COURSES */}
+      <section id="courses" className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Courses</p>
+              <h2 className="mt-4 font-display text-4xl sm:text-5xl">Learn the future with SMad Works.</h2>
+              <p className="mt-5 text-muted-foreground">Beginner friendly. Practical projects. Hands-on training built for real outcomes.</p>
+            </div>
+            <div className="flex flex-wrap gap-2 text-xs">
+              {["Beginner Friendly", "Practical Projects", "Hands-on Training"].map((b) => (
+                <span key={b} className="rounded-full border border-border bg-secondary/60 px-3 py-1 text-muted-foreground">{b}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {courses.map((c) => (
+              <article key={c.title} className="group flex flex-col rounded-3xl border border-border bg-background p-8 transition-all hover:border-gold/40 hover:shadow-[var(--shadow-card)]">
+                <span className="inline-flex w-fit rounded-full border border-border bg-secondary px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                  {c.tag}
+                </span>
+                <h3 className="mt-5 font-display text-2xl sm:text-3xl">{c.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{c.desc}</p>
+                <ul className="mt-6 grid gap-2 border-t border-border pt-5 text-sm sm:grid-cols-2">
+                  {c.items.map((it) => (
+                    <li key={it} className="flex items-center gap-2 text-foreground/80">
+                      <span className="h-1 w-1 rounded-full bg-gold" />
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+                <a href="#contact" className="mt-7 inline-flex w-fit rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:border-gold/40 hover:text-gold">
+                  Enroll / Enquire
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SERVICE SHOWCASE */}
       <section className="border-t border-border bg-secondary/20">
+
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-2xl">
@@ -633,7 +731,32 @@ function Index() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">FAQ</p>
+              <h2 className="mt-4 font-display text-4xl sm:text-5xl">Questions, answered.</h2>
+              <p className="mt-5 text-muted-foreground">Still curious? Reach out and we'll walk you through it.</p>
+            </div>
+            <div className="divide-y divide-border rounded-3xl border border-border bg-background">
+              {faqs.map((f, i) => (
+                <details key={f.q} className="group px-6 py-5 [&_summary::-webkit-details-marker]:hidden" open={i === 0}>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-medium">
+                    {f.q}
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-border text-gold transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT */}
+
       <section id="contact" className="border-t border-border bg-secondary/30">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
