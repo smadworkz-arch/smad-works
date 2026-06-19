@@ -645,7 +645,7 @@ function Index() {
               <div className="mt-10 space-y-4 text-sm">
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <span className="grid h-9 w-9 place-items-center rounded-full border border-border">@</span>
-                  hello@smadworks.com
+                  <a href="mailto:smadworkz@gmail.com" className="hover:text-foreground">smadworkz@gmail.com</a>
                 </div>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <span className="grid h-9 w-9 place-items-center rounded-full border border-border">✆</span>
