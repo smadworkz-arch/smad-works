@@ -100,3 +100,5 @@
   to { transform: translateX(-50%); }
 }
 @utility animate-marquee-x { animation: marquee-x 35s linear infinite; }
+@utility animate-marquee-x-slow { animation: marquee-x 50s linear infinite; }
+@utility pause-on-hover { &:hover { animation-play-state: paused; } }

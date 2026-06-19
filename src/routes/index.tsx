@@ -292,19 +292,39 @@ function Index() {
             <p className="mt-5 text-muted-foreground">A look inside the n8n workflows, lead-scoring pipelines and WhatsApp conversation trees powering our clients.</p>
           </div>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            <figure className="overflow-hidden rounded-3xl border border-border bg-[#0b0b0e] shadow-[var(--shadow-soft)]">
-              <img src={n8n1.url} alt="n8n workflow automation built by SMad Works" className="w-full object-cover" />
-              <figcaption className="border-t border-white/10 px-6 py-4 text-sm text-white/70">
-                <span className="font-semibold text-white">n8n Workflow</span> · Form intake → AI enrichment → CRM record
-              </figcaption>
-            </figure>
-            <figure className="overflow-hidden rounded-3xl border border-border bg-background shadow-[var(--shadow-soft)]">
-              <img src={n8n2.url} alt="AI-powered lead scoring pipeline" className="w-full object-cover" />
-              <figcaption className="border-t border-border px-6 py-4 text-sm text-muted-foreground">
-                <span className="font-semibold text-foreground">AI Lead Scoring</span> · Auto-classified leads with intent and budget signals
-              </figcaption>
-            </figure>
+          <div className="group/carousel mt-12 overflow-hidden rounded-3xl border border-border bg-[#0b0b0e] shadow-[var(--shadow-soft)]">
+            <div className="relative">
+              <div className="animate-marquee-x-slow pause-on-hover group-hover/carousel:[animation-play-state:paused] flex w-max gap-6 p-6">
+                {[
+                  { src: n8n1.url, title: "n8n Workflow", desc: "Form intake → AI enrichment → CRM record" },
+                  { src: n8n2.url, title: "AI Lead Scoring", desc: "Auto-classified leads with intent & budget signals" },
+                  { src: n8n1.url, title: "n8n Workflow", desc: "Form intake → AI enrichment → CRM record" },
+                  { src: n8n2.url, title: "AI Lead Scoring", desc: "Auto-classified leads with intent & budget signals" },
+                ].map((item, i) => (
+                  <figure
+                    key={i}
+                    className="group/card relative w-[min(86vw,720px)] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-background transition-all duration-500 hover:-translate-y-1 hover:border-gold/40 hover:shadow-[0_20px_60px_-20px_rgba(0,0,0,0.35)]"
+                  >
+                    <div className="overflow-hidden">
+                      <img
+                        src={item.src}
+                        alt={`${item.title} automation built by SMad Works`}
+                        className="w-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-[1.03]"
+                      />
+                    </div>
+                    <figcaption className="flex items-center justify-between gap-4 border-t border-border px-6 py-4 text-sm">
+                      <div>
+                        <div className="font-semibold text-foreground">{item.title}</div>
+                        <div className="text-muted-foreground">{item.desc}</div>
+                      </div>
+                      <span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition-colors group-hover/card:border-gold/40 group-hover/card:text-gold">n8n</span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+              <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0b0b0e] to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0b0b0e] to-transparent" />
+            </div>
           </div>
 
           <div className="mt-6 overflow-hidden rounded-3xl border border-border bg-background shadow-[var(--shadow-soft)]">
