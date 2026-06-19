@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
+import logo from "@/assets/logo.png.asset.json";
 
 const WHATSAPP_NUMBER = "917439668751";
 const waUrl = (msg: string) =>
@@ -64,6 +65,7 @@ function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-black/10 bg-white/85 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
         <Link to="/" className="flex items-center gap-2">
+          <img src={logo.url} alt="SMad Works" className="h-9 w-9 object-contain" />
           <span className="text-lg font-semibold tracking-tight">SMad <span className="text-gold">Works</span></span>
         </Link>
         <nav className="hidden items-center gap-7 text-sm text-black/70 md:flex">
@@ -365,7 +367,10 @@ function SiteFooter() {
     <footer className="bg-black py-12 text-white/70">
       <div className="mx-auto grid max-w-7xl gap-8 px-5 md:grid-cols-3">
         <div>
-          <div className="text-lg font-semibold text-white">SMad <span className="text-gold">Works</span></div>
+          <div className="flex items-center gap-2">
+            <img src={logo.url} alt="SMad Works" className="h-8 w-8 object-contain" />
+            <div className="text-lg font-semibold text-white">SMad <span className="text-gold">Works</span></div>
+          </div>
           <p className="mt-2 max-w-xs text-sm">Design • Develop • Deliver — AI, automation and digital solutions for modern businesses.</p>
         </div>
         <div>
