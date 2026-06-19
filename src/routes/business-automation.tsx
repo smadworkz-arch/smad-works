@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/ServicePage";
 import { serviceHead } from "@/lib/service-head";
+import heroImg from "@/assets/business-automation-hero.png.asset.json";
 
 export const Route = createFileRoute("/business-automation")({
   head: () =>
@@ -13,6 +14,14 @@ export const Route = createFileRoute("/business-automation")({
     }),
   component: () => (
     <ServicePage
+      illustration={
+        <img
+          src={heroImg.url}
+          alt="SMad Works Business Automation Solutions — WhatsApp, AI chatbots, CRM and workflow automation"
+          className="w-full rounded-3xl border border-black/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
+          loading="eager"
+        />
+      }
       eyebrow="Business Automation"
       title="Business Automation Solutions"
       headline="Automate Your Business. Save Time. Scale Faster."
