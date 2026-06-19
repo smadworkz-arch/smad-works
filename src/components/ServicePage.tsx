@@ -148,6 +148,9 @@ function Hero(p: ServicePageProps) {
           </div>
         </div>
         <div className="relative">
+          {p.illustration ? (
+            <div className="relative">{p.illustration}</div>
+          ) : (
           <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-black/10 bg-gradient-to-br from-black to-black/85 p-8 text-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.4)]">
             <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_30%_20%,rgba(212,175,55,0.35),transparent_70%)]" />
             <div className="relative flex h-full flex-col justify-between">
@@ -167,6 +170,7 @@ function Hero(p: ServicePageProps) {
               </div>
             </div>
           </div>
+          )}
         </div>
       </div>
     </section>
