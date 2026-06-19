@@ -314,38 +314,3 @@ function Field({ name, label, type = "text", required }: { name: string; label: 
     </div>
   );
 }
-
-function SiteFooter() {
-  return (
-    <footer className="bg-black py-12 text-white/70">
-      <div className="mx-auto grid max-w-7xl gap-8 px-5 md:grid-cols-3">
-        <div>
-          <div className="flex items-center gap-2">
-            <img src={logo.url} alt="SMad Works" className="h-8 w-8 object-contain" />
-            <div className="text-lg font-semibold text-white">SMad <span className="text-gold">Works</span></div>
-          </div>
-          <p className="mt-2 max-w-xs text-sm">Design • Develop • Deliver — AI, automation and digital solutions for modern businesses.</p>
-        </div>
-        <div>
-          <div className="text-xs uppercase tracking-[0.18em] text-gold">Services</div>
-          <ul className="mt-3 space-y-1 text-sm">
-            {allServices.slice(0, 6).map((s) => (
-              <li key={s.to}><Link to={s.to} className="hover:text-white">{s.title}</Link></li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <div className="text-xs uppercase tracking-[0.18em] text-gold">More</div>
-          <ul className="mt-3 space-y-1 text-sm">
-            {allServices.slice(6).map((s) => (
-              <li key={s.to}><Link to={s.to} className="hover:text-white">{s.title}</Link></li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div className="mx-auto mt-10 max-w-7xl border-t border-white/10 px-5 pt-6 text-xs text-white/50">
-        © {new Date().getFullYear()} SMad Works. All rights reserved.
-      </div>
-    </footer>
-  );
-}
