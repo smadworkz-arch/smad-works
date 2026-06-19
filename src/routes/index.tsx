@@ -675,12 +675,13 @@ function Index() {
               className="rounded-3xl border border-border bg-background p-8 shadow-[var(--shadow-soft)]"
             >
               <div className="grid gap-4 sm:grid-cols-2">
-                <Field label="Name" name="name" />
-                <Field label="Phone" name="phone" />
-                <Field label="Email" name="email" type="email" className="sm:col-span-2" />
+                <Field label="Name" name="name" id="contact-name" />
+                <Field label="Phone" name="phone" id="contact-phone" />
+                <Field label="Email" name="email" id="contact-email" type="email" className="sm:col-span-2" />
                 <div className="sm:col-span-2">
-                  <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Service Interested In</label>
+                  <label htmlFor="contact-service" className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Service Interested In</label>
                   <select
+                    id="contact-service"
                     name="service"
                     defaultValue=""
                     required
@@ -693,10 +694,11 @@ function Index() {
                   </select>
                 </div>
                 <div className="sm:col-span-2">
-                  <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Message</label>
-                  <textarea name="message" rows={4} className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-gold" />
+                  <label htmlFor="contact-message" className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Message</label>
+                  <textarea id="contact-message" name="message" rows={4} className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-gold" />
                 </div>
               </div>
+
               <div className="mt-6 flex flex-wrap gap-3">
                 <button type="submit" className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-all hover:opacity-90">
                   Send Message
@@ -726,11 +728,12 @@ function Index() {
   );
 }
 
-function Field({ label, name, type = "text", className = "" }: { label: string; name: string; type?: string; className?: string }) {
+function Field({ label, name, id, type = "text", className = "" }: { label: string; name: string; id: string; type?: string; className?: string }) {
   return (
     <div className={className}>
-      <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</label>
-      <input name={name} type={type} className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-gold" />
+      <label htmlFor={id} className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{label}</label>
+      <input id={id} name={name} type={type} className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-gold" />
     </div>
   );
 }
+
