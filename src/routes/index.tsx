@@ -80,6 +80,20 @@ const process = [
 
 const industries = ["Healthcare", "Education", "Real Estate", "E-Commerce", "Startups", "Recruitment", "Service Businesses", "Agencies"];
 
+const SERVICE_OPTIONS: string[] = [
+  "Automation",
+  "QA Testing",
+  "Academic Research",
+  "Operations Management Services",
+  "AI Content Generation",
+  "AI Course Content Material Generation",
+  "Teaching AI Video Generation Courses",
+  "Teaching AI Automation Courses",
+  "Lead Generation Services",
+  "Lead Conversion Services",
+  "Logo and Creative Design",
+];
+
 const why = ["Customized Solutions", "Modern Technology", "Business Focused Approach", "Reliable Delivery", "Long Term Support"];
 
 function Index() {
@@ -442,12 +456,44 @@ function Index() {
               </div>
             </div>
 
-            <form onSubmit={(e) => e.preventDefault()} className="rounded-3xl border border-border bg-background p-8 shadow-[var(--shadow-soft)]">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const fd = new FormData(e.currentTarget);
+                const name = (fd.get("name") as string) || "";
+                const phone = (fd.get("phone") as string) || "";
+                const email = (fd.get("email") as string) || "";
+                const service = (fd.get("service") as string) || "";
+                const message = (fd.get("message") as string) || "";
+                const text =
+                  `Hi SMad Works,\n\n` +
+                  `Name: ${name}\n` +
+                  `Phone: ${phone}\n` +
+                  `Email: ${email}\n` +
+                  `Service Interested In: ${service}\n\n` +
+                  `Message:\n${message}`;
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
+              }}
+              className="rounded-3xl border border-border bg-background p-8 shadow-[var(--shadow-soft)]"
+            >
               <div className="grid gap-4 sm:grid-cols-2">
                 <Field label="Name" name="name" />
                 <Field label="Phone" name="phone" />
                 <Field label="Email" name="email" type="email" className="sm:col-span-2" />
-                <Field label="Service Interested In" name="service" className="sm:col-span-2" />
+                <div className="sm:col-span-2">
+                  <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Service Interested In</label>
+                  <select
+                    name="service"
+                    defaultValue=""
+                    required
+                    className="mt-2 w-full appearance-none rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-gold"
+                  >
+                    <option value="" disabled>Select a service</option>
+                    {SERVICE_OPTIONS.map((s) => (
+                      <option key={s} value={s}>{s}</option>
+                    ))}
+                  </select>
+                </div>
                 <div className="sm:col-span-2">
                   <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Message</label>
                   <textarea name="message" rows={4} className="mt-2 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm outline-none focus:border-gold" />
