@@ -731,7 +731,32 @@ function Index() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">FAQ</p>
+              <h2 className="mt-4 font-display text-4xl sm:text-5xl">Questions, answered.</h2>
+              <p className="mt-5 text-muted-foreground">Still curious? Reach out and we'll walk you through it.</p>
+            </div>
+            <div className="divide-y divide-border rounded-3xl border border-border bg-background">
+              {faqs.map((f, i) => (
+                <details key={f.q} className="group px-6 py-5 [&_summary::-webkit-details-marker]:hidden" open={i === 0}>
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-medium">
+                    {f.q}
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-border text-gold transition-transform group-open:rotate-45">+</span>
+                  </summary>
+                  <p className="mt-3 text-sm text-muted-foreground">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT */}
+
       <section id="contact" className="border-t border-border bg-secondary/30">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
