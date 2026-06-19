@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import heroBg from "@/assets/hero-bg.png.asset.json";
 import logo from "@/assets/logo.png.asset.json";
 import reviewsImg from "@/assets/reviews.png.asset.json";
@@ -243,40 +245,7 @@ function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       {/* NAV */}
-      <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
-          <a href="#home" className="flex items-center gap-3">
-            <span className="grid h-14 w-14 place-items-center rounded-xl bg-black sm:h-16 sm:w-16">
-              <img src={logo.url} alt="SMad Works" className="h-12 w-12 object-contain sm:h-14 sm:w-14" />
-            </span>
-            <span className="text-lg font-semibold tracking-tight sm:text-xl">
-              SMad<span className="text-gold">Works</span>
-            </span>
-          </a>
-          <nav className="hidden items-center gap-8 lg:flex">
-            {nav.map(([l, h]) => (
-              <a key={l} href={h} className="text-sm text-muted-foreground transition-colors hover:text-foreground">{l}</a>
-            ))}
-          </nav>
-          <div className="flex items-center gap-3">
-            <a href="#contact" className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all hover:opacity-90 sm:inline-flex">
-              Let's Talk
-            </a>
-            <button onClick={() => setMenuOpen(!menuOpen)} className="grid h-9 w-9 place-items-center rounded-md border border-border lg:hidden" aria-label="Menu">
-              <span className="block h-px w-4 bg-foreground" />
-            </button>
-          </div>
-        </div>
-        {menuOpen && (
-          <div className="border-t border-border lg:hidden">
-            <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
-              {nav.map(([l, h]) => (
-                <a key={l} href={h} onClick={() => setMenuOpen(false)} className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground">{l}</a>
-              ))}
-            </nav>
-          </div>
-        )}
-      </header>
+      <SiteHeader />
 
       {/* HERO */}
       <section id="home" className="relative isolate overflow-hidden bg-black text-white">
@@ -759,17 +728,7 @@ function Index() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-border">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-10 sm:flex-row">
-          <div className="flex items-center gap-2.5">
-            <span className="grid h-8 w-8 place-items-center rounded-md bg-black">
-              <img src={logo.url} alt="" className="h-6 w-6 object-contain" />
-            </span>
-            <span className="text-sm font-semibold">SMad<span className="text-gold">Works</span></span>
-          </div>
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} SMad Works. Design • Develop • Deliver.</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
