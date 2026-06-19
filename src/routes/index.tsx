@@ -80,6 +80,20 @@ const process = [
 
 const industries = ["Healthcare", "Education", "Real Estate", "E-Commerce", "Startups", "Recruitment", "Service Businesses", "Agencies"];
 
+const SERVICE_OPTIONS: string[] = [
+  "Automation",
+  "QA Testing",
+  "Academic Research",
+  "Operations Management Services",
+  "AI Content Generation",
+  "AI Course Content Material Generation",
+  "Teaching AI Video Generation Courses",
+  "Teaching AI Automation Courses",
+  "Lead Generation Services",
+  "Lead Conversion Services",
+  "Logo and Creative Design",
+];
+
 const why = ["Customized Solutions", "Modern Technology", "Business Focused Approach", "Reliable Delivery", "Long Term Support"];
 
 function Index() {
