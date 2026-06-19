@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/ServicePage";
 import { serviceHead } from "@/lib/service-head";
+import heroImg from "@/assets/ai-content-generation-hero.png.asset.json";
 
 export const Route = createFileRoute("/ai-content-generation")({
   head: () =>
@@ -13,6 +14,14 @@ export const Route = createFileRoute("/ai-content-generation")({
     }),
   component: () => (
     <ServicePage
+      illustration={
+        <img
+          src={heroImg.url}
+          alt="SMad Works AI Content Generation poster featuring AI videos, AI images, social media content and marketing content"
+          className="w-full rounded-3xl border border-black/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
+          loading="eager"
+        />
+      }
       eyebrow="AI Content"
       title="AI Content Generation"
       headline="Create High Quality Content Faster With AI"

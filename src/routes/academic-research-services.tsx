@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/ServicePage";
 import { serviceHead } from "@/lib/service-head";
+import heroImg from "@/assets/academic-research-service-hero.png.asset.json";
 
 export const Route = createFileRoute("/academic-research-services")({
   head: () =>
@@ -13,6 +14,14 @@ export const Route = createFileRoute("/academic-research-services")({
     }),
   component: () => (
     <ServicePage
+      illustration={
+        <img
+          src={heroImg.url}
+          alt="SMad Works Academic Research Services poster showing research assistance, dissertation guidance, implementation support and documentation"
+          className="w-full rounded-3xl border border-black/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
+          loading="eager"
+        />
+      }
       eyebrow="Academic Research"
       title="Academic Research Services"
       headline="Turning Research Ideas Into Successful Projects"
