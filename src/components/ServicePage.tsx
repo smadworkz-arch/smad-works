@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import logo from "@/assets/logo.png.asset.json";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 const WHATSAPP_NUMBER = "917439668751";
 const waUrl = (msg: string) =>
