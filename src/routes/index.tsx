@@ -32,12 +32,68 @@ const nav = [
   ["Home", "#home"],
   ["About", "#about"],
   ["Services", "#services"],
+  ["Courses", "#courses"],
   ["Automations", "#automations"],
   ["Process", "#process"],
   ["Industries", "#industries"],
   ["Reviews", "#reviews"],
+  ["FAQ", "#faq"],
   ["Contact", "#contact"],
 ];
+
+const courses = [
+  {
+    title: "AI Video Generation Masterclass",
+    tag: "Creator Track",
+    desc: "Master modern AI video tools, prompts and storytelling to create scroll-stopping content for brands and creators.",
+    items: [
+      "AI Video Tools",
+      "Prompt Engineering",
+      "Image to Video Creation",
+      "AI Storytelling",
+      "Social Media Content",
+      "Monetization Strategies",
+    ],
+  },
+  {
+    title: "AI Automation Masterclass",
+    tag: "Business Track",
+    desc: "Build real-world automations end-to-end — workflows, AI agents, WhatsApp, CRM and API integrations.",
+    items: [
+      "Workflow Automation",
+      "AI Agents",
+      "WhatsApp Automation",
+      "CRM Automation",
+      "n8n Automation",
+      "API Integration",
+      "Business Automation Setup",
+    ],
+  },
+];
+
+const faqs = [
+  {
+    q: "What does SMad Works actually do?",
+    a: "We design and build AI, automation, content and operations systems that help businesses, creators and institutes work smarter and grow faster.",
+  },
+  {
+    q: "Do you work with small businesses and startups?",
+    a: "Yes. A large part of our work is helping small businesses, startups and solo founders adopt automation and AI without a heavy engineering team.",
+  },
+  {
+    q: "How long does a typical project take?",
+    a: "Most automation, content and design projects ship within 1–3 weeks. Larger systems and custom builds are scoped with a clear weekly milestone plan.",
+  },
+  {
+    q: "Do you offer training and courses?",
+    a: "Yes — our AI Video Generation and AI Automation masterclasses are beginner-friendly, hands-on and built around real projects.",
+  },
+  {
+    q: "How do I get started?",
+    a: "Use the contact form or tap the WhatsApp button. Share what you want to build and we'll respond within one business day.",
+  },
+];
+
 
 const services = [
   {
