@@ -1,0 +1,7 @@
+# SMad Works
+
+> Technology and automation company. Design • Develop • Deliver — n8n automations, WhatsApp automation, QA testing, AI content, and operations services for businesses.
+
+## Pages
+
+- [Home](/): Overview of SMad Works services, automation showcases, client reviews, and contact form.
