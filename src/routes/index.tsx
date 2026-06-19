@@ -428,8 +428,50 @@ function Index() {
         </div>
       </section>
 
+      {/* COURSES */}
+      <section id="courses" className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Courses</p>
+              <h2 className="mt-4 font-display text-4xl sm:text-5xl">Learn the future with SMad Works.</h2>
+              <p className="mt-5 text-muted-foreground">Beginner friendly. Practical projects. Hands-on training built for real outcomes.</p>
+            </div>
+            <div className="flex flex-wrap gap-2 text-xs">
+              {["Beginner Friendly", "Practical Projects", "Hands-on Training"].map((b) => (
+                <span key={b} className="rounded-full border border-border bg-secondary/60 px-3 py-1 text-muted-foreground">{b}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {courses.map((c) => (
+              <article key={c.title} className="group flex flex-col rounded-3xl border border-border bg-background p-8 transition-all hover:border-gold/40 hover:shadow-[var(--shadow-card)]">
+                <span className="inline-flex w-fit rounded-full border border-border bg-secondary px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                  {c.tag}
+                </span>
+                <h3 className="mt-5 font-display text-2xl sm:text-3xl">{c.title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{c.desc}</p>
+                <ul className="mt-6 grid gap-2 border-t border-border pt-5 text-sm sm:grid-cols-2">
+                  {c.items.map((it) => (
+                    <li key={it} className="flex items-center gap-2 text-foreground/80">
+                      <span className="h-1 w-1 rounded-full bg-gold" />
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+                <a href="#contact" className="mt-7 inline-flex w-fit rounded-full border border-border px-4 py-2 text-sm font-medium transition-colors hover:border-gold/40 hover:text-gold">
+                  Enroll / Enquire
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* SERVICE SHOWCASE */}
       <section className="border-t border-border bg-secondary/20">
+
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-2xl">
