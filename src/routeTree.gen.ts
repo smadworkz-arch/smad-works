@@ -10,6 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as QaTestingServicesRouteImport } from './routes/qa-testing-services'
+import { Route as OperationsManagementServicesRouteImport } from './routes/operations-management-services'
+import { Route as LogoCreativeDesignServicesRouteImport } from './routes/logo-creative-design-services'
+import { Route as LeadGenerationServicesRouteImport } from './routes/lead-generation-services'
+import { Route as LeadConversionServicesRouteImport } from './routes/lead-conversion-services'
+import { Route as BusinessAutomationRouteImport } from './routes/business-automation'
+import { Route as AiVideoGenerationCourseRouteImport } from './routes/ai-video-generation-course'
+import { Route as AiCourseContentGenerationRouteImport } from './routes/ai-course-content-generation'
+import { Route as AiContentGenerationRouteImport } from './routes/ai-content-generation'
+import { Route as AiAutomationCourseRouteImport } from './routes/ai-automation-course'
+import { Route as AcademicResearchServicesRouteImport } from './routes/academic-research-services'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -17,6 +28,65 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QaTestingServicesRoute = QaTestingServicesRouteImport.update({
+  id: '/qa-testing-services',
+  path: '/qa-testing-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OperationsManagementServicesRoute =
+  OperationsManagementServicesRouteImport.update({
+    id: '/operations-management-services',
+    path: '/operations-management-services',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LogoCreativeDesignServicesRoute =
+  LogoCreativeDesignServicesRouteImport.update({
+    id: '/logo-creative-design-services',
+    path: '/logo-creative-design-services',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LeadGenerationServicesRoute = LeadGenerationServicesRouteImport.update({
+  id: '/lead-generation-services',
+  path: '/lead-generation-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LeadConversionServicesRoute = LeadConversionServicesRouteImport.update({
+  id: '/lead-conversion-services',
+  path: '/lead-conversion-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessAutomationRoute = BusinessAutomationRouteImport.update({
+  id: '/business-automation',
+  path: '/business-automation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiVideoGenerationCourseRoute = AiVideoGenerationCourseRouteImport.update({
+  id: '/ai-video-generation-course',
+  path: '/ai-video-generation-course',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiCourseContentGenerationRoute =
+  AiCourseContentGenerationRouteImport.update({
+    id: '/ai-course-content-generation',
+    path: '/ai-course-content-generation',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const AiContentGenerationRoute = AiContentGenerationRouteImport.update({
+  id: '/ai-content-generation',
+  path: '/ai-content-generation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiAutomationCourseRoute = AiAutomationCourseRouteImport.update({
+  id: '/ai-automation-course',
+  path: '/ai-automation-course',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AcademicResearchServicesRoute =
+  AcademicResearchServicesRouteImport.update({
+    id: '/academic-research-services',
+    path: '/academic-research-services',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -25,27 +95,111 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/academic-research-services': typeof AcademicResearchServicesRoute
+  '/ai-automation-course': typeof AiAutomationCourseRoute
+  '/ai-content-generation': typeof AiContentGenerationRoute
+  '/ai-course-content-generation': typeof AiCourseContentGenerationRoute
+  '/ai-video-generation-course': typeof AiVideoGenerationCourseRoute
+  '/business-automation': typeof BusinessAutomationRoute
+  '/lead-conversion-services': typeof LeadConversionServicesRoute
+  '/lead-generation-services': typeof LeadGenerationServicesRoute
+  '/logo-creative-design-services': typeof LogoCreativeDesignServicesRoute
+  '/operations-management-services': typeof OperationsManagementServicesRoute
+  '/qa-testing-services': typeof QaTestingServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/academic-research-services': typeof AcademicResearchServicesRoute
+  '/ai-automation-course': typeof AiAutomationCourseRoute
+  '/ai-content-generation': typeof AiContentGenerationRoute
+  '/ai-course-content-generation': typeof AiCourseContentGenerationRoute
+  '/ai-video-generation-course': typeof AiVideoGenerationCourseRoute
+  '/business-automation': typeof BusinessAutomationRoute
+  '/lead-conversion-services': typeof LeadConversionServicesRoute
+  '/lead-generation-services': typeof LeadGenerationServicesRoute
+  '/logo-creative-design-services': typeof LogoCreativeDesignServicesRoute
+  '/operations-management-services': typeof OperationsManagementServicesRoute
+  '/qa-testing-services': typeof QaTestingServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/academic-research-services': typeof AcademicResearchServicesRoute
+  '/ai-automation-course': typeof AiAutomationCourseRoute
+  '/ai-content-generation': typeof AiContentGenerationRoute
+  '/ai-course-content-generation': typeof AiCourseContentGenerationRoute
+  '/ai-video-generation-course': typeof AiVideoGenerationCourseRoute
+  '/business-automation': typeof BusinessAutomationRoute
+  '/lead-conversion-services': typeof LeadConversionServicesRoute
+  '/lead-generation-services': typeof LeadGenerationServicesRoute
+  '/logo-creative-design-services': typeof LogoCreativeDesignServicesRoute
+  '/operations-management-services': typeof OperationsManagementServicesRoute
+  '/qa-testing-services': typeof QaTestingServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/academic-research-services'
+    | '/ai-automation-course'
+    | '/ai-content-generation'
+    | '/ai-course-content-generation'
+    | '/ai-video-generation-course'
+    | '/business-automation'
+    | '/lead-conversion-services'
+    | '/lead-generation-services'
+    | '/logo-creative-design-services'
+    | '/operations-management-services'
+    | '/qa-testing-services'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml'
-  id: '__root__' | '/' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/academic-research-services'
+    | '/ai-automation-course'
+    | '/ai-content-generation'
+    | '/ai-course-content-generation'
+    | '/ai-video-generation-course'
+    | '/business-automation'
+    | '/lead-conversion-services'
+    | '/lead-generation-services'
+    | '/logo-creative-design-services'
+    | '/operations-management-services'
+    | '/qa-testing-services'
+    | '/sitemap.xml'
+  id:
+    | '__root__'
+    | '/'
+    | '/academic-research-services'
+    | '/ai-automation-course'
+    | '/ai-content-generation'
+    | '/ai-course-content-generation'
+    | '/ai-video-generation-course'
+    | '/business-automation'
+    | '/lead-conversion-services'
+    | '/lead-generation-services'
+    | '/logo-creative-design-services'
+    | '/operations-management-services'
+    | '/qa-testing-services'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AcademicResearchServicesRoute: typeof AcademicResearchServicesRoute
+  AiAutomationCourseRoute: typeof AiAutomationCourseRoute
+  AiContentGenerationRoute: typeof AiContentGenerationRoute
+  AiCourseContentGenerationRoute: typeof AiCourseContentGenerationRoute
+  AiVideoGenerationCourseRoute: typeof AiVideoGenerationCourseRoute
+  BusinessAutomationRoute: typeof BusinessAutomationRoute
+  LeadConversionServicesRoute: typeof LeadConversionServicesRoute
+  LeadGenerationServicesRoute: typeof LeadGenerationServicesRoute
+  LogoCreativeDesignServicesRoute: typeof LogoCreativeDesignServicesRoute
+  OperationsManagementServicesRoute: typeof OperationsManagementServicesRoute
+  QaTestingServicesRoute: typeof QaTestingServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
@@ -56,6 +210,83 @@ declare module '@tanstack/react-router' {
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/qa-testing-services': {
+      id: '/qa-testing-services'
+      path: '/qa-testing-services'
+      fullPath: '/qa-testing-services'
+      preLoaderRoute: typeof QaTestingServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/operations-management-services': {
+      id: '/operations-management-services'
+      path: '/operations-management-services'
+      fullPath: '/operations-management-services'
+      preLoaderRoute: typeof OperationsManagementServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/logo-creative-design-services': {
+      id: '/logo-creative-design-services'
+      path: '/logo-creative-design-services'
+      fullPath: '/logo-creative-design-services'
+      preLoaderRoute: typeof LogoCreativeDesignServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lead-generation-services': {
+      id: '/lead-generation-services'
+      path: '/lead-generation-services'
+      fullPath: '/lead-generation-services'
+      preLoaderRoute: typeof LeadGenerationServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lead-conversion-services': {
+      id: '/lead-conversion-services'
+      path: '/lead-conversion-services'
+      fullPath: '/lead-conversion-services'
+      preLoaderRoute: typeof LeadConversionServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business-automation': {
+      id: '/business-automation'
+      path: '/business-automation'
+      fullPath: '/business-automation'
+      preLoaderRoute: typeof BusinessAutomationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-video-generation-course': {
+      id: '/ai-video-generation-course'
+      path: '/ai-video-generation-course'
+      fullPath: '/ai-video-generation-course'
+      preLoaderRoute: typeof AiVideoGenerationCourseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-course-content-generation': {
+      id: '/ai-course-content-generation'
+      path: '/ai-course-content-generation'
+      fullPath: '/ai-course-content-generation'
+      preLoaderRoute: typeof AiCourseContentGenerationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-content-generation': {
+      id: '/ai-content-generation'
+      path: '/ai-content-generation'
+      fullPath: '/ai-content-generation'
+      preLoaderRoute: typeof AiContentGenerationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-automation-course': {
+      id: '/ai-automation-course'
+      path: '/ai-automation-course'
+      fullPath: '/ai-automation-course'
+      preLoaderRoute: typeof AiAutomationCourseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academic-research-services': {
+      id: '/academic-research-services'
+      path: '/academic-research-services'
+      fullPath: '/academic-research-services'
+      preLoaderRoute: typeof AcademicResearchServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +301,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AcademicResearchServicesRoute: AcademicResearchServicesRoute,
+  AiAutomationCourseRoute: AiAutomationCourseRoute,
+  AiContentGenerationRoute: AiContentGenerationRoute,
+  AiCourseContentGenerationRoute: AiCourseContentGenerationRoute,
+  AiVideoGenerationCourseRoute: AiVideoGenerationCourseRoute,
+  BusinessAutomationRoute: BusinessAutomationRoute,
+  LeadConversionServicesRoute: LeadConversionServicesRoute,
+  LeadGenerationServicesRoute: LeadGenerationServicesRoute,
+  LogoCreativeDesignServicesRoute: LogoCreativeDesignServicesRoute,
+  OperationsManagementServicesRoute: OperationsManagementServicesRoute,
+  QaTestingServicesRoute: QaTestingServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
