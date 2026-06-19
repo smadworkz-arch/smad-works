@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import heroBg from "@/assets/hero-bg.png.asset.json";
 import logo from "@/assets/logo.png.asset.json";
@@ -44,28 +44,47 @@ const services = [
     title: "AI Video Creation",
     desc: "Create professional AI-powered visual content that helps brands tell better stories.",
     items: ["AI Generated Videos", "Product Videos", "Social Media Content", "Brand Storytelling"],
+    href: "/ai-video-generation-course" as const,
   },
   {
     title: "Business Automation",
     desc: "Reduce manual work and scale operations with intelligent automation systems.",
     items: ["WhatsApp Automation", "AI Calling Agents", "CRM Automation", "Appointment Systems", "HR Automation", "Review Automation"],
+    href: "/business-automation" as const,
   },
   {
     title: "QA Testing & QA",
     desc: "We make sure your software works perfectly before your users experience it.",
     items: ["Functional Testing", "UI/UX Testing", "Bug Reporting", "Performance Testing", "Compatibility Testing"],
+    href: "/qa-testing-services" as const,
   },
   {
     title: "Academic Research",
     desc: "Helping students and researchers build successful technology projects.",
     items: ["Research Guidance", "AI/ML Projects", "Data Analytics", "Implementation Support", "Documentation"],
+    href: "/academic-research-services" as const,
   },
   {
     title: "Creative Design",
     desc: "Creating professional designs that communicate your business effectively.",
     items: ["Company Profiles", "Presentations", "Brochures", "Marketing Creatives", "Brand Materials"],
+    href: "/logo-creative-design-services" as const,
   },
 ];
+
+const allServicePages = [
+  { to: "/business-automation", title: "Business Automation" },
+  { to: "/qa-testing-services", title: "QA Testing Services" },
+  { to: "/academic-research-services", title: "Academic Research" },
+  { to: "/operations-management-services", title: "Operations Management" },
+  { to: "/ai-content-generation", title: "AI Content Generation" },
+  { to: "/ai-course-content-generation", title: "AI Course Content" },
+  { to: "/ai-video-generation-course", title: "AI Video Generation Course" },
+  { to: "/ai-automation-course", title: "AI Automation Course" },
+  { to: "/lead-generation-services", title: "Lead Generation" },
+  { to: "/lead-conversion-services", title: "Lead Conversion" },
+  { to: "/logo-creative-design-services", title: "Logo & Creative Design" },
+] as const;
 
 const automations = [
   { n: "01", t: "WhatsApp Automation", d: "Automate customer conversations, support, leads and follow-ups.", f: ["Auto Replies", "Chatbots", "Lead Capture", "Broadcast Messages"] },
@@ -366,8 +385,35 @@ function Index() {
                     </li>
                   ))}
                 </ul>
+                <Link
+                  to={s.href}
+                  className="mt-6 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-[0.18em] text-gold transition group-hover:gap-2"
+                >
+                  Explore service <span aria-hidden>→</span>
+                </Link>
               </article>
             ))}
+          </div>
+
+          <div className="mt-12 rounded-3xl border border-border bg-secondary/30 p-6 md:p-8">
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">All services</p>
+                <h3 className="mt-2 font-display text-2xl">Dedicated pages for every service we offer.</h3>
+              </div>
+            </div>
+            <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {allServicePages.map((p) => (
+                <Link
+                  key={p.to}
+                  to={p.to}
+                  className="flex items-center justify-between rounded-xl border border-border bg-background px-4 py-3 text-sm transition hover:border-gold/50 hover:text-gold"
+                >
+                  <span>{p.title}</span>
+                  <span aria-hidden>→</span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
