@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/ServicePage";
 import { serviceHead } from "@/lib/service-head";
+import heroImg from "@/assets/lead-generation-service-hero.png.asset.json";
 
 export const Route = createFileRoute("/lead-generation-services")({
   head: () =>
@@ -13,6 +14,14 @@ export const Route = createFileRoute("/lead-generation-services")({
     }),
   component: () => (
     <ServicePage
+      illustration={
+        <img
+          src={heroImg.url}
+          alt="SMad Works Lead Generation Services poster showing target audience research, outreach, landing pages and automation tools"
+          className="w-full rounded-3xl border border-black/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
+          loading="eager"
+        />
+      }
       eyebrow="Lead Generation"
       title="Lead Generation Services"
       headline="Find Your Next Customers Faster"

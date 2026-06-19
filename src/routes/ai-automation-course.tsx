@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/ServicePage";
 import { serviceHead } from "@/lib/service-head";
+import heroImg from "@/assets/ai-automation-service-hero.png.asset.json";
 
 export const Route = createFileRoute("/ai-automation-course")({
   head: () =>
@@ -13,6 +14,14 @@ export const Route = createFileRoute("/ai-automation-course")({
     }),
   component: () => (
     <ServicePage
+      illustration={
+        <img
+          src={heroImg.url}
+          alt="SMad Works AI Automation Solutions poster showing WhatsApp automation, AI chatbots, CRM automation and workflow automation"
+          className="w-full rounded-3xl border border-black/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
+          loading="eager"
+        />
+      }
       eyebrow="Course"
       title="AI Automation Course"
       headline="Learn How To Build AI Automation Systems"
