@@ -1,14 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import heroBg from "@/assets/hero-bg.png.asset.json";
 import logo from "@/assets/logo.png.asset.json";
 import reviewsImg from "@/assets/reviews.png.asset.json";
 import n8n1 from "@/assets/n8n-1.png.asset.json";
 import n8n2 from "@/assets/n8n-2.png.asset.json";
 import whatsappAuto from "@/assets/whatsapp-auto.png.asset.json";
+import qaTesting from "@/assets/qa-testing.png.asset.json";
+import aiVideoShowcase from "@/assets/ai-video-showcase.png.asset.json";
+import aiCallingAgent from "@/assets/ai-calling-agent.png.asset.json";
+import academicResearch from "@/assets/academic-research.png.asset.json";
+import automationThatWorks from "@/assets/automation-that-works.png.asset.json";
+import operationsManagement from "@/assets/operations-management.png.asset.json";
+import aiCourseContent from "@/assets/ai-course-content.png.asset.json";
 
 const WHATSAPP_NUMBER = "917439668751";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi SMad Works, I'd like to know more about your services.")}`;
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -96,8 +104,122 @@ const SERVICE_OPTIONS: string[] = [
 
 const why = ["Customized Solutions", "Modern Technology", "Business Focused Approach", "Reliable Delivery", "Long Term Support"];
 
+const serviceShowcase = [
+  {
+    src: aiVideoShowcase.url,
+    title: "AI Video Generation & AI Content Creation",
+    label: "AI Content",
+    desc: "Premium AI-generated videos, reels and product visuals tailored for conversion-focused brands.",
+  },
+  {
+    src: aiCallingAgent.url,
+    title: "AI Calling Agent Automation",
+    label: "Voice Automation",
+    desc: "Automated voice agents for lead qualification, appointments and always-on customer communication.",
+  },
+  {
+    src: academicResearch.url,
+    title: "Academic Research & Dissertation Services",
+    label: "Research Support",
+    desc: "Research, analysis, writing and proofing workflows delivered with structure and quality assurance.",
+  },
+  {
+    src: automationThatWorks.url,
+    title: "Automation That Works",
+    label: "Workflow Systems",
+    desc: "Integrated business automations across WhatsApp, CRM, forms, webhooks and operations tools.",
+  },
+  {
+    src: operationsManagement.url,
+    title: "Operations Management Services",
+    label: "Operations",
+    desc: "Process design, KPI tracking and structured execution systems that keep teams aligned.",
+  },
+  {
+    src: aiCourseContent.url,
+    title: "AI Course Content Generation",
+    label: "Education AI",
+    desc: "Structured AI-assisted lesson material, assessments, presentations and learning assets.",
+  },
+  {
+    src: qaTesting.url,
+    title: "QA Testing & Quality Assurance",
+    label: "Quality Assurance",
+    desc: "Manual and automated testing support for reliable digital products, better performance and fewer bugs.",
+  },
+];
+
 function Index() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const showcaseRef = useRef<HTMLDivElement | null>(null);
+  const dragStateRef = useRef({
+    isDown: false,
+    startX: 0,
+    scrollLeft: 0,
+  });
+
+  useEffect(() => {
+    const container = showcaseRef.current;
+    if (!container) return;
+
+    const getStep = () => Math.min(container.clientWidth * 0.88, 520);
+
+    const interval = window.setInterval(() => {
+      const maxScrollLeft = container.scrollWidth - container.clientWidth;
+      const next = container.scrollLeft + getStep();
+
+      container.scrollTo({
+        left: next >= maxScrollLeft - 8 ? 0 : next,
+        behavior: "smooth",
+      });
+    }, 2200);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  const scrollShowcase = (direction: "prev" | "next") => {
+    const container = showcaseRef.current;
+    if (!container) return;
+
+    const step = Math.min(container.clientWidth * 0.88, 520);
+    container.scrollBy({
+      left: direction === "next" ? step : -step,
+      behavior: "smooth",
+    });
+  };
+
+  const handleShowcasePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    const container = showcaseRef.current;
+    if (!container) return;
+
+    dragStateRef.current = {
+      isDown: true,
+      startX: event.clientX,
+      scrollLeft: container.scrollLeft,
+    };
+
+    container.setPointerCapture(event.pointerId);
+  };
+
+  const handleShowcasePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    const container = showcaseRef.current;
+    const dragState = dragStateRef.current;
+    if (!container || !dragState.isDown) return;
+
+    const walk = event.clientX - dragState.startX;
+    container.scrollLeft = dragState.scrollLeft - walk;
+  };
+
+  const handleShowcasePointerUp = (event: React.PointerEvent<HTMLDivElement>) => {
+    const container = showcaseRef.current;
+    if (!container) return;
+
+    dragStateRef.current.isDown = false;
+    if (container.hasPointerCapture(event.pointerId)) {
+      container.releasePointerCapture(event.pointerId);
+    }
+  };
+
 
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
@@ -250,6 +372,82 @@ function Index() {
         </div>
       </section>
 
+      {/* SERVICE SHOWCASE */}
+      <section className="border-t border-border bg-secondary/20">
+        <div className="mx-auto max-w-7xl px-6 py-24">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Service showcase</p>
+              <h2 className="mt-4 font-display text-4xl sm:text-5xl">See what we build across automation, content, research and delivery.</h2>
+              <p className="mt-5 text-muted-foreground">This section moves fast automatically, and your visitors can also swipe, drag or use the controls to slide through it.</p>
+            </div>
+            <div className="flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => scrollShowcase("prev")}
+                className="grid h-11 w-11 place-items-center rounded-full border border-border bg-background text-lg text-foreground transition-all hover:border-gold/40 hover:text-gold"
+                aria-label="Previous showcase slide"
+              >
+                ←
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollShowcase("next")}
+                className="grid h-11 w-11 place-items-center rounded-full border border-border bg-background text-lg text-foreground transition-all hover:border-gold/40 hover:text-gold"
+                aria-label="Next showcase slide"
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          <div className="relative mt-12">
+            <div
+              ref={showcaseRef}
+              onPointerDown={handleShowcasePointerDown}
+              onPointerMove={handleShowcasePointerMove}
+              onPointerUp={handleShowcasePointerUp}
+              onPointerCancel={handleShowcasePointerUp}
+              onPointerLeave={handleShowcasePointerUp}
+              className="hide-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2 select-none"
+            >
+              {serviceShowcase.map((item) => (
+                <article
+                  key={item.title}
+                  className="group min-w-[88%] snap-center overflow-hidden rounded-3xl border border-border bg-background shadow-[var(--shadow-soft)] transition-all hover:border-gold/40 hover:shadow-[var(--shadow-card)] sm:min-w-[72%] lg:min-w-[58%] xl:min-w-[52%]"
+                >
+                  <div className="overflow-hidden">
+                    <img
+                      src={item.src}
+                      alt={item.title}
+                      className="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                      draggable={false}
+                    />
+                  </div>
+                  <div className="flex flex-wrap items-start justify-between gap-4 border-t border-border px-6 py-5 sm:px-7">
+                    <div className="max-w-2xl">
+                      <span className="inline-flex rounded-full border border-border bg-secondary px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-muted-foreground">
+                        {item.label}
+                      </span>
+                      <h3 className="mt-3 text-xl font-semibold sm:text-2xl">{item.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground sm:text-base">{item.desc}</p>
+                    </div>
+                    <a
+                      href="#contact"
+                      className="rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground transition-all hover:border-gold/40 hover:text-gold"
+                    >
+                      Discuss this
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-20 bg-gradient-to-r from-background via-background/85 to-transparent lg:block" />
+            <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-20 bg-gradient-to-l from-background via-background/85 to-transparent lg:block" />
+          </div>
+        </div>
+      </section>
+ 
       {/* AUTOMATIONS */}
       <section id="automations" className="border-t border-border bg-secondary/30">
         <div className="mx-auto max-w-7xl px-6 py-24">
