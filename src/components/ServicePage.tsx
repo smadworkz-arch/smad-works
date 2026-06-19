@@ -60,54 +60,6 @@ const allServices: RelatedLink[] = [
   { to: "/logo-creative-design-services", title: "Logo & Creative Design" },
 ];
 
-function SiteHeader() {
-  const [open, setOpen] = useState(false);
-  return (
-    <header className="sticky top-0 z-40 border-b border-black/10 bg-white/85 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo.url} alt="SMad Works" className="h-9 w-9 object-contain" />
-          <span className="text-lg font-semibold tracking-tight">SMad <span className="text-gold">Works</span></span>
-        </Link>
-        <nav className="hidden items-center gap-7 text-sm text-black/70 md:flex">
-          <Link to="/" className="hover:text-black">Home</Link>
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="flex items-center gap-1 hover:text-black"
-          >
-            Services <span className="text-xs">▾</span>
-          </button>
-          <a href="/#process" className="hover:text-black">Process</a>
-          <a href="/#reviews" className="hover:text-black">Reviews</a>
-          <a href="/#contact" className="hover:text-black">Contact</a>
-        </nav>
-        <a
-          href={waUrl("Hi SMad Works, I'd like to book a consultation.")}
-          target="_blank" rel="noreferrer"
-          className="hidden rounded-full border border-black bg-black px-4 py-2 text-xs font-medium text-white transition hover:bg-gold hover:border-gold hover:text-black sm:inline-flex"
-        >
-          Book Consultation
-        </a>
-      </div>
-      {open && (
-        <div className="border-t border-black/10 bg-white">
-          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-2 px-5 py-4 text-sm md:grid-cols-3">
-            {allServices.map((s) => (
-              <Link
-                key={s.to}
-                to={s.to}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2 text-black/70 transition hover:bg-black/5 hover:text-black"
-              >
-                {s.title}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-    </header>
-  );
-}
 
 function Hero(p: ServicePageProps) {
   return (
