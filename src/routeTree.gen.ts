@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VideoProductionAiStudioRouteImport } from './routes/video-production-ai-studio'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as QaTestingServicesRouteImport } from './routes/qa-testing-services'
 import { Route as OperationsManagementServicesRouteImport } from './routes/operations-management-services'
@@ -23,6 +24,11 @@ import { Route as AiAutomationCourseRouteImport } from './routes/ai-automation-c
 import { Route as AcademicResearchServicesRouteImport } from './routes/academic-research-services'
 import { Route as IndexRouteImport } from './routes/index'
 
+const VideoProductionAiStudioRoute = VideoProductionAiStudioRouteImport.update({
+  id: '/video-production-ai-studio',
+  path: '/video-production-ai-studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -107,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/operations-management-services': typeof OperationsManagementServicesRoute
   '/qa-testing-services': typeof QaTestingServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/video-production-ai-studio': typeof VideoProductionAiStudioRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -122,6 +129,7 @@ export interface FileRoutesByTo {
   '/operations-management-services': typeof OperationsManagementServicesRoute
   '/qa-testing-services': typeof QaTestingServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/video-production-ai-studio': typeof VideoProductionAiStudioRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -138,6 +146,7 @@ export interface FileRoutesById {
   '/operations-management-services': typeof OperationsManagementServicesRoute
   '/qa-testing-services': typeof QaTestingServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/video-production-ai-studio': typeof VideoProductionAiStudioRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -155,6 +164,7 @@ export interface FileRouteTypes {
     | '/operations-management-services'
     | '/qa-testing-services'
     | '/sitemap.xml'
+    | '/video-production-ai-studio'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -170,6 +180,7 @@ export interface FileRouteTypes {
     | '/operations-management-services'
     | '/qa-testing-services'
     | '/sitemap.xml'
+    | '/video-production-ai-studio'
   id:
     | '__root__'
     | '/'
@@ -185,6 +196,7 @@ export interface FileRouteTypes {
     | '/operations-management-services'
     | '/qa-testing-services'
     | '/sitemap.xml'
+    | '/video-production-ai-studio'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -201,10 +213,18 @@ export interface RootRouteChildren {
   OperationsManagementServicesRoute: typeof OperationsManagementServicesRoute
   QaTestingServicesRoute: typeof QaTestingServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  VideoProductionAiStudioRoute: typeof VideoProductionAiStudioRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/video-production-ai-studio': {
+      id: '/video-production-ai-studio'
+      path: '/video-production-ai-studio'
+      fullPath: '/video-production-ai-studio'
+      preLoaderRoute: typeof VideoProductionAiStudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -313,17 +333,8 @@ const rootRouteChildren: RootRouteChildren = {
   OperationsManagementServicesRoute: OperationsManagementServicesRoute,
   QaTestingServicesRoute: QaTestingServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  VideoProductionAiStudioRoute: VideoProductionAiStudioRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
