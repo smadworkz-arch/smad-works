@@ -25,6 +25,7 @@ const allServicePages = [
   { to: "/lead-generation-services", title: "Lead Generation" },
   { to: "/lead-conversion-services", title: "Lead Conversion" },
   { to: "/logo-creative-design-services", title: "Logo & Creative Design" },
+  { to: "/video-production-ai-studio", title: "Video Production & AI Studio" },
 ] as const;
 
 export function SiteHeader() {
