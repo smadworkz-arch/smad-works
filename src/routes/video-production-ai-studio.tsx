@@ -8,22 +8,24 @@ const WHATSAPP_NUMBER = "917439668751";
 const waUrl = (msg: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 
-// Replace these IDs with your actual YouTube video IDs from
-// https://www.youtube.com/@MedilancersCare
 type Video = { id: string; title: string; category: string };
 const VIDEOS: Video[] = [
-  { id: "dQw4w9WgXcQ", title: "Brand Story Edit", category: "Video Editing" },
-  { id: "M7lc1UVf-VE", title: "AI Generated Explainer", category: "AI Generated Video" },
-  { id: "ScMzIvxBSi4", title: "Social Reel Highlights", category: "Social Media Reels" },
-  { id: "aqz-KE-bpKQ", title: "Product Ad Campaign", category: "Advertisement Videos" },
-  { id: "L_jWHffIx5E", title: "Corporate Showcase", category: "Corporate Videos" },
-  { id: "9bZkp7q19f0", title: "Creator Reel", category: "Social Media Reels" },
+  { id: "hyMIKPfsUPE", title: "Farewell party today. New job tomorrow.", category: "Social Media Reels" },
+  { id: "9MaIKK0qYTg", title: "Doctor/Nurse Job Hunt Problems?", category: "Advertisement Videos" },
+  { id: "9AXqP-tA-Gw", title: "From Nursing Graduate to Dream Job", category: "Corporate Videos" },
+  { id: "nL8g0WJAY9E", title: "One App. Unlimited Healthcare Opportunities", category: "Corporate Videos" },
+  { id: "b8xef46F-vY", title: "Yaar… tu sabko job dilwa raha hai??", category: "Advertisement Videos" },
+  { id: "wIfoKhlU8MM", title: "The Shortcut Guy — Comedy Series", category: "Advertisement Videos" },
+  { id: "UCKDhOBNjUU", title: "The Real Heroes Behind Every Patient's Journey", category: "Corporate Videos" },
+  { id: "TfdJ686scOA", title: "Doctor discovers hiring apps are harder than surgery", category: "Advertisement Videos" },
+  { id: "BUuB_o6YRa0", title: "Medilancers Anthem", category: "Corporate Videos" },
+  { id: "eLzpTlWJozk", title: "Introducing MIPP by Medilancers", category: "Corporate Videos" },
+  { id: "rqnf6LPhd6Y", title: "Beta Doctor Ban Gaya — #Shorts", category: "Social Media Reels" },
+  { id: "ysBVT_WM5jc", title: "One empty chair can impact hundreds", category: "Corporate Videos" },
 ];
 
 const CATEGORIES = [
   "All",
-  "Video Editing",
-  "AI Generated Video",
   "Social Media Reels",
   "Advertisement Videos",
   "Corporate Videos",
