@@ -103,55 +103,18 @@ function VideoProductionPage() {
 
           {/* Studio mock */}
           <div className="relative">
-            <div className="relative overflow-hidden rounded-3xl border border-black/10 bg-gradient-to-br from-black to-black/85 p-6 text-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.4)]">
-              <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_30%_20%,rgba(212,175,55,0.35),transparent_70%)]" />
-              <div className="relative">
-                <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-gold">
-                  <span className="inline-flex items-center gap-2">
-                    <img
-                      src={aiContentInfographic.url}
-                      alt="AI content generation services"
-                      className="h-8 w-8 rounded-md object-cover ring-1 ring-gold/40"
-                    />
-                    ● Live Timeline
-                  </span>
-                  <span>4K · 60fps</span>
-                </div>
-
-                <div className="mt-4 aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-black/60">
-                  <div className="flex h-full items-center justify-center">
-                    <button
-                      aria-label="Play"
-                      onClick={() => playVideo(VIDEOS[0])}
-                      className="grid h-16 w-16 place-items-center rounded-full bg-gold text-black transition hover:scale-105"
-                    >
-                      ▶
-                    </button>
-                  </div>
-                </div>
-                {/* Timeline tracks */}
-                <div className="mt-4 space-y-2">
-                  {["Video", "Audio", "FX", "AI"].map((label, idx) => (
-                    <div key={label} className="flex items-center gap-3 text-[10px] text-white/70">
-                      <span className="w-8 uppercase tracking-[0.18em]">{label}</span>
-                      <div className="relative h-3 flex-1 overflow-hidden rounded bg-white/5">
-                        <div
-                          className="absolute inset-y-0 left-0 rounded bg-gradient-to-r from-gold/80 to-gold/30"
-                          style={{ width: `${[80, 55, 40, 65][idx]}%` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-5 grid grid-cols-3 gap-2 text-[10px]">
-                  {["Color", "Motion", "Captions"].map((t) => (
-                    <div key={t} className="rounded-lg border border-white/10 bg-white/5 px-2 py-2 text-center text-white/80">
-                      {t}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <button
+              type="button"
+              onClick={() => playVideo(VIDEOS[0])}
+              aria-label="Play featured reel"
+              className="block w-full overflow-hidden rounded-3xl transition hover:scale-[1.01]"
+            >
+              <img
+                src={studioLiveTimeline.url}
+                alt="SMad Works live timeline studio preview"
+                className="h-auto w-full rounded-3xl shadow-[0_30px_80px_-30px_rgba(0,0,0,0.4)]"
+              />
+            </button>
           </div>
         </div>
       </section>
