@@ -3,6 +3,8 @@ import { useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { serviceHead } from "@/lib/service-head";
+import aiContentInfographic from "@/assets/ai-content-generation-infographic.png.asset.json";
+
 
 const WHATSAPP_NUMBER = "917439668751";
 const waUrl = (msg: string) =>
