@@ -46,6 +46,16 @@ export const Route = createFileRoute("/video-production-ai-studio")({
 function VideoProductionPage() {
   const [active, setActive] = useState<(typeof CATEGORIES)[number]>("All");
   const [featured, setFeatured] = useState<Video>(VIDEOS[0]);
+  const [autoplay, setAutoplay] = useState(false);
+  const playVideo = (v: Video) => {
+    setFeatured(v);
+    setAutoplay(true);
+    if (typeof window !== "undefined") {
+      setTimeout(() => {
+        document.getElementById("featured-player")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 50);
+    }
+  };
   const filtered = active === "All" ? VIDEOS : VIDEOS.filter((v) => v.category === active);
 
   return (
