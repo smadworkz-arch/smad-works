@@ -46,6 +46,16 @@ export const Route = createFileRoute("/video-production-ai-studio")({
 function VideoProductionPage() {
   const [active, setActive] = useState<(typeof CATEGORIES)[number]>("All");
   const [featured, setFeatured] = useState<Video>(VIDEOS[0]);
+  const [autoplay, setAutoplay] = useState(false);
+  const playVideo = (v: Video) => {
+    setFeatured(v);
+    setAutoplay(true);
+    if (typeof window !== "undefined") {
+      setTimeout(() => {
+        document.getElementById("featured-player")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 50);
+    }
+  };
   const filtered = active === "All" ? VIDEOS : VIDEOS.filter((v) => v.category === active);
 
   return (
@@ -102,6 +112,7 @@ function VideoProductionPage() {
                   <div className="flex h-full items-center justify-center">
                     <button
                       aria-label="Play"
+                      onClick={() => playVideo(VIDEOS[0])}
                       className="grid h-16 w-16 place-items-center rounded-full bg-gold text-black transition hover:scale-105"
                     >
                       ▶
@@ -155,12 +166,12 @@ function VideoProductionPage() {
           </div>
 
           {/* Featured */}
-          <div className="mt-8 overflow-hidden rounded-3xl border border-black/10 bg-black shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]">
+          <div id="featured-player" className="mt-8 overflow-hidden rounded-3xl border border-black/10 bg-black shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]">
             <div className="aspect-video w-full">
               <iframe
                 key={featured.id}
                 className="h-full w-full"
-                src={`https://www.youtube.com/embed/${featured.id}?rel=0`}
+                src={`https://www.youtube.com/embed/${featured.id}?rel=0&autoplay=${autoplay ? 1 : 0}&playsinline=1`}
                 title={featured.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
@@ -198,7 +209,7 @@ function VideoProductionPage() {
               return (
                 <button
                   key={v.id}
-                  onClick={() => setFeatured(v)}
+                  onClick={() => playVideo(v)}
                   className={`group overflow-hidden rounded-2xl border bg-white text-left transition hover:-translate-y-0.5 ${
                     isActive ? "border-gold shadow-[0_20px_50px_-25px_rgba(212,175,55,0.5)]" : "border-black/10 hover:border-gold"
                   }`}
