@@ -107,9 +107,17 @@ function VideoProductionPage() {
               <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_30%_20%,rgba(212,175,55,0.35),transparent_70%)]" />
               <div className="relative">
                 <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-gold">
-                  <span>● Live Timeline</span>
+                  <span className="inline-flex items-center gap-2">
+                    <img
+                      src={aiContentInfographic.url}
+                      alt="AI content generation services"
+                      className="h-8 w-8 rounded-md object-cover ring-1 ring-gold/40"
+                    />
+                    ● Live Timeline
+                  </span>
                   <span>4K · 60fps</span>
                 </div>
+
                 <div className="mt-4 aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-black/60">
                   <div className="flex h-full items-center justify-center">
                     <button
