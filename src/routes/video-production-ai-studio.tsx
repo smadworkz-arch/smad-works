@@ -112,6 +112,7 @@ function VideoProductionPage() {
                   <div className="flex h-full items-center justify-center">
                     <button
                       aria-label="Play"
+                      onClick={() => playVideo(VIDEOS[0])}
                       className="grid h-16 w-16 place-items-center rounded-full bg-gold text-black transition hover:scale-105"
                     >
                       ▶
