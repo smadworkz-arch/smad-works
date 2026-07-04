@@ -24,6 +24,7 @@ export type ServicePageProps = {
   faqs: { q: string; a: string }[];
   related: RelatedLink[];
   illustration?: ReactNode;
+  portfolio?: ReactNode;
 };
 
 export function ServicePage(props: ServicePageProps) {
