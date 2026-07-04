@@ -24,6 +24,7 @@ export type ServicePageProps = {
   faqs: { q: string; a: string }[];
   related: RelatedLink[];
   illustration?: ReactNode;
+  portfolio?: ReactNode;
 };
 
 export function ServicePage(props: ServicePageProps) {
@@ -32,6 +33,7 @@ export function ServicePage(props: ServicePageProps) {
       <SiteHeader />
       <Hero {...props} />
       <ServicesGrid services={props.services} />
+      {props.portfolio}
       {props.process && props.process.length > 0 && (
         <Process process={props.process} />
       )}
