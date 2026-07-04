@@ -166,12 +166,12 @@ function VideoProductionPage() {
           </div>
 
           {/* Featured */}
-          <div className="mt-8 overflow-hidden rounded-3xl border border-black/10 bg-black shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]">
+          <div id="featured-player" className="mt-8 overflow-hidden rounded-3xl border border-black/10 bg-black shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]">
             <div className="aspect-video w-full">
               <iframe
                 key={featured.id}
                 className="h-full w-full"
-                src={`https://www.youtube.com/embed/${featured.id}?rel=0`}
+                src={`https://www.youtube.com/embed/${featured.id}?rel=0&autoplay=${autoplay ? 1 : 0}&playsinline=1`}
                 title={featured.title}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
