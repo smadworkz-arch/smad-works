@@ -209,7 +209,7 @@ function VideoProductionPage() {
               return (
                 <button
                   key={v.id}
-                  onClick={() => setFeatured(v)}
+                  onClick={() => playVideo(v)}
                   className={`group overflow-hidden rounded-2xl border bg-white text-left transition hover:-translate-y-0.5 ${
                     isActive ? "border-gold shadow-[0_20px_50px_-25px_rgba(212,175,55,0.5)]" : "border-black/10 hover:border-gold"
                   }`}
