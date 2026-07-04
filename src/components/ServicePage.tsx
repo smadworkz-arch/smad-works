@@ -33,6 +33,7 @@ export function ServicePage(props: ServicePageProps) {
       <SiteHeader />
       <Hero {...props} />
       <ServicesGrid services={props.services} />
+      {props.portfolio}
       {props.process && props.process.length > 0 && (
         <Process process={props.process} />
       )}
