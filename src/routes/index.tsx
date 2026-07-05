@@ -23,8 +23,33 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SMad Works — Design • Develop • Deliver" },
-      { name: "description", content: "SMad Works builds AI, automation and digital solutions that help modern businesses scale and grow." },
+      { property: "og:url", content: "https://smad-works.lovable.app/" },
+    ],
+    links: [{ rel: "canonical", href: "https://smad-works.lovable.app/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "SMad Works",
+          url: "https://smad-works.lovable.app",
+          description:
+            "SMad Works builds AI, automation and digital solutions that help modern businesses scale, simplify operations and grow.",
+          areaServed: "Worldwide",
+          makesOffer: [
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Video Creation" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Business Automation" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "QA Testing Services" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "AI Content Generation" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Logo & Creative Design" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lead Generation" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lead Conversion" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Operations Management" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Academic Research" } },
+          ],
+        }),
+      },
     ],
   }),
   component: Index,
