@@ -294,7 +294,7 @@ function Index() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#services" className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-all hover:bg-white/90">
-                Explore Services
+                View Solutions
               </a>
               <a href="#contact" className="rounded-full border border-white/30 bg-transparent px-6 py-3 text-sm font-medium text-white transition-all hover:bg-white/10">
                 Start Your Project
