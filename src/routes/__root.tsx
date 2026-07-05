@@ -96,6 +96,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://smad-works.lovable.app/#organization",
+              name: "SMad Works",
+              url: "https://smad-works.lovable.app",
+              logo: "https://smad-works.lovable.app/favicon.ico",
+              sameAs: [],
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://smad-works.lovable.app/#website",
+              url: "https://smad-works.lovable.app",
+              name: "SMad Works",
+              publisher: { "@id": "https://smad-works.lovable.app/#organization" },
+            },
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
