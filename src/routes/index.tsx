@@ -287,11 +287,10 @@ function Index() {
               Design • Develop • Deliver
             </div>
             <h1 className="mt-6 font-display text-5xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              We build smart digital solutions that help businesses{" "}
-              <em className="text-gold not-italic">grow</em>.
+              Build Smarter. Automate Faster. Grow Without Limits.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
-              SMad Works combines AI, automation, creativity and technology to simplify operations and create powerful digital experiences.
+              We build AI-powered software, automate business operations, and create digital solutions that help startups and enterprises scale with confidence.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#services" className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-all hover:bg-white/90">
