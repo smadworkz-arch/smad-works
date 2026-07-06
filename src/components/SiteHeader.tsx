@@ -108,11 +108,11 @@ export function SiteHeader() {
               <div
                 key={l}
                 className="relative"
-                onMouseEnter={() => setServicesOpen(true)}
-                onMouseLeave={() => setServicesOpen(false)}
+                onMouseEnter={openServices}
+                onMouseLeave={scheduleClose}
               >
                 <button
-                  onClick={() => setServicesOpen((v) => !v)}
+                  onClick={() => (servicesOpen ? closeServices() : openServices())}
                   aria-expanded={servicesOpen}
                   className="flex items-center gap-1 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
@@ -148,8 +148,8 @@ export function SiteHeader() {
       {servicesOpen && (
         <div
           className="absolute left-1/2 top-full z-50 hidden w-[min(1180px,calc(100vw-2rem))] -translate-x-1/2 pt-2 lg:block"
-          onMouseEnter={() => setServicesOpen(true)}
-          onMouseLeave={() => setServicesOpen(false)}
+          onMouseEnter={openServices}
+          onMouseLeave={scheduleClose}
         >
           <div className="overflow-hidden rounded-2xl border border-gold/25 bg-black text-white shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] ring-1 ring-white/5">
             <div className="px-8 py-8">
