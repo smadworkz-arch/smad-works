@@ -76,6 +76,8 @@ export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
 
+  const closeServices = () => setServicesOpen(false);
+
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
@@ -90,15 +92,21 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-8 lg:flex">
           {nav.map(([l, h]) =>
             l === "Solutions" ? (
-              <button
+              <div
                 key={l}
-                onClick={() => setServicesOpen((v) => !v)}
-                aria-expanded={servicesOpen}
-                className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                className="relative"
+                onMouseEnter={() => setServicesOpen(true)}
+                onMouseLeave={() => setServicesOpen(false)}
               >
-                {l}
-                <span className={`text-xs transition-transform ${servicesOpen ? "rotate-180" : ""}`}>▾</span>
-              </button>
+                <button
+                  onClick={() => setServicesOpen((v) => !v)}
+                  aria-expanded={servicesOpen}
+                  className="flex items-center gap-1 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {l}
+                  <span className={`text-xs transition-transform ${servicesOpen ? "rotate-180" : ""}`}>▾</span>
+                </button>
+              </div>
             ) : (
               <a key={l} href={h} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                 {l}
@@ -123,14 +131,19 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Desktop mega menu */}
+      {/* Desktop floating mega menu */}
       {servicesOpen && (
-        <div className="hidden border-t border-gold/20 bg-black text-white lg:block">
-          <div className="mx-auto max-w-7xl px-6 py-10">
-            <div className="mb-8 flex items-end justify-between gap-6">
+        <div
+          className="absolute left-1/2 top-full z-50 hidden w-[min(1180px,calc(100vw-2rem))] -translate-x-1/2 pt-2 lg:block"
+          onMouseEnter={() => setServicesOpen(true)}
+          onMouseLeave={() => setServicesOpen(false)}
+        >
+          <div className="overflow-hidden rounded-2xl border border-gold/25 bg-black text-white shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] ring-1 ring-white/5">
+            <div className="px-8 py-8">
+            <div className="mb-6 flex items-end justify-between gap-6">
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-gold">Our Solutions</p>
-                <h3 className="mt-1 text-2xl font-semibold tracking-tight">
+                <h3 className="mt-1 text-xl font-semibold tracking-tight">
                   Everything you need to build, automate and grow
                 </h3>
               </div>
@@ -139,7 +152,7 @@ export function SiteHeader() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
               {categories.map((cat) => {
                 const Icon = cat.icon;
                 return (
@@ -197,6 +210,7 @@ export function SiteHeader() {
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </span>
               </a>
+            </div>
             </div>
           </div>
         </div>
