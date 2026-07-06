@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Bot, TrendingUp, Palette, ShieldCheck, GraduationCap, ArrowRight } from "lucide-react";
 import logo from "@/assets/logo.png.asset.json";
 
