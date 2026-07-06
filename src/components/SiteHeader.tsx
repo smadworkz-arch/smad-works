@@ -211,6 +211,7 @@ export function SiteHeader() {
                 </span>
               </a>
             </div>
+            </div>
           </div>
         </div>
       )}
