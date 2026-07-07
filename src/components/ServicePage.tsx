@@ -25,6 +25,7 @@ export type ServicePageProps = {
   related: RelatedLink[];
   illustration?: ReactNode;
   portfolio?: ReactNode;
+  beforeFaq?: ReactNode;
 };
 
 export function ServicePage(props: ServicePageProps) {
@@ -40,6 +41,7 @@ export function ServicePage(props: ServicePageProps) {
       {props.industries && props.industries.length > 0 && (
         <Industries industries={props.industries} />
       )}
+      {props.beforeFaq}
       <Faq faqs={props.faqs} />
       <Related related={props.related} />
       <Contact ctaPrimary={props.ctaPrimary} whatsappMessage={props.whatsappMessage} title={props.title} />
