@@ -15,6 +15,8 @@ export const Route = createFileRoute("/business-automation")({
     }),
   component: () => (
     <ServicePage
+      portfolio={<BusinessAutomationSections />}
+      beforeFaq={<BusinessAutomationCta />}
       illustration={
         <img
           src={heroImg.url}
