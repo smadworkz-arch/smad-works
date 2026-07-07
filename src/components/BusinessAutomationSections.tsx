@@ -155,7 +155,7 @@ export function BusinessAutomationSections() {
                 <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-gold opacity-0 transition group-hover:opacity-100">
                   Explore <ArrowUpRight size={14} />
                 </span>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
