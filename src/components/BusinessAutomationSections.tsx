@@ -142,10 +142,9 @@ export function BusinessAutomationSections() {
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {industries.map(({ icon: Icon, name, desc }) => (
-              <Link
+              <a
                 key={name}
-                to="/business-automation"
-                hash={name.toLowerCase()}
+                href={`#industry-${name.toLowerCase()}`}
                 className="group rounded-2xl border border-black/10 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
               >
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-black text-gold transition group-hover:bg-gold group-hover:text-black">
