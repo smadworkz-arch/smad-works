@@ -132,7 +132,7 @@ const process = [
   ["06", "Support", "We continuously improve."],
 ];
 
-const industries = ["Healthcare", "Education", "Real Estate", "E-Commerce", "Startups", "Recruitment", "Service Businesses", "Agencies"];
+import { industries as industryList } from "@/lib/industries-data";
 
 const SERVICE_OPTIONS: string[] = [
   "Automation",

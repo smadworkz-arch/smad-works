@@ -23,6 +23,14 @@ import { Route as AiContentGenerationRouteImport } from './routes/ai-content-gen
 import { Route as AiAutomationCourseRouteImport } from './routes/ai-automation-course'
 import { Route as AcademicResearchServicesRouteImport } from './routes/academic-research-services'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as IndustriesStartupsSmesRouteImport } from './routes/industries.startups-smes'
+import { Route as IndustriesRetailEcommerceRouteImport } from './routes/industries.retail-ecommerce'
+import { Route as IndustriesRealEstateRouteImport } from './routes/industries.real-estate'
+import { Route as IndustriesManufacturingRouteImport } from './routes/industries.manufacturing'
+import { Route as IndustriesHospitalityRouteImport } from './routes/industries.hospitality'
+import { Route as IndustriesHealthcareRouteImport } from './routes/industries.healthcare'
+import { Route as IndustriesFinanceInsuranceRouteImport } from './routes/industries.finance-insurance'
+import { Route as IndustriesEducationRouteImport } from './routes/industries.education'
 
 const VideoProductionAiStudioRoute = VideoProductionAiStudioRouteImport.update({
   id: '/video-production-ai-studio',
@@ -98,6 +106,48 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IndustriesStartupsSmesRoute = IndustriesStartupsSmesRouteImport.update({
+  id: '/industries/startups-smes',
+  path: '/industries/startups-smes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesRetailEcommerceRoute =
+  IndustriesRetailEcommerceRouteImport.update({
+    id: '/industries/retail-ecommerce',
+    path: '/industries/retail-ecommerce',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const IndustriesRealEstateRoute = IndustriesRealEstateRouteImport.update({
+  id: '/industries/real-estate',
+  path: '/industries/real-estate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesManufacturingRoute = IndustriesManufacturingRouteImport.update({
+  id: '/industries/manufacturing',
+  path: '/industries/manufacturing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesHospitalityRoute = IndustriesHospitalityRouteImport.update({
+  id: '/industries/hospitality',
+  path: '/industries/hospitality',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesHealthcareRoute = IndustriesHealthcareRouteImport.update({
+  id: '/industries/healthcare',
+  path: '/industries/healthcare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesFinanceInsuranceRoute =
+  IndustriesFinanceInsuranceRouteImport.update({
+    id: '/industries/finance-insurance',
+    path: '/industries/finance-insurance',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const IndustriesEducationRoute = IndustriesEducationRouteImport.update({
+  id: '/industries/education',
+  path: '/industries/education',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -114,6 +164,14 @@ export interface FileRoutesByFullPath {
   '/qa-testing-services': typeof QaTestingServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/video-production-ai-studio': typeof VideoProductionAiStudioRoute
+  '/industries/education': typeof IndustriesEducationRoute
+  '/industries/finance-insurance': typeof IndustriesFinanceInsuranceRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
+  '/industries/hospitality': typeof IndustriesHospitalityRoute
+  '/industries/manufacturing': typeof IndustriesManufacturingRoute
+  '/industries/real-estate': typeof IndustriesRealEstateRoute
+  '/industries/retail-ecommerce': typeof IndustriesRetailEcommerceRoute
+  '/industries/startups-smes': typeof IndustriesStartupsSmesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -130,6 +188,14 @@ export interface FileRoutesByTo {
   '/qa-testing-services': typeof QaTestingServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/video-production-ai-studio': typeof VideoProductionAiStudioRoute
+  '/industries/education': typeof IndustriesEducationRoute
+  '/industries/finance-insurance': typeof IndustriesFinanceInsuranceRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
+  '/industries/hospitality': typeof IndustriesHospitalityRoute
+  '/industries/manufacturing': typeof IndustriesManufacturingRoute
+  '/industries/real-estate': typeof IndustriesRealEstateRoute
+  '/industries/retail-ecommerce': typeof IndustriesRetailEcommerceRoute
+  '/industries/startups-smes': typeof IndustriesStartupsSmesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -147,6 +213,14 @@ export interface FileRoutesById {
   '/qa-testing-services': typeof QaTestingServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/video-production-ai-studio': typeof VideoProductionAiStudioRoute
+  '/industries/education': typeof IndustriesEducationRoute
+  '/industries/finance-insurance': typeof IndustriesFinanceInsuranceRoute
+  '/industries/healthcare': typeof IndustriesHealthcareRoute
+  '/industries/hospitality': typeof IndustriesHospitalityRoute
+  '/industries/manufacturing': typeof IndustriesManufacturingRoute
+  '/industries/real-estate': typeof IndustriesRealEstateRoute
+  '/industries/retail-ecommerce': typeof IndustriesRetailEcommerceRoute
+  '/industries/startups-smes': typeof IndustriesStartupsSmesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -165,6 +239,14 @@ export interface FileRouteTypes {
     | '/qa-testing-services'
     | '/sitemap.xml'
     | '/video-production-ai-studio'
+    | '/industries/education'
+    | '/industries/finance-insurance'
+    | '/industries/healthcare'
+    | '/industries/hospitality'
+    | '/industries/manufacturing'
+    | '/industries/real-estate'
+    | '/industries/retail-ecommerce'
+    | '/industries/startups-smes'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -181,6 +263,14 @@ export interface FileRouteTypes {
     | '/qa-testing-services'
     | '/sitemap.xml'
     | '/video-production-ai-studio'
+    | '/industries/education'
+    | '/industries/finance-insurance'
+    | '/industries/healthcare'
+    | '/industries/hospitality'
+    | '/industries/manufacturing'
+    | '/industries/real-estate'
+    | '/industries/retail-ecommerce'
+    | '/industries/startups-smes'
   id:
     | '__root__'
     | '/'
@@ -197,6 +287,14 @@ export interface FileRouteTypes {
     | '/qa-testing-services'
     | '/sitemap.xml'
     | '/video-production-ai-studio'
+    | '/industries/education'
+    | '/industries/finance-insurance'
+    | '/industries/healthcare'
+    | '/industries/hospitality'
+    | '/industries/manufacturing'
+    | '/industries/real-estate'
+    | '/industries/retail-ecommerce'
+    | '/industries/startups-smes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -214,6 +312,14 @@ export interface RootRouteChildren {
   QaTestingServicesRoute: typeof QaTestingServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   VideoProductionAiStudioRoute: typeof VideoProductionAiStudioRoute
+  IndustriesEducationRoute: typeof IndustriesEducationRoute
+  IndustriesFinanceInsuranceRoute: typeof IndustriesFinanceInsuranceRoute
+  IndustriesHealthcareRoute: typeof IndustriesHealthcareRoute
+  IndustriesHospitalityRoute: typeof IndustriesHospitalityRoute
+  IndustriesManufacturingRoute: typeof IndustriesManufacturingRoute
+  IndustriesRealEstateRoute: typeof IndustriesRealEstateRoute
+  IndustriesRetailEcommerceRoute: typeof IndustriesRetailEcommerceRoute
+  IndustriesStartupsSmesRoute: typeof IndustriesStartupsSmesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -316,6 +422,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industries/startups-smes': {
+      id: '/industries/startups-smes'
+      path: '/industries/startups-smes'
+      fullPath: '/industries/startups-smes'
+      preLoaderRoute: typeof IndustriesStartupsSmesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/retail-ecommerce': {
+      id: '/industries/retail-ecommerce'
+      path: '/industries/retail-ecommerce'
+      fullPath: '/industries/retail-ecommerce'
+      preLoaderRoute: typeof IndustriesRetailEcommerceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/real-estate': {
+      id: '/industries/real-estate'
+      path: '/industries/real-estate'
+      fullPath: '/industries/real-estate'
+      preLoaderRoute: typeof IndustriesRealEstateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/manufacturing': {
+      id: '/industries/manufacturing'
+      path: '/industries/manufacturing'
+      fullPath: '/industries/manufacturing'
+      preLoaderRoute: typeof IndustriesManufacturingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/hospitality': {
+      id: '/industries/hospitality'
+      path: '/industries/hospitality'
+      fullPath: '/industries/hospitality'
+      preLoaderRoute: typeof IndustriesHospitalityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/healthcare': {
+      id: '/industries/healthcare'
+      path: '/industries/healthcare'
+      fullPath: '/industries/healthcare'
+      preLoaderRoute: typeof IndustriesHealthcareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/finance-insurance': {
+      id: '/industries/finance-insurance'
+      path: '/industries/finance-insurance'
+      fullPath: '/industries/finance-insurance'
+      preLoaderRoute: typeof IndustriesFinanceInsuranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/education': {
+      id: '/industries/education'
+      path: '/industries/education'
+      fullPath: '/industries/education'
+      preLoaderRoute: typeof IndustriesEducationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -334,6 +496,14 @@ const rootRouteChildren: RootRouteChildren = {
   QaTestingServicesRoute: QaTestingServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   VideoProductionAiStudioRoute: VideoProductionAiStudioRoute,
+  IndustriesEducationRoute: IndustriesEducationRoute,
+  IndustriesFinanceInsuranceRoute: IndustriesFinanceInsuranceRoute,
+  IndustriesHealthcareRoute: IndustriesHealthcareRoute,
+  IndustriesHospitalityRoute: IndustriesHospitalityRoute,
+  IndustriesManufacturingRoute: IndustriesManufacturingRoute,
+  IndustriesRealEstateRoute: IndustriesRealEstateRoute,
+  IndustriesRetailEcommerceRoute: IndustriesRetailEcommerceRoute,
+  IndustriesStartupsSmesRoute: IndustriesStartupsSmesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
