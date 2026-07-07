@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/ServicePage";
+import { BusinessAutomationSections, BusinessAutomationCta } from "@/components/BusinessAutomationSections";
 import { serviceHead } from "@/lib/service-head";
 import heroImg from "@/assets/business-automation-hero.png.asset.json";
 
