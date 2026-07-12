@@ -9,7 +9,7 @@ import {
   Rocket, LayoutDashboard, Database, Users, KeyRound, Link2, Cog, Brain, FileText,
   Camera, AlertTriangle, FileCheck2, Sparkles, CheckCircle2, ArrowRight,
   GraduationCap, Home, ShoppingBag, Landmark, Factory, Hotel, HeartPulse,
-  Target, Layers, HeartHandshake, Zap,
+  Target, Layers, HeartHandshake, Zap, TrendingDown, TrendingUp, Timer, Award,
 } from "lucide-react";
 
 const WHATSAPP_NUMBER = "917439668751";
