@@ -45,6 +45,8 @@ function QaTestingPage() {
       <WhyUs />
       <Tools />
       <Benefits />
+      <CaseStudies />
+      <AuditForm />
       <Faqs />
       <FinalCta />
       <SiteFooter />
