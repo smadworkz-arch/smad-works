@@ -451,3 +451,254 @@ function SectionHead({ eyebrow, title, subtitle, dark = false }: {
     </div>
   );
 }
+
+/* CASE STUDIES */
+const CASE_STUDIES = [
+  {
+    industry: "FinTech SaaS",
+    title: "Payments Platform Pre-Launch Hardening",
+    scope: "End-to-end functional, API, security & load testing across web + mobile before public launch.",
+    metrics: [
+      { icon: Bug, label: "Critical bugs found", value: "142" },
+      { icon: TrendingUp, label: "Release confidence", value: "+92%" },
+      { icon: TrendingDown, label: "Production incidents", value: "-78%" },
+    ],
+  },
+  {
+    industry: "Healthcare",
+    title: "Patient Portal Regression Suite",
+    scope: "Built automated regression suite + HIPAA-focused UAT for a multi-clinic patient portal.",
+    metrics: [
+      { icon: Timer, label: "Release cycle time", value: "-64%" },
+      { icon: Bug, label: "Escaped defects", value: "-88%" },
+      { icon: TrendingDown, label: "Downtime / month", value: "-91%" },
+    ],
+  },
+  {
+    industry: "E-commerce",
+    title: "Peak-Season Load & Checkout QA",
+    scope: "Load, payment gateway and cross-browser testing before Black Friday sale.",
+    metrics: [
+      { icon: Gauge, label: "Peak throughput", value: "12x" },
+      { icon: TrendingDown, label: "Checkout failure rate", value: "-73%" },
+      { icon: Award, label: "Uptime during sale", value: "99.98%" },
+    ],
+  },
+  {
+    industry: "EdTech",
+    title: "Learning Platform Mobile QA",
+    scope: "Manual + automated QA across 40+ device/OS combinations for a live-class platform.",
+    metrics: [
+      { icon: Bug, label: "Device-specific bugs", value: "96" },
+      { icon: TrendingUp, label: "App store rating", value: "4.2 → 4.8" },
+      { icon: TrendingDown, label: "Crash rate", value: "-82%" },
+    ],
+  },
+  {
+    industry: "Enterprise SaaS",
+    title: "ERP Rollout UAT & Integration Testing",
+    scope: "UAT coordination and API integration QA across CRM, billing and inventory modules.",
+    metrics: [
+      { icon: Timer, label: "Go-live delay avoided", value: "6 weeks" },
+      { icon: Bug, label: "Integration defects", value: "58 fixed" },
+      { icon: TrendingUp, label: "User acceptance", value: "97%" },
+    ],
+  },
+];
+
+function CaseStudies() {
+  return (
+    <section className="border-b border-black/5 bg-neutral-50 py-20">
+      <div className="mx-auto max-w-7xl px-5">
+        <SectionHead
+          eyebrow="Case Studies"
+          title="QA engagements with measurable outcomes"
+          subtitle="A snapshot of recent testing engagements — the bugs we caught, the confidence we shipped, and the downtime we prevented."
+        />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {CASE_STUDIES.map((cs) => (
+            <article
+              key={cs.title}
+              className="group relative flex flex-col rounded-2xl border border-black/10 bg-white p-6 transition hover:-translate-y-1 hover:border-gold/50 hover:shadow-[0_20px_50px_-20px_rgba(0,0,0,0.25)]"
+            >
+              <span className="inline-flex w-fit items-center gap-2 rounded-full border border-gold/40 bg-gold/5 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-gold">
+                {cs.industry}
+              </span>
+              <h3 className="mt-4 text-lg font-semibold tracking-tight">{cs.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-black/60">{cs.scope}</p>
+              <div className="mt-5 grid gap-3 border-t border-black/5 pt-5">
+                {cs.metrics.map((m) => {
+                  const Icon = m.icon;
+                  return (
+                    <div key={m.label} className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2 text-sm text-black/70">
+                        <Icon className="h-4 w-4 text-gold" />
+                        {m.label}
+                      </div>
+                      <span className="text-base font-semibold tracking-tight text-black">
+                        {m.value}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* QA AUDIT REQUEST FORM */
+function AuditForm() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    productType: "",
+    stage: "",
+    timeline: "",
+    notes: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const update = (k: keyof typeof form) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+      setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const msg = [
+      "Hi SMad Works, I'd like to request a QA audit.",
+      "",
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      `Company: ${form.company}`,
+      `Phone: ${form.phone}`,
+      `Product type: ${form.productType}`,
+      `Current stage: ${form.stage}`,
+      `Timeline: ${form.timeline}`,
+      form.notes ? `Notes: ${form.notes}` : "",
+    ].filter(Boolean).join("\n");
+    window.open(waUrl(msg), "_blank", "noreferrer");
+    setSubmitted(true);
+  };
+
+  const inputCls =
+    "w-full rounded-xl border border-black/10 bg-white px-4 py-3 text-sm outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/20";
+  const labelCls = "mb-1.5 block text-xs font-medium uppercase tracking-[0.12em] text-black/60";
+
+  return (
+    <section id="qa-audit" className="border-b border-black/5 py-20">
+      <div className="mx-auto max-w-7xl px-5">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr] lg:items-start">
+          <div>
+            <SectionHead
+              eyebrow="Request an Audit"
+              title="Get a free QA audit for your product"
+              subtitle="Share a few details and our QA lead will get back within one business day with a tailored testing plan."
+            />
+            <ul className="mt-6 space-y-3 text-sm text-black/70">
+              {[
+                "Independent audit of your current QA maturity",
+                "Risk-based test plan aligned with your release timeline",
+                "Recommendations across manual, automation & performance",
+                "No obligation — free 30 minute consultation",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-2">
+                  <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <form
+            onSubmit={onSubmit}
+            className="rounded-3xl border border-black/10 bg-white p-6 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.25)] md:p-8"
+          >
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center py-16 text-center">
+                <div className="rounded-full bg-gold/10 p-4 text-gold">
+                  <CheckCircle2 className="h-8 w-8" />
+                </div>
+                <h3 className="mt-4 text-xl font-semibold">Request sent</h3>
+                <p className="mt-2 max-w-sm text-sm text-black/60">
+                  We've opened WhatsApp with your details. Our QA lead will respond within one business day.
+                </p>
+              </div>
+            ) : (
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="sm:col-span-1">
+                  <label className={labelCls}>Full name</label>
+                  <input required value={form.name} onChange={update("name")} className={inputCls} placeholder="Jane Doe" />
+                </div>
+                <div className="sm:col-span-1">
+                  <label className={labelCls}>Work email</label>
+                  <input required type="email" value={form.email} onChange={update("email")} className={inputCls} placeholder="jane@company.com" />
+                </div>
+                <div className="sm:col-span-1">
+                  <label className={labelCls}>Company</label>
+                  <input value={form.company} onChange={update("company")} className={inputCls} placeholder="Company name" />
+                </div>
+                <div className="sm:col-span-1">
+                  <label className={labelCls}>Phone / WhatsApp</label>
+                  <input value={form.phone} onChange={update("phone")} className={inputCls} placeholder="+91 ..." />
+                </div>
+                <div className="sm:col-span-1">
+                  <label className={labelCls}>Product type</label>
+                  <select required value={form.productType} onChange={update("productType")} className={inputCls}>
+                    <option value="">Select</option>
+                    <option>Web App / SaaS</option>
+                    <option>Mobile App (iOS / Android)</option>
+                    <option>E-commerce Store</option>
+                    <option>ERP / CRM / Internal Tool</option>
+                    <option>API / Backend Service</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div className="sm:col-span-1">
+                  <label className={labelCls}>Current stage</label>
+                  <select required value={form.stage} onChange={update("stage")} className={inputCls}>
+                    <option value="">Select</option>
+                    <option>Idea / Design</option>
+                    <option>MVP in development</option>
+                    <option>Beta / Pre-launch</option>
+                    <option>Live in production</option>
+                    <option>Scaling / Post-launch</option>
+                  </select>
+                </div>
+                <div className="sm:col-span-2">
+                  <label className={labelCls}>Timeline</label>
+                  <select required value={form.timeline} onChange={update("timeline")} className={inputCls}>
+                    <option value="">Select</option>
+                    <option>Urgent — within 1 week</option>
+                    <option>Within 2–4 weeks</option>
+                    <option>1–3 months</option>
+                    <option>Just exploring</option>
+                  </select>
+                </div>
+                <div className="sm:col-span-2">
+                  <label className={labelCls}>Anything else we should know?</label>
+                  <textarea rows={4} value={form.notes} onChange={update("notes")} className={inputCls} placeholder="Tech stack, known issues, focus areas..." />
+                </div>
+                <div className="sm:col-span-2 flex flex-wrap items-center justify-between gap-3 pt-2">
+                  <p className="text-xs text-black/50">By submitting, you agree to be contacted about your QA audit.</p>
+                  <button
+                    type="submit"
+                    className="inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-gold hover:text-black"
+                  >
+                    Request QA Audit
+                    <ArrowRight className="h-4 w-4" />
+                  </button>
+                </div>
+              </div>
+            )}
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+}
