@@ -66,6 +66,8 @@ function Showcase() {
   const [category, setCategory] = useState<CategoryFilter>("All types");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [active, setActive] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
+  const [speed, setSpeed] = useState(3); // seconds per card
 
   const filtered = works.filter(
     (w) =>
