@@ -96,7 +96,13 @@ function Showcase() {
   const count = Math.max(filtered.length, 1);
   // Museum carousel: cards distributed on a cylinder around Y-axis.
   const anglePer = 360 / count;
-  const radius = Math.round(260 + count * 18); // grows with card count so they don't overlap
+  // Radius sized so cards don't overlap on the cylinder: r = (cardWidth/2 + gap) / tan(π/n)
+  const cardWidth = 280;
+  const gap = 40;
+  const radius =
+    count <= 1
+      ? 0
+      : Math.round((cardWidth / 2 + gap) / Math.tan(Math.PI / Math.max(count, 3)));
 
   const rotateY = -active * anglePer;
 
