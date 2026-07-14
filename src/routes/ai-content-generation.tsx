@@ -65,12 +65,18 @@ function Showcase() {
   const [project, setProject] = useState<ProjectFilter>("All");
   const [category, setCategory] = useState<CategoryFilter>("All types");
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const [active, setActive] = useState(0);
 
   const filtered = works.filter(
     (w) =>
       (project === "All" || w.project === project) &&
       (category === "All types" || w.category === category),
   );
+
+  // Reset active when filter changes
+  useEffect(() => {
+    setActive(0);
+  }, [project, category]);
 
   useEffect(() => {
     if (lightbox === null) return;
@@ -85,26 +91,39 @@ function Showcase() {
   }, [lightbox, filtered.length]);
 
   const current = lightbox !== null ? filtered[lightbox] : null;
+  const count = Math.max(filtered.length, 1);
+  // Museum carousel: cards distributed on a cylinder around Y-axis.
+  const anglePer = 360 / count;
+  const radius = Math.round(260 + count * 18); // grows with card count so they don't overlap
+
+  const rotateY = -active * anglePer;
+
+  const go = (dir: 1 | -1) =>
+    setActive((a) => (a + dir + filtered.length) % Math.max(filtered.length, 1));
 
   return (
-    <section className="border-b border-black/5 bg-[#fafafa] py-20">
-      <div className="mx-auto max-w-7xl px-5">
+    <section className="relative overflow-hidden border-b border-black/5 bg-gradient-to-b from-[#0b0b0d] via-[#111114] to-[#0b0b0d] py-24 text-white">
+      {/* Museum ambience */}
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.12),transparent_55%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-[radial-gradient(ellipse_at_bottom,rgba(212,175,55,0.08),transparent_60%)]" />
+
+      <div className="relative mx-auto max-w-7xl px-5">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center rounded-full border border-black/10 bg-white px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-black/70">
-              Client Work
+            <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-white/70 backdrop-blur">
+              The Gallery
             </span>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-              Content we've shipped for brands
+            <h2 className="mt-3 font-display text-4xl tracking-tight md:text-5xl">
+              A museum of client work
             </h2>
-            <p className="mt-3 text-black/60">
-              A living gallery of AI-assisted creatives — social carousels, launch posts and brand
-              visuals — produced end-to-end for our clients.
+            <p className="mt-3 text-white/60">
+              Walk through the exhibit. Rotate the carousel, step up to a piece, and tap it to see
+              the full frame.
             </p>
           </div>
           <div className="text-right">
-            <div className="text-3xl font-semibold tracking-tight">{works.length}+</div>
-            <div className="text-xs uppercase tracking-[0.16em] text-black/50">Pieces shipped</div>
+            <div className="text-3xl font-semibold tracking-tight text-gold">{works.length}+</div>
+            <div className="text-xs uppercase tracking-[0.18em] text-white/50">Pieces exhibited</div>
           </div>
         </div>
 
@@ -117,8 +136,8 @@ function Showcase() {
                 onClick={() => setProject(p)}
                 className={`rounded-full border px-4 py-1.5 text-sm font-medium transition ${
                   project === p
-                    ? "border-black bg-black text-white"
-                    : "border-black/15 bg-white text-black/70 hover:border-gold hover:text-black"
+                    ? "border-gold bg-gold text-black"
+                    : "border-white/15 bg-white/5 text-white/70 hover:border-gold hover:text-white"
                 }`}
               >
                 {p}
@@ -132,8 +151,8 @@ function Showcase() {
                 onClick={() => setCategory(c)}
                 className={`rounded-full border px-3 py-1 text-xs font-medium uppercase tracking-[0.14em] transition ${
                   category === c
-                    ? "border-gold bg-gold/10 text-black"
-                    : "border-black/10 bg-white text-black/60 hover:border-gold/60"
+                    ? "border-gold bg-gold/15 text-gold"
+                    : "border-white/10 bg-white/5 text-white/60 hover:border-gold/60"
                 }`}
               >
                 {c}
@@ -142,38 +161,100 @@ function Showcase() {
           </div>
         </div>
 
-        {/* Grid */}
+        {/* 3D Carousel Stage */}
         {filtered.length === 0 ? (
-          <p className="mt-16 text-center text-black/50">No pieces match this filter yet.</p>
+          <p className="mt-16 text-center text-white/50">No pieces match this filter yet.</p>
         ) : (
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {filtered.map((w, i) => (
-              <button
-                key={w.src}
-                onClick={() => setLightbox(i)}
-                className="group relative overflow-hidden rounded-2xl border border-black/10 bg-white text-left shadow-[0_20px_50px_-30px_rgba(0,0,0,0.25)] transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_30px_60px_-25px_rgba(0,0,0,0.35)]"
+          <div className="mt-12">
+            <div
+              className="relative mx-auto h-[520px] w-full select-none"
+              style={{ perspective: "1400px", perspectiveOrigin: "50% 45%" }}
+            >
+              {/* Floor reflection */}
+              <div
+                className="pointer-events-none absolute left-1/2 top-[78%] h-40 w-[80%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.18),transparent_70%)] blur-2xl"
+              />
+              <div
+                className="relative mx-auto h-full w-full transition-transform duration-700 ease-out"
+                style={{
+                  transformStyle: "preserve-3d",
+                  transform: `translateZ(-${radius}px) rotateY(${rotateY}deg)`,
+                }}
               >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={w.src}
-                    alt={`${w.project} — ${w.label}`}
-                    className={`w-full object-cover transition duration-500 group-hover:scale-[1.04] ${
-                      w.aspect === "portrait" ? "aspect-[4/5]" : "aspect-square"
-                    }`}
-                    loading="lazy"
-                  />
-                  <span className="absolute left-3 top-3 rounded-full bg-black/70 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-white backdrop-blur">
-                    {w.category}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between gap-2 px-4 py-3">
-                  <span className="truncate text-sm text-black/75">{w.label}</span>
-                  <span className="shrink-0 text-[11px] font-medium uppercase tracking-[0.14em] text-gold">
-                    {w.project}
-                  </span>
-                </div>
+                {filtered.map((w, i) => {
+                  const isActive = i === active;
+                  return (
+                    <button
+                      key={w.src}
+                      onClick={() => {
+                        if (isActive) setLightbox(i);
+                        else setActive(i);
+                      }}
+                      className="group absolute left-1/2 top-1/2 h-[380px] w-[280px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-white/10 bg-white/5 text-left shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)] backdrop-blur transition-all duration-500"
+                      style={{
+                        transform: `rotateY(${i * anglePer}deg) translateZ(${radius}px)`,
+                        opacity: isActive ? 1 : 0.55,
+                        filter: isActive ? "none" : "brightness(0.7) saturate(0.85)",
+                        borderColor: isActive ? "var(--gold)" : "rgba(255,255,255,0.08)",
+                      }}
+                      aria-label={`${w.project} — ${w.label}${isActive ? " (open)" : " (bring forward)"}`}
+                    >
+                      {/* Museum frame */}
+                      <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5" />
+                      <div className="relative h-[300px] w-full overflow-hidden">
+                        <img
+                          src={w.src}
+                          alt={`${w.project} — ${w.label}`}
+                          className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.05]"
+                          loading="lazy"
+                          draggable={false}
+                        />
+                        <span className="absolute left-3 top-3 rounded-full bg-black/70 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-white/90 backdrop-blur">
+                          {w.category}
+                        </span>
+                      </div>
+                      {/* Plaque */}
+                      <div className="flex h-[80px] flex-col justify-center gap-1 border-t border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.02] px-4">
+                        <span className="truncate text-[11px] font-medium uppercase tracking-[0.18em] text-gold">
+                          {w.project}
+                        </span>
+                        <span className="truncate text-sm text-white/85">{w.label}</span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Controls */}
+            <div className="mt-8 flex items-center justify-center gap-4">
+              <button
+                onClick={() => go(-1)}
+                className="rounded-full border border-white/15 bg-white/5 px-5 py-2 text-sm text-white/80 transition hover:border-gold hover:text-gold"
+                aria-label="Rotate left"
+              >
+                ← Prev
               </button>
-            ))}
+              <div className="min-w-[80px] text-center text-xs uppercase tracking-[0.18em] text-white/50">
+                {active + 1} / {filtered.length}
+              </div>
+              <button
+                onClick={() => go(1)}
+                className="rounded-full border border-white/15 bg-white/5 px-5 py-2 text-sm text-white/80 transition hover:border-gold hover:text-gold"
+                aria-label="Rotate right"
+              >
+                Next →
+              </button>
+              <button
+                onClick={() => setLightbox(active)}
+                className="ml-2 rounded-full border border-gold bg-gold px-5 py-2 text-sm font-medium text-black transition hover:bg-transparent hover:text-gold"
+              >
+                Open piece
+              </button>
+            </div>
+            <p className="mt-3 text-center text-xs text-white/40">
+              Tip: click a side card to bring it forward. Tap the front card to view full.
+            </p>
           </div>
         )}
       </div>
