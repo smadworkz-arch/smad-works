@@ -103,6 +103,15 @@ function Showcase() {
   const go = (dir: 1 | -1) =>
     setActive((a) => (a + dir + filtered.length) % Math.max(filtered.length, 1));
 
+  // Auto-rotate
+  useEffect(() => {
+    if (!autoPlay || lightbox !== null || filtered.length <= 1) return;
+    const id = window.setInterval(() => {
+      setActive((a) => (a + 1) % filtered.length);
+    }, speed * 1000);
+    return () => window.clearInterval(id);
+  }, [autoPlay, speed, lightbox, filtered.length]);
+
   return (
     <section className="relative overflow-hidden border-b border-black/5 bg-gradient-to-b from-[#0b0b0d] via-[#111114] to-[#0b0b0d] py-24 text-white">
       {/* Museum ambience */}
