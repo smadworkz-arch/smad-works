@@ -66,6 +66,8 @@ function Showcase() {
   const [category, setCategory] = useState<CategoryFilter>("All types");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [active, setActive] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
+  const [speed, setSpeed] = useState(3); // seconds per card
 
   const filtered = works.filter(
     (w) =>
@@ -100,6 +102,15 @@ function Showcase() {
 
   const go = (dir: 1 | -1) =>
     setActive((a) => (a + dir + filtered.length) % Math.max(filtered.length, 1));
+
+  // Auto-rotate
+  useEffect(() => {
+    if (!autoPlay || lightbox !== null || filtered.length <= 1) return;
+    const id = window.setInterval(() => {
+      setActive((a) => (a + 1) % filtered.length);
+    }, speed * 1000);
+    return () => window.clearInterval(id);
+  }, [autoPlay, speed, lightbox, filtered.length]);
 
   return (
     <section className="relative overflow-hidden border-b border-black/5 bg-gradient-to-b from-[#0b0b0d] via-[#111114] to-[#0b0b0d] py-24 text-white">
@@ -252,12 +263,39 @@ function Showcase() {
                 Open piece
               </button>
             </div>
+
+            {/* Auto-rotate controls */}
+            <div className="mx-auto mt-5 flex max-w-md flex-wrap items-center justify-center gap-4 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 backdrop-blur">
+              <button
+                onClick={() => setAutoPlay((p) => !p)}
+                className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.14em] text-white/80 transition hover:border-gold hover:text-gold"
+                aria-label={autoPlay ? "Pause auto-rotate" : "Play auto-rotate"}
+              >
+                {autoPlay ? "❚❚ Pause" : "▶ Play"}
+              </button>
+              <label className="flex items-center gap-3 text-[11px] uppercase tracking-[0.14em] text-white/50">
+                Speed
+                <input
+                  type="range"
+                  min={1}
+                  max={8}
+                  step={0.5}
+                  value={9 - speed}
+                  onChange={(e) => setSpeed(9 - Number(e.target.value))}
+                  className="h-1 w-32 cursor-pointer accent-[color:var(--gold)]"
+                  aria-label="Rotation speed"
+                />
+                <span className="w-10 text-right text-white/70">{speed}s</span>
+              </label>
+            </div>
+
             <p className="mt-3 text-center text-xs text-white/40">
               Tip: click a side card to bring it forward. Tap the front card to view full.
             </p>
           </div>
         )}
       </div>
+
 
       {/* Lightbox */}
       {current && lightbox !== null && (
