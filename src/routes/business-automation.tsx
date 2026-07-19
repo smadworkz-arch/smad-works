@@ -45,7 +45,20 @@ const outcomes = [
 
 const industries = ["Healthcare", "Real Estate", "Education", "E-commerce", "Hospitality", "Finance", "SMBs", "Startups"];
 
-const tools = ["WhatsApp Cloud API", "OpenAI", "n8n", "Make", "Zapier", "HubSpot", "Zoho", "Salesforce", "Google Sheets", "Notion", "Twilio", "ElevenLabs"];
+const tools: { name: string; slug: string }[] = [
+  { name: "WhatsApp Cloud API", slug: "whatsapp" },
+  { name: "OpenAI", slug: "openai" },
+  { name: "n8n", slug: "n8n" },
+  { name: "Make", slug: "make" },
+  { name: "Zapier", slug: "zapier" },
+  { name: "HubSpot", slug: "hubspot" },
+  { name: "Zoho", slug: "zoho" },
+  { name: "Salesforce", slug: "salesforce" },
+  { name: "Google Sheets", slug: "googlesheets" },
+  { name: "Notion", slug: "notion" },
+  { name: "Twilio", slug: "twilio" },
+  { name: "ElevenLabs", slug: "elevenlabs" },
+];
 
 const faqs = [
   { q: "How long does setup take?", a: "Most projects go live in 1–3 weeks depending on scope and integrations." },
