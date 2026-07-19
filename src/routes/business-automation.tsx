@@ -151,9 +151,10 @@ function BusinessAutomationPage() {
           </div>
         </Reveal>
         <Marquee>
-          {tools.map((t) => (
-            <span key={t} className="inline-flex items-center whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-6 py-2 text-sm text-white/70">
-              {t}
+          {tools.map(({ name, Icon }) => (
+            <span key={name} className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-sm text-white/70">
+              <Icon size={16} className="text-gold" />
+              {name}
             </span>
           ))}
         </Marquee>
