@@ -152,7 +152,7 @@ function BusinessAutomationPage() {
           {tools.map((t) => (
             <span key={t.name} className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-sm text-white/80">
               <img
-                src={`https://cdn.simpleicons.org/${t.slug}/D4AF37`}
+                src={`https://www.google.com/s2/favicons?domain=${t.domain}&sz=64`}
                 alt=""
                 aria-hidden
                 width={16}
