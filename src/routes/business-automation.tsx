@@ -45,19 +45,19 @@ const outcomes = [
 
 const industries = ["Healthcare", "Real Estate", "Education", "E-commerce", "Hospitality", "Finance", "SMBs", "Startups"];
 
-const tools: { name: string; slug: string }[] = [
-  { name: "WhatsApp Cloud API", slug: "whatsapp" },
-  { name: "OpenAI", slug: "openai" },
-  { name: "n8n", slug: "n8n" },
-  { name: "Make", slug: "make" },
-  { name: "Zapier", slug: "zapier" },
-  { name: "HubSpot", slug: "hubspot" },
-  { name: "Zoho", slug: "zoho" },
-  { name: "Salesforce", slug: "salesforce" },
-  { name: "Google Sheets", slug: "googlesheets" },
-  { name: "Notion", slug: "notion" },
-  { name: "Twilio", slug: "twilio" },
-  { name: "ElevenLabs", slug: "elevenlabs" },
+const tools: { name: string; domain: string }[] = [
+  { name: "WhatsApp Cloud API", domain: "whatsapp.com" },
+  { name: "OpenAI", domain: "openai.com" },
+  { name: "n8n", domain: "n8n.io" },
+  { name: "Make", domain: "make.com" },
+  { name: "Zapier", domain: "zapier.com" },
+  { name: "HubSpot", domain: "hubspot.com" },
+  { name: "Zoho", domain: "zoho.com" },
+  { name: "Salesforce", domain: "salesforce.com" },
+  { name: "Google Sheets", domain: "sheets.google.com" },
+  { name: "Notion", domain: "notion.so" },
+  { name: "Twilio", domain: "twilio.com" },
+  { name: "ElevenLabs", domain: "elevenlabs.io" },
 ];
 
 const faqs = [
