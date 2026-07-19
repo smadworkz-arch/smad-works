@@ -25,8 +25,8 @@ export function PageHero3D({
   meta?: ReactNode;
 }) {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 120]);
-  const opacity = useTransform(scrollY, [0, 400], [1, 0.35]);
+  const y = useTransform(scrollY, [0, 500], [0, 60]);
+  const opacity = useTransform(scrollY, [0, 400], [1, 1]);
 
   return (
     <section className="relative isolate overflow-hidden bg-[#08080a] text-white">
