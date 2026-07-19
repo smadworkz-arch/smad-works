@@ -8,7 +8,7 @@ export function SiteFooter() {
           <span className="grid h-8 w-8 place-items-center rounded-md bg-black">
             <img src={logo.url} alt="" className="h-6 w-6 object-contain" />
           </span>
-          <span className="text-sm font-semibold">SMad<span className="text-gold">Works</span></span>
+          <span className="text-sm font-semibold text-gold">SMadWorks</span>
         </div>
         <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} SMad Works. Design • Develop • Deliver.</p>
       </div>
