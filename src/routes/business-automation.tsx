@@ -45,7 +45,20 @@ const outcomes = [
 
 const industries = ["Healthcare", "Real Estate", "Education", "E-commerce", "Hospitality", "Finance", "SMBs", "Startups"];
 
-const tools = ["WhatsApp Cloud API", "OpenAI", "n8n", "Make", "Zapier", "HubSpot", "Zoho", "Salesforce", "Google Sheets", "Notion", "Twilio", "ElevenLabs"];
+const tools: { name: string; slug: string }[] = [
+  { name: "WhatsApp Cloud API", slug: "whatsapp" },
+  { name: "OpenAI", slug: "openai" },
+  { name: "n8n", slug: "n8n" },
+  { name: "Make", slug: "make" },
+  { name: "Zapier", slug: "zapier" },
+  { name: "HubSpot", slug: "hubspot" },
+  { name: "Zoho", slug: "zoho" },
+  { name: "Salesforce", slug: "salesforce" },
+  { name: "Google Sheets", slug: "googlesheets" },
+  { name: "Notion", slug: "notion" },
+  { name: "Twilio", slug: "twilio" },
+  { name: "ElevenLabs", slug: "elevenlabs" },
+];
 
 const faqs = [
   { q: "How long does setup take?", a: "Most projects go live in 1–3 weeks depending on scope and integrations." },
@@ -137,8 +150,17 @@ function BusinessAutomationPage() {
         </Reveal>
         <Marquee>
           {tools.map((t) => (
-            <span key={t} className="inline-flex items-center whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-6 py-2 text-sm text-white/70">
-              {t}
+            <span key={t.name} className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-sm text-white/80">
+              <img
+                src={`https://cdn.simpleicons.org/${t.slug}/D4AF37`}
+                alt=""
+                aria-hidden
+                width={16}
+                height={16}
+                loading="lazy"
+                className="h-4 w-4"
+              />
+              {t.name}
             </span>
           ))}
         </Marquee>
