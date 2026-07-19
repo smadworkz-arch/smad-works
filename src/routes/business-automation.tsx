@@ -68,7 +68,7 @@ export const Route = createFileRoute("/business-automation")({
 
 function BusinessAutomationPage() {
   return (
-    <div className="min-h-screen bg-[#08080a] text-white">
+    <div className="dark min-h-screen bg-[#08080a] text-white">
       <SiteHeader />
 
       <PageHero3D
