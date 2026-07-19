@@ -1,65 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ServicePage } from "@/components/ServicePage";
 import { serviceHead } from "@/lib/service-head";
-import { ImmersiveServicePage } from "@/components/ImmersiveServicePage";
-import { FilmStripScene } from "@/components/three/PageScenes";
+import heroImg from "@/assets/ai-video-generation-hero.png.asset.json";
 
 export const Route = createFileRoute("/ai-video-generation-course")({
   head: () =>
     serviceHead({
       path: "/ai-video-generation-course",
       title: "AI Video Generation Course | Learn AI Video Creation | SMad Works",
-      description: "Learn to create professional videos with AI — tools, prompts, image-to-video, editing and monetization strategies.",
+      description:
+        "Learn to create professional videos with AI — tools, prompts, image-to-video, editing and monetization. Join SMad Works AI Video course.",
       serviceType: "AI Video Generation Course",
     }),
   component: () => (
-    <ImmersiveServicePage
-      eyebrow="AI Video Course"
-      title={<>Create pro videos <span className="text-gold">using AI.</span></>}
-      subtitle="A hands-on program on modern AI video creation — tools, prompting, image-to-video, editing and monetization."
-      primaryCta={{ label: "Enroll in the course", whatsappMessage: "Hi SMad Works, I want to join the AI Video Generation course." }}
-      scene={<FilmStripScene />}
-      metrics={[
-        { k: "8+", v: "AI tools" },
-        { k: "40+", v: "Hours" },
-        { k: "10+", v: "Projects" },
-        { k: "Live", v: "Mentorship" },
+    <ServicePage
+      illustration={
+        <img
+          src={heroImg.url}
+          alt="SMad Works AI Video Generation Course poster showing AI video tools, image-to-video, editing and monetization"
+          className="w-full rounded-3xl border border-black/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
+          loading="eager"
+        />
+      }
+      eyebrow="Course"
+      title="AI Video Generation Course"
+      headline="Learn To Create Professional Videos Using AI"
+      description="Master AI video tools, prompts and workflows used by modern creators and agencies."
+      benefits={["Hands-on projects", "Lifetime updates", "Community access", "Monetization playbook"]}
+      ctaPrimary="Join The Course"
+      whatsappMessage="Hi SMad Works, I want to join the AI Video Generation course."
+      services={[
+        { title: "Foundations", items: ["AI Video Tools", "Prompt Writing", "AI Story Creation"] },
+        { title: "Production", items: ["Image To Video", "Editing Workflow", "Voice & Music"] },
+        { title: "Business", items: ["Content Creation", "Monetization Ideas", "Client Delivery"] },
       ]}
-      capabilities={[
-        { t: "AI Video Tools", d: "Runway, Pika, Kling, Sora, HeyGen and more." },
-        { t: "Prompt Engineering", d: "Structured prompts for cinematic output." },
-        { t: "Image-to-Video", d: "Turn stills into motion sequences." },
-        { t: "Editing Workflow", d: "Cut, color, sound and pacing." },
-        { t: "Reels & Shorts", d: "Verticals for IG, TikTok, YouTube Shorts." },
-        { t: "Monetization", d: "Sell services, create courses, agency setup." },
-      ]}
-      process={[
-        { n: "01", t: "Foundations", d: "AI video ecosystem, tools and use cases." },
-        { n: "02", t: "Practice", d: "Guided projects across formats." },
-        { n: "03", t: "Craft", d: "Editing, sound design and pacing." },
-        { n: "04", t: "Distribute", d: "Publishing and platform strategy." },
-        { n: "05", t: "Monetize", d: "Freelance, agency and course paths." },
-      ]}
-      tools={[
-        { name: "Runway", domain: "runwayml.com" },
-        { name: "Pika", domain: "pika.art" },
-        { name: "Kling", domain: "klingai.com" },
-        { name: "HeyGen", domain: "heygen.com" },
-        { name: "ElevenLabs", domain: "elevenlabs.io" },
-        { name: "CapCut", domain: "capcut.com" },
-        { name: "Premiere Pro", domain: "adobe.com" },
-      ]}
-      industries={["Content Creators", "Marketers", "Agencies", "Educators", "Founders"]}
+      industries={["Students", "Creators", "Business Owners", "Freelancers"]}
       faqs={[
-        { q: "Is this beginner friendly?", a: "Yes — no editing experience needed. We start from fundamentals." },
-        { q: "Live or recorded?", a: "Recorded modules + weekly live mentorship sessions." },
-        { q: "Do I get certification?", a: "Yes — certificate on completion of projects." },
-        { q: "Which platforms are covered?", a: "Instagram Reels, TikTok, YouTube Shorts, LinkedIn video." },
+        { q: "Do I need prior experience?", a: "No — the course starts from the basics and progresses to advanced workflows." },
+        { q: "Is it live or recorded?", a: "Hybrid — recorded lessons plus live mentoring sessions." },
+        { q: "Will I get certificate?", a: "Yes, on successful completion of projects." },
+        { q: "What tools do I need?", a: "A laptop and free/freemium AI tools we recommend." },
       ]}
-      finalCtaTitle={<>Direct your first <span className="text-gold">AI film.</span></>}
       related={[
-        { to: "/ai-course-content-generation", title: "AI Course Content" },
         { to: "/ai-automation-course", title: "AI Automation Course" },
-        { to: "/video-production-ai-studio", title: "Video Production Studio" },
+        { to: "/ai-content-generation", title: "AI Content Generation" },
+        { to: "/ai-course-content-generation", title: "AI Course Content" },
       ]}
     />
   ),

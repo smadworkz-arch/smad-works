@@ -1,65 +1,50 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ServicePage } from "@/components/ServicePage";
 import { serviceHead } from "@/lib/service-head";
-import { ImmersiveServicePage } from "@/components/ImmersiveServicePage";
-import { CircuitScene } from "@/components/three/PageScenes";
+import heroImg from "@/assets/ai-automation-service-hero.png.asset.json";
 
 export const Route = createFileRoute("/ai-automation-course")({
   head: () =>
     serviceHead({
       path: "/ai-automation-course",
-      title: "AI Automation Course | Build Automations With No-Code + AI | SMad Works",
-      description: "Learn to build real business automations with n8n, Make, Zapier and AI — WhatsApp bots, agents, CRM flows and more.",
+      title: "AI Automation Course | n8n, AI Agents & WhatsApp | SMad Works",
+      description:
+        "Learn to build AI automation systems — n8n workflows, AI agents, WhatsApp & CRM automations and real business projects. By SMad Works.",
       serviceType: "AI Automation Course",
     }),
   component: () => (
-    <ImmersiveServicePage
-      eyebrow="AI Automation Course"
-      title={<>Build automations that <span className="text-gold">pay you back.</span></>}
-      subtitle="A practical program on no-code + AI automation — WhatsApp bots, agents, CRM flows, and productized service delivery."
-      primaryCta={{ label: "Enroll in the course", whatsappMessage: "Hi SMad Works, I want to join the AI Automation course." }}
-      scene={<CircuitScene />}
-      metrics={[
-        { k: "12+", v: "Real projects" },
-        { k: "6", v: "Tool stacks" },
-        { k: "Live", v: "Mentorship" },
-        { k: "Job", v: "Ready outcomes" },
+    <ServicePage
+      illustration={
+        <img
+          src={heroImg.url}
+          alt="SMad Works AI Automation Solutions poster showing WhatsApp automation, AI chatbots, CRM automation and workflow automation"
+          className="w-full rounded-3xl border border-black/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
+          loading="eager"
+        />
+      }
+      eyebrow="Course"
+      title="AI Automation Course"
+      headline="Learn How To Build AI Automation Systems"
+      description="A practical course covering AI agents, n8n, APIs and real business automation projects."
+      benefits={["Real client projects", "Live mentoring", "n8n + AI agents", "Job-ready portfolio"]}
+      ctaPrimary="Start Learning Automation"
+      whatsappMessage="Hi SMad Works, I want to join the AI Automation course."
+      services={[
+        { title: "AI Agents", items: ["AI Agents", "Prompt Engineering", "Tool Use"] },
+        { title: "Workflows", items: ["n8n Automation", "Workflow Building", "API Integration"] },
+        { title: "Business", items: ["WhatsApp Automation", "CRM Automation", "Real Business Projects"] },
       ]}
-      capabilities={[
-        { t: "n8n & Make", d: "Visual flows connecting any tool." },
-        { t: "Zapier + AI", d: "Trigger AI actions from everyday tools." },
-        { t: "WhatsApp Bots", d: "Official Cloud API + AI-driven flows." },
-        { t: "AI Agents", d: "Autonomous agents that complete tasks." },
-        { t: "CRM Automations", d: "Follow-ups, lead scoring, reporting." },
-        { t: "Productize", d: "Package flows as sellable services." },
-      ]}
-      process={[
-        { n: "01", t: "Foundations", d: "Automation thinking, APIs, webhooks." },
-        { n: "02", t: "No-code", d: "Master n8n, Make, Zapier flows." },
-        { n: "03", t: "AI Layer", d: "Add LLMs, prompts and agents." },
-        { n: "04", t: "Build", d: "Ship 5+ real client-grade projects." },
-        { n: "05", t: "Sell", d: "Packaging, pricing and delivery." },
-      ]}
-      tools={[
-        { name: "n8n", domain: "n8n.io" },
-        { name: "Make", domain: "make.com" },
-        { name: "Zapier", domain: "zapier.com" },
-        { name: "OpenAI", domain: "openai.com" },
-        { name: "WhatsApp Cloud API", domain: "whatsapp.com" },
-        { name: "Airtable", domain: "airtable.com" },
-        { name: "Notion", domain: "notion.so" },
-      ]}
-      industries={["Freelancers", "Consultants", "Agencies", "SMB Owners", "Career Switchers"]}
+      industries={["Freelancers", "Developers", "Agencies", "Solopreneurs"]}
       faqs={[
-        { q: "Do I need to code?", a: "No — the course is no-code first, with light JS where useful." },
-        { q: "Do I get real projects?", a: "Yes — 5+ portfolio-ready builds you can sell." },
-        { q: "How long is the course?", a: "8–10 weeks with live weekly mentorship." },
-        { q: "Do you help me get clients?", a: "Yes — outreach, positioning and pricing modules included." },
+        { q: "Do I need to code?", a: "Basic logic is enough. n8n is mostly no-code/low-code." },
+        { q: "Will I build live projects?", a: "Yes — multiple end-to-end automations are part of the course." },
+        { q: "Is it self-paced?", a: "Hybrid — recorded modules with weekly live sessions." },
+        { q: "Do you help with freelancing?", a: "Yes, we cover client acquisition and pricing." },
       ]}
-      finalCtaTitle={<>Automate anything. <span className="text-gold">Everywhere.</span></>}
       related={[
-        { to: "/ai-video-generation-course", title: "AI Video Course" },
-        { to: "/ai-course-content-generation", title: "AI Course Content" },
+        { to: "/ai-video-generation-course", title: "AI Video Generation Course" },
         { to: "/business-automation", title: "Business Automation" },
+        { to: "/lead-generation-services", title: "Lead Generation" },
       ]}
     />
   ),
