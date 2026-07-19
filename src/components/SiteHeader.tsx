@@ -137,7 +137,18 @@ function SolutionsDrawerContent({ onNavigate }: { onNavigate: () => void }) {
       <div className="border-t border-white/10 p-4">
         <a
           href="/#contact"
-          onClick={onNavigate}
+          onClick={(e) => {
+            e.preventDefault();
+            onNavigate();
+            window.location.href = "/#contact";
+            setTimeout(() => {
+              const firstField = document.getElementById("contact-name");
+              if (firstField) {
+                firstField.scrollIntoView({ behavior: "smooth", block: "center" });
+                firstField.focus({ preventScroll: true });
+              }
+            }, 350);
+          }}
           className="group relative flex items-center justify-between overflow-hidden rounded-xl border border-gold/40 bg-gradient-to-br from-gold/25 via-gold/10 to-transparent px-4 py-3.5 transition-all hover:border-gold hover:shadow-[0_0_40px_-10px_rgba(212,175,55,0.5)]"
         >
           <div>
