@@ -150,8 +150,17 @@ function BusinessAutomationPage() {
         </Reveal>
         <Marquee>
           {tools.map((t) => (
-            <span key={t} className="inline-flex items-center whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-6 py-2 text-sm text-white/70">
-              {t}
+            <span key={t.name} className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-sm text-white/80">
+              <img
+                src={`https://cdn.simpleicons.org/${t.slug}/D4AF37`}
+                alt=""
+                aria-hidden
+                width={16}
+                height={16}
+                loading="lazy"
+                className="h-4 w-4"
+              />
+              {t.name}
             </span>
           ))}
         </Marquee>
