@@ -249,7 +249,10 @@ function ServicesSection() {
                   </li>
                 ))}
               </ul>
-              <Link to={s.href} className="mt-6 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-[0.18em] text-gold">
+              <Link
+                to={s.href}
+                className="mt-6 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-gold transition hover:bg-gold hover:text-black"
+              >
                 Explore service <span aria-hidden>→</span>
               </Link>
             </TiltCard>
