@@ -1,45 +1,61 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ServicePage } from "@/components/ServicePage";
 import { serviceHead } from "@/lib/service-head";
-import heroImg from "@/assets/lead-conversion-service-hero.png.asset.json";
+import { ImmersiveServicePage } from "@/components/ImmersiveServicePage";
+import { FunnelScene } from "@/components/three/PageScenes";
 
 export const Route = createFileRoute("/lead-conversion-services")({
   head: () =>
     serviceHead({
       path: "/lead-conversion-services",
       title: "Lead Conversion Services | Sales Funnels & WhatsApp CRM | SMad Works",
-      description:
-        "Convert leads into paying customers with sales funnels, WhatsApp automation, CRM setup and AI sales assistants by SMad Works.",
+      description: "Convert leads into paying customers with high-converting funnels, WhatsApp automation, CRM setup and AI sales assistants.",
       serviceType: "Lead Conversion Services",
     }),
   component: () => (
-    <ServicePage
-      illustration={
-        <img
-          src={heroImg.url}
-          alt="SMad Works Lead Conversion Services poster showing funnels, follow-up automation, CRM setup and AI sales assistance"
-          className="w-full rounded-3xl border border-black/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
-          loading="eager"
-        />
-      }
+    <ImmersiveServicePage
       eyebrow="Lead Conversion"
-      title="Lead Conversion Services"
-      headline="Turn Leads Into Paying Customers"
-      description="High-converting funnels, follow-ups and AI sales assistants built around your sales process."
-      benefits={["Higher close rate", "Automated follow-ups", "Faster response", "Full pipeline visibility"]}
-      ctaPrimary="Convert More Customers"
-      whatsappMessage="Hi SMad Works, I want to improve my lead conversion."
-      services={[
-        { title: "Funnels", items: ["Sales Funnel Setup", "WhatsApp Funnels", "Landing Pages"] },
-        { title: "Automation", items: ["Follow-up Automation", "CRM Setup", "AI Sales Assistant"] },
-        { title: "Nurturing", items: ["Customer Nurturing", "Email Sequences", "Re-engagement"] },
+      title={<>Turn leads into <span className="text-gold">paying customers.</span></>}
+      subtitle="High-converting funnels, follow-up automation and AI sales assistants — engineered around your sales process."
+      primaryCta={{ label: "Convert more customers", whatsappMessage: "Hi SMad Works, I want to improve my lead conversion." }}
+      scene={<FunnelScene />}
+      metrics={[
+        { k: "2–4×", v: "Higher close rate" },
+        { k: "<5min", v: "Response time" },
+        { k: "24/7", v: "Follow-ups" },
+        { k: "100%", v: "CRM visibility" },
       ]}
+      capabilities={[
+        { t: "Sales Funnels", d: "Landing pages, offers and conversion flows." },
+        { t: "WhatsApp Funnels", d: "Chat-driven qualification and closing." },
+        { t: "CRM Setup", d: "Pipelines, automations and dashboards." },
+        { t: "Follow-up Automation", d: "Multi-touch sequences across channels." },
+        { t: "AI Sales Assistant", d: "24/7 AI that qualifies and books calls." },
+        { t: "Customer Nurturing", d: "Long-term email and messaging journeys." },
+      ]}
+      process={[
+        { n: "01", t: "Audit", d: "Map current funnel and drop-off points." },
+        { n: "02", t: "Design", d: "New offers, pages and messaging." },
+        { n: "03", t: "Build", d: "Funnels, CRM, automations, AI agents." },
+        { n: "04", t: "Launch", d: "A/B test and iterate weekly." },
+        { n: "05", t: "Report", d: "Weekly conversion dashboards." },
+      ]}
+      tools={[
+        { name: "HubSpot", domain: "hubspot.com" },
+        { name: "GoHighLevel", domain: "gohighlevel.com" },
+        { name: "Pipedrive", domain: "pipedrive.com" },
+        { name: "Zoho CRM", domain: "zoho.com" },
+        { name: "WhatsApp Cloud API", domain: "whatsapp.com" },
+        { name: "Twilio", domain: "twilio.com" },
+        { name: "OpenAI", domain: "openai.com" },
+      ]}
+      industries={["Coaching", "Real Estate", "Healthcare", "SaaS", "Agencies", "E-commerce"]}
       faqs={[
         { q: "Which CRMs do you set up?", a: "HubSpot, Zoho, Pipedrive, GoHighLevel and custom CRMs." },
         { q: "Can you integrate WhatsApp?", a: "Yes — official WhatsApp Business API with automated flows." },
         { q: "Do you write the copy?", a: "Yes — conversion-focused copy is included." },
         { q: "How is conversion measured?", a: "Per-stage analytics dashboards delivered weekly." },
       ]}
+      finalCtaTitle={<>Close more. <span className="text-gold">Without hiring.</span></>}
       related={[
         { to: "/lead-generation-services", title: "Lead Generation" },
         { to: "/business-automation", title: "Business Automation" },
