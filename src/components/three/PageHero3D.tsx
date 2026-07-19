@@ -38,7 +38,7 @@ export function PageHero3D({
 
       <div className="pointer-events-none absolute inset-0 -z-[5] bg-[radial-gradient(60%_50%_at_50%_0%,rgba(212,175,55,0.12),transparent_65%)]" />
 
-      <motion.div style={{ y, opacity }} className="mx-auto grid max-w-7xl gap-14 px-5 pt-32 pb-28 md:grid-cols-[1.1fr_0.9fr] md:pt-40 md:pb-36">
+      <motion.div style={{ y }} className="mx-auto grid max-w-7xl gap-14 px-5 pt-32 pb-28 md:grid-cols-[1.1fr_0.9fr] md:pt-40 md:pb-36">
         <div className="relative">
           <motion.span
             initial={{ opacity: 0, y: 12 }}
