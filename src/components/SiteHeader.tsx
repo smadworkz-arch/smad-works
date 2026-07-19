@@ -177,7 +177,7 @@ export function SiteHeader() {
           <span className="grid h-14 w-14 place-items-center rounded-xl bg-black sm:h-16 sm:w-16">
             <img src={logo.url} alt="SMad Works" className="h-12 w-12 object-contain sm:h-14 sm:w-14" />
           </span>
-          <span className="text-lg font-semibold tracking-tight sm:text-xl">
+          <span className="text-lg font-semibold tracking-tight text-black sm:text-xl">
             SMad<span className="text-gold">Works</span>
           </span>
         </Link>
