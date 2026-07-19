@@ -234,25 +234,30 @@ function ServicesSection() {
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.7, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
           >
-            <TiltCard className="h-full rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur-sm transition hover:border-gold/50">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-medium text-white/50">{String(i + 1).padStart(2, "0")}</span>
-                <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-              </div>
-              <h3 className="mt-6 font-display text-2xl text-white">{s.title}</h3>
-              <p className="mt-3 text-sm text-white/60">{s.desc}</p>
-              <ul className="mt-6 space-y-2 border-t border-white/10 pt-5 text-sm">
-                {s.items.map((it) => (
-                  <li key={it} className="flex items-center gap-2 text-white/80">
-                    <span className="h-1 w-1 rounded-full bg-gold" />
-                    {it}
-                  </li>
-                ))}
-              </ul>
-              <Link to={s.href} className="mt-6 inline-flex items-center gap-1 text-xs font-medium uppercase tracking-[0.18em] text-gold">
-                Explore service <span aria-hidden>→</span>
-              </Link>
-            </TiltCard>
+            <Link
+              to={s.href}
+              className="group block h-full rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition hover:border-gold/50"
+            >
+              <TiltCard className="h-full p-8">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-medium text-white/50">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+                </div>
+                <h3 className="mt-6 font-display text-2xl text-white">{s.title}</h3>
+                <p className="mt-3 text-sm text-white/60">{s.desc}</p>
+                <ul className="mt-6 space-y-2 border-t border-white/10 pt-5 text-sm">
+                  {s.items.map((it) => (
+                    <li key={it} className="flex items-center gap-2 text-white/80">
+                      <span className="h-1 w-1 rounded-full bg-gold" />
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+                <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-gold transition group-hover:bg-gold group-hover:text-black">
+                  Explore service <span aria-hidden>→</span>
+                </span>
+              </TiltCard>
+            </Link>
           </motion.div>
         ))}
       </div>
