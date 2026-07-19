@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Bot, TrendingUp, Palette, ShieldCheck, GraduationCap, ArrowRight, PanelRight } from "lucide-react";
+import { Bot, TrendingUp, Palette, ShieldCheck, GraduationCap, ArrowRight, PanelLeft } from "lucide-react";
 import logo from "@/assets/logo.png.asset.json";
 import {
   Sheet,
@@ -180,10 +180,10 @@ export function SiteHeader() {
                     aria-label="Open solutions"
                   >
                     {l}
-                    <PanelRight size={14} className="opacity-60" />
+                    <PanelLeft size={14} className="opacity-60" />
                   </button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-full border-l border-gold/20 bg-black p-0 text-white sm:max-w-md">
+                <SheetContent side="left" className="w-full border-r border-gold/20 bg-black p-0 text-white sm:max-w-md">
                   <SolutionsDrawerContent onNavigate={closeDrawer} />
                 </SheetContent>
               </Sheet>
@@ -232,10 +232,10 @@ export function SiteHeader() {
                   className="mt-2 flex items-center justify-between rounded-lg border border-gold/40 bg-gold/10 px-3 py-2.5 text-sm font-medium text-gold"
                 >
                   Solutions
-                  <PanelRight size={16} />
+                  <PanelLeft size={16} />
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-full border-l border-gold/20 bg-black p-0 text-white sm:max-w-md">
+              <SheetContent side="left" className="w-full border-r border-gold/20 bg-black p-0 text-white sm:max-w-md">
                 <SolutionsDrawerContent onNavigate={closeDrawer} />
               </SheetContent>
             </Sheet>
