@@ -45,7 +45,22 @@ const outcomes = [
 
 const industries = ["Healthcare", "Real Estate", "Education", "E-commerce", "Hospitality", "Finance", "SMBs", "Startups"];
 
-const tools = ["WhatsApp Cloud API", "OpenAI", "n8n", "Make", "Zapier", "HubSpot", "Zoho", "Salesforce", "Google Sheets", "Notion", "Twilio", "ElevenLabs"];
+import { MessageCircle, Sparkles, Workflow, Zap, GitBranch, Building2, Briefcase, Cloud, Table2, NotebookPen, PhoneCall, AudioLines } from "lucide-react";
+
+const tools: { name: string; Icon: React.ComponentType<{ size?: number; className?: string }> }[] = [
+  { name: "WhatsApp Cloud API", Icon: MessageCircle },
+  { name: "OpenAI", Icon: Sparkles },
+  { name: "n8n", Icon: Workflow },
+  { name: "Make", Icon: GitBranch },
+  { name: "Zapier", Icon: Zap },
+  { name: "HubSpot", Icon: Briefcase },
+  { name: "Zoho", Icon: Building2 },
+  { name: "Salesforce", Icon: Cloud },
+  { name: "Google Sheets", Icon: Table2 },
+  { name: "Notion", Icon: NotebookPen },
+  { name: "Twilio", Icon: PhoneCall },
+  { name: "ElevenLabs", Icon: AudioLines },
+];
 
 const faqs = [
   { q: "How long does setup take?", a: "Most projects go live in 1–3 weeks depending on scope and integrations." },
@@ -136,9 +151,10 @@ function BusinessAutomationPage() {
           </div>
         </Reveal>
         <Marquee>
-          {tools.map((t) => (
-            <span key={t} className="inline-flex items-center whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-6 py-2 text-sm text-white/70">
-              {t}
+          {tools.map(({ name, Icon }) => (
+            <span key={name} className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-sm text-white/70">
+              <Icon size={16} className="text-gold" />
+              {name}
             </span>
           ))}
         </Marquee>
