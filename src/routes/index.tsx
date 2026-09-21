@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState, Suspense, lazy } from "react";
-import { motion, useMotionValue, useReducedMotion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform, useSpring } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ClientOnly } from "@/components/ClientOnly";
@@ -687,21 +687,19 @@ function Field({ label, name, id, type = "text", className = "" }: { label: stri
 function VideoHero() {
   const reduceMotion = useReducedMotion();
   const videoRef = useRef<HTMLVideoElement>(null);
-  const pointerX = useMotionValue(0);
-  const pointerY = useMotionValue(0);
-  const x = useSpring(pointerX, { stiffness: 55, damping: 24, mass: 0.7 });
-  const y = useSpring(pointerY, { stiffness: 55, damping: 24, mass: 0.7 });
+  const [pointer, setPointer] = useState({ x: 0, y: 0 });
 
   const handlePointerMove = (event: React.PointerEvent<HTMLElement>) => {
     if (reduceMotion || event.pointerType === "touch") return;
     const bounds = event.currentTarget.getBoundingClientRect();
-    pointerX.set(((event.clientX - bounds.left) / bounds.width - 0.5) * 30);
-    pointerY.set(((event.clientY - bounds.top) / bounds.height - 0.5) * 22);
+    setPointer({
+      x: ((event.clientX - bounds.left) / bounds.width - 0.5) * 30,
+      y: ((event.clientY - bounds.top) / bounds.height - 0.5) * 22,
+    });
   };
 
   const resetPointer = () => {
-    pointerX.set(0);
-    pointerY.set(0);
+    setPointer({ x: 0, y: 0 });
   };
 
   useEffect(() => {
@@ -720,7 +718,8 @@ function VideoHero() {
     >
       <motion.div
         aria-hidden="true"
-        style={reduceMotion ? undefined : { x, y }}
+        animate={reduceMotion ? undefined : pointer}
+        transition={{ type: "spring", stiffness: 55, damping: 24, mass: 0.7 }}
         className="pointer-events-none absolute -inset-8 -z-20 will-change-transform"
       >
         <video
