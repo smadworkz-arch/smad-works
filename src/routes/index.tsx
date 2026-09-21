@@ -689,8 +689,8 @@ function VideoHero() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [pointer, setPointer] = useState({ x: 0, y: 0 });
 
-  const handlePointerMove = (event: React.PointerEvent<HTMLElement>) => {
-    if (reduceMotion || event.pointerType === "touch") return;
+  const handlePointerMove = (event: React.MouseEvent<HTMLElement>) => {
+    if (reduceMotion) return;
     const bounds = event.currentTarget.getBoundingClientRect();
     setPointer({
       x: ((event.clientX - bounds.left) / bounds.width - 0.5) * 30,
@@ -713,8 +713,8 @@ function VideoHero() {
     <section
       id="home"
       className="relative isolate min-h-[680px] overflow-hidden bg-black text-white"
-      onPointerMove={handlePointerMove}
-      onPointerLeave={resetPointer}
+      onMouseMove={handlePointerMove}
+      onMouseLeave={resetPointer}
     >
       <div
         aria-hidden="true"
