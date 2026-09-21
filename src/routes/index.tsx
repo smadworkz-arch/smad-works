@@ -685,6 +685,7 @@ function Field({ label, name, id, type = "text", className = "" }: { label: stri
 
 function VideoHero() {
   const reduceMotion = useReducedMotion();
+  const videoRef = useRef<HTMLVideoElement>(null);
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
   const x = useSpring(pointerX, { stiffness: 55, damping: 24, mass: 0.7 });
@@ -702,6 +703,13 @@ function VideoHero() {
     pointerY.set(0);
   };
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    void video.play().catch(() => undefined);
+  }, []);
+
   return (
     <section
       id="home"
@@ -715,6 +723,7 @@ function VideoHero() {
         className="pointer-events-none absolute -inset-8 -z-20 will-change-transform"
       >
         <video
+          ref={videoRef}
           className="h-full w-full scale-[1.06] object-cover object-center saturate-[0.78] contrast-[1.08] brightness-[0.7]"
           src={heroVideo.url}
           poster={heroVideoPoster.url}
@@ -722,7 +731,7 @@ function VideoHero() {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
         />
       </motion.div>
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-black/90 via-black/60 to-black/25" />
