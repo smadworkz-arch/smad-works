@@ -1,11 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState, Suspense, lazy } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform, useSpring } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ClientOnly } from "@/components/ClientOnly";
 import { TiltCard } from "@/components/three/TiltCard";
-import heroBg from "@/assets/hero-bg.png.asset.json";
+import heroVideo from "@/assets/smad-home-hero.mp4.asset.json";
+import heroVideoWebm from "@/assets/smad-home-hero.webm.asset.json";
+import heroVideoPoster from "@/assets/smad-home-hero-poster.jpg.asset.json";
 import reviewsImg from "@/assets/reviews.png.asset.json";
 import n8n1 from "@/assets/n8n-1.png.asset.json";
 import n8n2 from "@/assets/n8n-2.png.asset.json";
@@ -25,7 +27,15 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [{ property: "og:url", content: "https://smad-works.lovable.app/" }],
+    meta: [
+      { title: "SMad Works — AI, Automation & Digital Solutions" },
+      { name: "description", content: "SMad Works builds AI-powered software, automates business operations, and creates digital solutions for confident growth." },
+      { property: "og:title", content: "SMad Works — AI, Automation & Digital Solutions" },
+      { property: "og:description", content: "Build smarter, automate faster, and grow without limits with SMad Works." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://smad-works.lovable.app/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
     links: [{ rel: "canonical", href: "https://smad-works.lovable.app/" }],
     scripts: [
       {
@@ -674,6 +684,101 @@ function Field({ label, name, id, type = "text", className = "" }: { label: stri
   );
 }
 
+function VideoHero() {
+  const reduceMotion = useReducedMotion();
+  const heroRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoLayerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    void video.play().catch(() => undefined);
+  }, []);
+
+  useEffect(() => {
+    if (reduceMotion) return;
+    const move = (event: MouseEvent) => {
+      const hero = heroRef.current;
+      const layer = videoLayerRef.current;
+      if (!hero || !layer) return;
+      const bounds = hero.getBoundingClientRect();
+      if (event.clientY < bounds.top || event.clientY > bounds.bottom) return;
+      const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 30;
+      const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 22;
+      layer.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    };
+    const reset = () => {
+      if (videoLayerRef.current) videoLayerRef.current.style.transform = "translate3d(0, 0, 0)";
+    };
+    window.addEventListener("mousemove", move, { passive: true });
+    window.addEventListener("mouseleave", reset);
+    return () => {
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mouseleave", reset);
+    };
+  }, [reduceMotion]);
+
+  return (
+    <section
+      ref={heroRef}
+      id="home"
+      className="relative isolate min-h-[680px] overflow-hidden bg-black text-white"
+    >
+      <div
+        ref={videoLayerRef}
+        aria-hidden="true"
+        className="pointer-events-none absolute -inset-8 -z-20 transition-transform duration-500 ease-out will-change-transform"
+      >
+        <video
+          ref={videoRef}
+          className="h-full w-full scale-[1.06] object-cover object-center saturate-[0.78] contrast-[1.08] brightness-[0.7]"
+          poster={heroVideoPoster.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+        >
+          <source src={heroVideoWebm.url} type="video/webm" />
+          <source src={heroVideo.url} type="video/mp4" />
+        </video>
+      </div>
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-black/90 via-black/60 to-black/25" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-gold/10 mix-blend-color" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-black via-black/55 to-transparent" />
+
+      <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32 lg:pt-36 lg:pb-40">
+        <div className="max-w-3xl animate-fade-up">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/25 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-md">
+            <span className="h-1.5 w-1.5 rounded-full bg-gold" />
+            Design • Develop • Deliver
+          </div>
+          <h1 className="mt-6 font-display text-5xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
+            Build Smarter. Automate Faster. Grow Without Limits.
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
+            We build AI-powered software, automate business operations, and create digital solutions that help startups and enterprises scale with confidence.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="#services" className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-all hover:bg-gold">View Solutions</a>
+            <a href="#contact" className="rounded-full border border-white/30 bg-black/20 px-6 py-3 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-gold hover:bg-gold/10">Start Your Project</a>
+          </div>
+          <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
+            {[["100+", "Projects Delivered"], ["95%", "Client Satisfaction"], ["AI", "Smart Solutions"], ["Fast", "Delivery"]].map(([n, l]) => (
+              <div key={l}>
+                <dt className="font-display text-3xl text-white">{n}</dt>
+                <dd className="mt-1 text-xs uppercase tracking-wider text-white/60">{l}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------------- MAIN ---------------- */
 
 function Index() {
@@ -681,37 +786,7 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground font-sans">
       <SiteHeader />
 
-      {/* HERO — untouched */}
-      <section id="home" className="relative isolate overflow-hidden bg-black text-white">
-        <img src={heroBg.url} alt="SMad Works — love work love" className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/55 to-black/30" />
-        <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32 lg:pt-36 lg:pb-40">
-          <div className="max-w-3xl animate-fade-up">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-              Design • Develop • Deliver
-            </div>
-            <h1 className="mt-6 font-display text-5xl leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-              Build Smarter. Automate Faster. Grow Without Limits.
-            </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
-              We build AI-powered software, automate business operations, and create digital solutions that help startups and enterprises scale with confidence.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#services" className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black transition-all hover:bg-white/90">View Solutions</a>
-              <a href="#contact" className="rounded-full border border-white/30 bg-transparent px-6 py-3 text-sm font-medium text-white transition-all hover:bg-white/10">Start Your Project</a>
-            </div>
-            <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
-              {[["100+", "Projects Delivered"], ["95%", "Client Satisfaction"], ["AI", "Smart Solutions"], ["Fast", "Delivery"]].map(([n, l]) => (
-                <div key={l}>
-                  <dt className="font-display text-3xl text-white">{n}</dt>
-                  <dd className="mt-1 text-xs uppercase tracking-wider text-white/60">{l}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-      </section>
+      <VideoHero />
 
       {/* EVERYTHING BELOW HERO — 3D + motion */}
       <div className="relative isolate overflow-hidden bg-[#0a0a0d] text-white">
