@@ -716,11 +716,10 @@ function VideoHero() {
       onPointerMove={handlePointerMove}
       onPointerLeave={resetPointer}
     >
-      <motion.div
+      <div
         aria-hidden="true"
-        animate={reduceMotion ? undefined : pointer}
-        transition={{ type: "spring", stiffness: 55, damping: 24, mass: 0.7 }}
-        className="pointer-events-none absolute -inset-8 -z-20 will-change-transform"
+        style={reduceMotion ? undefined : { transform: `translate3d(${pointer.x}px, ${pointer.y}px, 0)` }}
+        className="pointer-events-none absolute -inset-8 -z-20 transition-transform duration-500 ease-out will-change-transform"
       >
         <video
           ref={videoRef}
@@ -735,7 +734,7 @@ function VideoHero() {
           <source src={heroVideoWebm.url} type="video/webm" />
           <source src={heroVideo.url} type="video/mp4" />
         </video>
-      </motion.div>
+      </div>
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-black/90 via-black/60 to-black/25" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gold/10 mix-blend-color" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-black via-black/55 to-transparent" />
