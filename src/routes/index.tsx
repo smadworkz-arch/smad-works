@@ -686,20 +686,9 @@ function Field({ label, name, id, type = "text", className = "" }: { label: stri
 
 function VideoHero() {
   const reduceMotion = useReducedMotion();
+  const heroRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoLayerRef = useRef<HTMLDivElement>(null);
-
-  const handlePointerMove = (event: React.MouseEvent<HTMLElement>) => {
-    if (reduceMotion) return;
-    const bounds = event.currentTarget.getBoundingClientRect();
-    const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 30;
-    const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 22;
-    if (videoLayerRef.current) videoLayerRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-  };
-
-  const resetPointer = () => {
-    if (videoLayerRef.current) videoLayerRef.current.style.transform = "translate3d(0, 0, 0)";
-  };
 
   useEffect(() => {
     const video = videoRef.current;
@@ -708,12 +697,34 @@ function VideoHero() {
     void video.play().catch(() => undefined);
   }, []);
 
+  useEffect(() => {
+    if (reduceMotion) return;
+    const move = (event: MouseEvent) => {
+      const hero = heroRef.current;
+      const layer = videoLayerRef.current;
+      if (!hero || !layer) return;
+      const bounds = hero.getBoundingClientRect();
+      if (event.clientY < bounds.top || event.clientY > bounds.bottom) return;
+      const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 30;
+      const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 22;
+      layer.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    };
+    const reset = () => {
+      if (videoLayerRef.current) videoLayerRef.current.style.transform = "translate3d(0, 0, 0)";
+    };
+    window.addEventListener("mousemove", move, { passive: true });
+    window.addEventListener("mouseleave", reset);
+    return () => {
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("mouseleave", reset);
+    };
+  }, [reduceMotion]);
+
   return (
     <section
+      ref={heroRef}
       id="home"
       className="relative isolate min-h-[680px] overflow-hidden bg-black text-white"
-      onMouseMove={handlePointerMove}
-      onMouseLeave={resetPointer}
     >
       <div
         ref={videoLayerRef}
