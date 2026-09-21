@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { ClientOnly } from "@/components/ClientOnly";
 import { TiltCard } from "@/components/three/TiltCard";
 import heroVideo from "@/assets/smad-home-hero.mp4.asset.json";
+import heroVideoPoster from "@/assets/smad-home-hero-poster.jpg.asset.json";
 import reviewsImg from "@/assets/reviews.png.asset.json";
 import n8n1 from "@/assets/n8n-1.png.asset.json";
 import n8n2 from "@/assets/n8n-2.png.asset.json";
@@ -716,6 +717,7 @@ function VideoHero() {
         <video
           className="h-full w-full scale-[1.06] object-cover object-center saturate-[0.78] contrast-[1.08] brightness-[0.7]"
           src={heroVideo.url}
+          poster={heroVideoPoster.url}
           autoPlay
           muted
           loop
