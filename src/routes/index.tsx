@@ -687,19 +687,18 @@ function Field({ label, name, id, type = "text", className = "" }: { label: stri
 function VideoHero() {
   const reduceMotion = useReducedMotion();
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [pointer, setPointer] = useState({ x: 0, y: 0 });
+  const videoLayerRef = useRef<HTMLDivElement>(null);
 
   const handlePointerMove = (event: React.MouseEvent<HTMLElement>) => {
     if (reduceMotion) return;
     const bounds = event.currentTarget.getBoundingClientRect();
-    setPointer({
-      x: ((event.clientX - bounds.left) / bounds.width - 0.5) * 30,
-      y: ((event.clientY - bounds.top) / bounds.height - 0.5) * 22,
-    });
+    const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 30;
+    const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 22;
+    if (videoLayerRef.current) videoLayerRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
   };
 
   const resetPointer = () => {
-    setPointer({ x: 0, y: 0 });
+    if (videoLayerRef.current) videoLayerRef.current.style.transform = "translate3d(0, 0, 0)";
   };
 
   useEffect(() => {
@@ -717,8 +716,8 @@ function VideoHero() {
       onMouseLeave={resetPointer}
     >
       <div
+        ref={videoLayerRef}
         aria-hidden="true"
-        style={reduceMotion ? undefined : { transform: `translate3d(${pointer.x}px, ${pointer.y}px, 0)` }}
         className="pointer-events-none absolute -inset-8 -z-20 transition-transform duration-500 ease-out will-change-transform"
       >
         <video
