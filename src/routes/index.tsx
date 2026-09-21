@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { ClientOnly } from "@/components/ClientOnly";
 import { TiltCard } from "@/components/three/TiltCard";
 import heroVideo from "@/assets/smad-home-hero.mp4.asset.json";
+import heroVideoWebm from "@/assets/smad-home-hero.webm.asset.json";
 import heroVideoPoster from "@/assets/smad-home-hero-poster.jpg.asset.json";
 import reviewsImg from "@/assets/reviews.png.asset.json";
 import n8n1 from "@/assets/n8n-1.png.asset.json";
@@ -725,14 +726,16 @@ function VideoHero() {
         <video
           ref={videoRef}
           className="h-full w-full scale-[1.06] object-cover object-center saturate-[0.78] contrast-[1.08] brightness-[0.7]"
-          src={heroVideo.url}
           poster={heroVideoPoster.url}
           autoPlay
           muted
           loop
           playsInline
           preload="auto"
-        />
+        >
+          <source src={heroVideoWebm.url} type="video/webm" />
+          <source src={heroVideo.url} type="video/mp4" />
+        </video>
       </motion.div>
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-black/90 via-black/60 to-black/25" />
       <div className="pointer-events-none absolute inset-0 -z-10 bg-gold/10 mix-blend-color" />
