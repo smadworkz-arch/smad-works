@@ -9,48 +9,74 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AcademicResearchServicesRouteImport } from './routes/academic-research-services'
-import { Route as AiAutomationCourseRouteImport } from './routes/ai-automation-course'
-import { Route as AiContentGenerationRouteImport } from './routes/ai-content-generation'
-import { Route as AiCourseContentGenerationRouteImport } from './routes/ai-course-content-generation'
-import { Route as AiVideoGenerationCourseRouteImport } from './routes/ai-video-generation-course'
-import { Route as BusinessAutomationRouteImport } from './routes/business-automation'
-import { Route as LeadConversionServicesRouteImport } from './routes/lead-conversion-services'
-import { Route as LeadGenerationServicesRouteImport } from './routes/lead-generation-services'
-import { Route as LogoCreativeDesignServicesRouteImport } from './routes/logo-creative-design-services'
-import { Route as OperationsManagementServicesRouteImport } from './routes/operations-management-services'
-import { Route as QaTestingServicesRouteImport } from './routes/qa-testing-services'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as VideoProductionAiStudioRouteImport } from './routes/video-production-ai-studio'
-import { Route as IndustriesEducationRouteImport } from './routes/industries.education'
-import { Route as IndustriesFinanceInsuranceRouteImport } from './routes/industries.finance-insurance'
-import { Route as IndustriesHealthcareRouteImport } from './routes/industries.healthcare'
-import { Route as IndustriesHospitalityRouteImport } from './routes/industries.hospitality'
-import { Route as IndustriesManufacturingRouteImport } from './routes/industries.manufacturing'
-import { Route as IndustriesRealEstateRouteImport } from './routes/industries.real-estate'
-import { Route as IndustriesRetailEcommerceRouteImport } from './routes/industries.retail-ecommerce'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as QaTestingServicesRouteImport } from './routes/qa-testing-services'
+import { Route as OperationsManagementServicesRouteImport } from './routes/operations-management-services'
+import { Route as LogoCreativeDesignServicesRouteImport } from './routes/logo-creative-design-services'
+import { Route as LeadGenerationServicesRouteImport } from './routes/lead-generation-services'
+import { Route as LeadConversionServicesRouteImport } from './routes/lead-conversion-services'
+import { Route as BusinessAutomationRouteImport } from './routes/business-automation'
+import { Route as AiVideoGenerationCourseRouteImport } from './routes/ai-video-generation-course'
+import { Route as AiCourseContentGenerationRouteImport } from './routes/ai-course-content-generation'
+import { Route as AiContentGenerationRouteImport } from './routes/ai-content-generation'
+import { Route as AiAutomationCourseRouteImport } from './routes/ai-automation-course'
+import { Route as AcademicResearchServicesRouteImport } from './routes/academic-research-services'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as IndustriesStartupsSmesRouteImport } from './routes/industries.startups-smes'
+import { Route as IndustriesRetailEcommerceRouteImport } from './routes/industries.retail-ecommerce'
+import { Route as IndustriesRealEstateRouteImport } from './routes/industries.real-estate'
+import { Route as IndustriesManufacturingRouteImport } from './routes/industries.manufacturing'
+import { Route as IndustriesHospitalityRouteImport } from './routes/industries.hospitality'
+import { Route as IndustriesHealthcareRouteImport } from './routes/industries.healthcare'
+import { Route as IndustriesFinanceInsuranceRouteImport } from './routes/industries.finance-insurance'
+import { Route as IndustriesEducationRouteImport } from './routes/industries.education'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const VideoProductionAiStudioRoute = VideoProductionAiStudioRouteImport.update({
+  id: '/video-production-ai-studio',
+  path: '/video-production-ai-studio',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AcademicResearchServicesRoute =
-  AcademicResearchServicesRouteImport.update({
-    id: '/academic-research-services',
-    path: '/academic-research-services',
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QaTestingServicesRoute = QaTestingServicesRouteImport.update({
+  id: '/qa-testing-services',
+  path: '/qa-testing-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OperationsManagementServicesRoute =
+  OperationsManagementServicesRouteImport.update({
+    id: '/operations-management-services',
+    path: '/operations-management-services',
     getParentRoute: () => rootRouteImport,
   } as any)
-const AiAutomationCourseRoute = AiAutomationCourseRouteImport.update({
-  id: '/ai-automation-course',
-  path: '/ai-automation-course',
+const LogoCreativeDesignServicesRoute =
+  LogoCreativeDesignServicesRouteImport.update({
+    id: '/logo-creative-design-services',
+    path: '/logo-creative-design-services',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const LeadGenerationServicesRoute = LeadGenerationServicesRouteImport.update({
+  id: '/lead-generation-services',
+  path: '/lead-generation-services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AiContentGenerationRoute = AiContentGenerationRouteImport.update({
-  id: '/ai-content-generation',
-  path: '/ai-content-generation',
+const LeadConversionServicesRoute = LeadConversionServicesRouteImport.update({
+  id: '/lead-conversion-services',
+  path: '/lead-conversion-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessAutomationRoute = BusinessAutomationRouteImport.update({
+  id: '/business-automation',
+  path: '/business-automation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiVideoGenerationCourseRoute = AiVideoGenerationCourseRouteImport.update({
+  id: '/ai-video-generation-course',
+  path: '/ai-video-generation-course',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AiCourseContentGenerationRoute =
@@ -59,82 +85,30 @@ const AiCourseContentGenerationRoute =
     path: '/ai-course-content-generation',
     getParentRoute: () => rootRouteImport,
   } as any)
-const AiVideoGenerationCourseRoute = AiVideoGenerationCourseRouteImport.update({
-  id: '/ai-video-generation-course',
-  path: '/ai-video-generation-course',
+const AiContentGenerationRoute = AiContentGenerationRouteImport.update({
+  id: '/ai-content-generation',
+  path: '/ai-content-generation',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BusinessAutomationRoute = BusinessAutomationRouteImport.update({
-  id: '/business-automation',
-  path: '/business-automation',
+const AiAutomationCourseRoute = AiAutomationCourseRouteImport.update({
+  id: '/ai-automation-course',
+  path: '/ai-automation-course',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LeadConversionServicesRoute = LeadConversionServicesRouteImport.update({
-  id: '/lead-conversion-services',
-  path: '/lead-conversion-services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LeadGenerationServicesRoute = LeadGenerationServicesRouteImport.update({
-  id: '/lead-generation-services',
-  path: '/lead-generation-services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LogoCreativeDesignServicesRoute =
-  LogoCreativeDesignServicesRouteImport.update({
-    id: '/logo-creative-design-services',
-    path: '/logo-creative-design-services',
+const AcademicResearchServicesRoute =
+  AcademicResearchServicesRouteImport.update({
+    id: '/academic-research-services',
+    path: '/academic-research-services',
     getParentRoute: () => rootRouteImport,
   } as any)
-const OperationsManagementServicesRoute =
-  OperationsManagementServicesRouteImport.update({
-    id: '/operations-management-services',
-    path: '/operations-management-services',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const QaTestingServicesRoute = QaTestingServicesRouteImport.update({
-  id: '/qa-testing-services',
-  path: '/qa-testing-services',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const VideoProductionAiStudioRoute = VideoProductionAiStudioRouteImport.update({
-  id: '/video-production-ai-studio',
-  path: '/video-production-ai-studio',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesEducationRoute = IndustriesEducationRouteImport.update({
-  id: '/industries/education',
-  path: '/industries/education',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesFinanceInsuranceRoute =
-  IndustriesFinanceInsuranceRouteImport.update({
-    id: '/industries/finance-insurance',
-    path: '/industries/finance-insurance',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const IndustriesHealthcareRoute = IndustriesHealthcareRouteImport.update({
-  id: '/industries/healthcare',
-  path: '/industries/healthcare',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesHospitalityRoute = IndustriesHospitalityRouteImport.update({
-  id: '/industries/hospitality',
-  path: '/industries/hospitality',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesManufacturingRoute = IndustriesManufacturingRouteImport.update({
-  id: '/industries/manufacturing',
-  path: '/industries/manufacturing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndustriesRealEstateRoute = IndustriesRealEstateRouteImport.update({
-  id: '/industries/real-estate',
-  path: '/industries/real-estate',
+const IndustriesStartupsSmesRoute = IndustriesStartupsSmesRouteImport.update({
+  id: '/industries/startups-smes',
+  path: '/industries/startups-smes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesRetailEcommerceRoute =
@@ -143,9 +117,35 @@ const IndustriesRetailEcommerceRoute =
     path: '/industries/retail-ecommerce',
     getParentRoute: () => rootRouteImport,
   } as any)
-const IndustriesStartupsSmesRoute = IndustriesStartupsSmesRouteImport.update({
-  id: '/industries/startups-smes',
-  path: '/industries/startups-smes',
+const IndustriesRealEstateRoute = IndustriesRealEstateRouteImport.update({
+  id: '/industries/real-estate',
+  path: '/industries/real-estate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesManufacturingRoute = IndustriesManufacturingRouteImport.update({
+  id: '/industries/manufacturing',
+  path: '/industries/manufacturing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesHospitalityRoute = IndustriesHospitalityRouteImport.update({
+  id: '/industries/hospitality',
+  path: '/industries/hospitality',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesHealthcareRoute = IndustriesHealthcareRouteImport.update({
+  id: '/industries/healthcare',
+  path: '/industries/healthcare',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesFinanceInsuranceRoute =
+  IndustriesFinanceInsuranceRouteImport.update({
+    id: '/industries/finance-insurance',
+    path: '/industries/finance-insurance',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const IndustriesEducationRoute = IndustriesEducationRouteImport.update({
+  id: '/industries/education',
+  path: '/industries/education',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -324,88 +324,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/academic-research-services': {
-      id: '/academic-research-services'
-      path: '/academic-research-services'
-      fullPath: '/academic-research-services'
-      preLoaderRoute: typeof AcademicResearchServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ai-automation-course': {
-      id: '/ai-automation-course'
-      path: '/ai-automation-course'
-      fullPath: '/ai-automation-course'
-      preLoaderRoute: typeof AiAutomationCourseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ai-content-generation': {
-      id: '/ai-content-generation'
-      path: '/ai-content-generation'
-      fullPath: '/ai-content-generation'
-      preLoaderRoute: typeof AiContentGenerationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ai-course-content-generation': {
-      id: '/ai-course-content-generation'
-      path: '/ai-course-content-generation'
-      fullPath: '/ai-course-content-generation'
-      preLoaderRoute: typeof AiCourseContentGenerationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ai-video-generation-course': {
-      id: '/ai-video-generation-course'
-      path: '/ai-video-generation-course'
-      fullPath: '/ai-video-generation-course'
-      preLoaderRoute: typeof AiVideoGenerationCourseRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/business-automation': {
-      id: '/business-automation'
-      path: '/business-automation'
-      fullPath: '/business-automation'
-      preLoaderRoute: typeof BusinessAutomationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lead-conversion-services': {
-      id: '/lead-conversion-services'
-      path: '/lead-conversion-services'
-      fullPath: '/lead-conversion-services'
-      preLoaderRoute: typeof LeadConversionServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lead-generation-services': {
-      id: '/lead-generation-services'
-      path: '/lead-generation-services'
-      fullPath: '/lead-generation-services'
-      preLoaderRoute: typeof LeadGenerationServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/logo-creative-design-services': {
-      id: '/logo-creative-design-services'
-      path: '/logo-creative-design-services'
-      fullPath: '/logo-creative-design-services'
-      preLoaderRoute: typeof LogoCreativeDesignServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/operations-management-services': {
-      id: '/operations-management-services'
-      path: '/operations-management-services'
-      fullPath: '/operations-management-services'
-      preLoaderRoute: typeof OperationsManagementServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/qa-testing-services': {
-      id: '/qa-testing-services'
-      path: '/qa-testing-services'
-      fullPath: '/qa-testing-services'
-      preLoaderRoute: typeof QaTestingServicesRouteImport
+    '/video-production-ai-studio': {
+      id: '/video-production-ai-studio'
+      path: '/video-production-ai-studio'
+      fullPath: '/video-production-ai-studio'
+      preLoaderRoute: typeof VideoProductionAiStudioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -415,53 +338,95 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/video-production-ai-studio': {
-      id: '/video-production-ai-studio'
-      path: '/video-production-ai-studio'
-      fullPath: '/video-production-ai-studio'
-      preLoaderRoute: typeof VideoProductionAiStudioRouteImport
+    '/qa-testing-services': {
+      id: '/qa-testing-services'
+      path: '/qa-testing-services'
+      fullPath: '/qa-testing-services'
+      preLoaderRoute: typeof QaTestingServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/industries/education': {
-      id: '/industries/education'
-      path: '/industries/education'
-      fullPath: '/industries/education'
-      preLoaderRoute: typeof IndustriesEducationRouteImport
+    '/operations-management-services': {
+      id: '/operations-management-services'
+      path: '/operations-management-services'
+      fullPath: '/operations-management-services'
+      preLoaderRoute: typeof OperationsManagementServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/industries/finance-insurance': {
-      id: '/industries/finance-insurance'
-      path: '/industries/finance-insurance'
-      fullPath: '/industries/finance-insurance'
-      preLoaderRoute: typeof IndustriesFinanceInsuranceRouteImport
+    '/logo-creative-design-services': {
+      id: '/logo-creative-design-services'
+      path: '/logo-creative-design-services'
+      fullPath: '/logo-creative-design-services'
+      preLoaderRoute: typeof LogoCreativeDesignServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/industries/healthcare': {
-      id: '/industries/healthcare'
-      path: '/industries/healthcare'
-      fullPath: '/industries/healthcare'
-      preLoaderRoute: typeof IndustriesHealthcareRouteImport
+    '/lead-generation-services': {
+      id: '/lead-generation-services'
+      path: '/lead-generation-services'
+      fullPath: '/lead-generation-services'
+      preLoaderRoute: typeof LeadGenerationServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/industries/hospitality': {
-      id: '/industries/hospitality'
-      path: '/industries/hospitality'
-      fullPath: '/industries/hospitality'
-      preLoaderRoute: typeof IndustriesHospitalityRouteImport
+    '/lead-conversion-services': {
+      id: '/lead-conversion-services'
+      path: '/lead-conversion-services'
+      fullPath: '/lead-conversion-services'
+      preLoaderRoute: typeof LeadConversionServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/industries/manufacturing': {
-      id: '/industries/manufacturing'
-      path: '/industries/manufacturing'
-      fullPath: '/industries/manufacturing'
-      preLoaderRoute: typeof IndustriesManufacturingRouteImport
+    '/business-automation': {
+      id: '/business-automation'
+      path: '/business-automation'
+      fullPath: '/business-automation'
+      preLoaderRoute: typeof BusinessAutomationRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/industries/real-estate': {
-      id: '/industries/real-estate'
-      path: '/industries/real-estate'
-      fullPath: '/industries/real-estate'
-      preLoaderRoute: typeof IndustriesRealEstateRouteImport
+    '/ai-video-generation-course': {
+      id: '/ai-video-generation-course'
+      path: '/ai-video-generation-course'
+      fullPath: '/ai-video-generation-course'
+      preLoaderRoute: typeof AiVideoGenerationCourseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-course-content-generation': {
+      id: '/ai-course-content-generation'
+      path: '/ai-course-content-generation'
+      fullPath: '/ai-course-content-generation'
+      preLoaderRoute: typeof AiCourseContentGenerationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-content-generation': {
+      id: '/ai-content-generation'
+      path: '/ai-content-generation'
+      fullPath: '/ai-content-generation'
+      preLoaderRoute: typeof AiContentGenerationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-automation-course': {
+      id: '/ai-automation-course'
+      path: '/ai-automation-course'
+      fullPath: '/ai-automation-course'
+      preLoaderRoute: typeof AiAutomationCourseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/academic-research-services': {
+      id: '/academic-research-services'
+      path: '/academic-research-services'
+      fullPath: '/academic-research-services'
+      preLoaderRoute: typeof AcademicResearchServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/startups-smes': {
+      id: '/industries/startups-smes'
+      path: '/industries/startups-smes'
+      fullPath: '/industries/startups-smes'
+      preLoaderRoute: typeof IndustriesStartupsSmesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industries/retail-ecommerce': {
@@ -471,11 +436,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesRetailEcommerceRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/industries/startups-smes': {
-      id: '/industries/startups-smes'
-      path: '/industries/startups-smes'
-      fullPath: '/industries/startups-smes'
-      preLoaderRoute: typeof IndustriesStartupsSmesRouteImport
+    '/industries/real-estate': {
+      id: '/industries/real-estate'
+      path: '/industries/real-estate'
+      fullPath: '/industries/real-estate'
+      preLoaderRoute: typeof IndustriesRealEstateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/manufacturing': {
+      id: '/industries/manufacturing'
+      path: '/industries/manufacturing'
+      fullPath: '/industries/manufacturing'
+      preLoaderRoute: typeof IndustriesManufacturingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/hospitality': {
+      id: '/industries/hospitality'
+      path: '/industries/hospitality'
+      fullPath: '/industries/hospitality'
+      preLoaderRoute: typeof IndustriesHospitalityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/healthcare': {
+      id: '/industries/healthcare'
+      path: '/industries/healthcare'
+      fullPath: '/industries/healthcare'
+      preLoaderRoute: typeof IndustriesHealthcareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/finance-insurance': {
+      id: '/industries/finance-insurance'
+      path: '/industries/finance-insurance'
+      fullPath: '/industries/finance-insurance'
+      preLoaderRoute: typeof IndustriesFinanceInsuranceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/education': {
+      id: '/industries/education'
+      path: '/industries/education'
+      fullPath: '/industries/education'
+      preLoaderRoute: typeof IndustriesEducationRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
