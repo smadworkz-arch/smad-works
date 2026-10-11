@@ -324,13 +324,9 @@ function RevealOnScroll({
 /* ---------------- SECTIONS ---------------- */
 
 function AboutSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [80, -80]);
-  const rot = useTransform(scrollYProgress, [0, 1], [0, 360]);
   return (
     <SectionShell id="about">
-      <div ref={ref} className="grid gap-12 lg:grid-cols-2 lg:gap-20 items-center">
+      <div className="max-w-3xl">
         <RevealOnScroll>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">About</p>
           <h2 className="mt-4 font-display text-4xl sm:text-5xl text-white">
@@ -346,49 +342,6 @@ function AboutSection() {
             measurable results.
           </p>
         </RevealOnScroll>
-
-        <motion.div style={{ y }} className="relative h-[420px] [perspective:1200px]">
-          <motion.div
-            style={{ rotate: rot }}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            {/* Concentric gold rings */}
-            {[280, 220, 160, 100].map((size, i) => (
-              <motion.div
-                key={size}
-                className="absolute rounded-full border border-gold/30"
-                style={{
-                  width: size,
-                  height: size,
-                  transform: `rotateX(${65 + i * 3}deg) rotateY(${i * 8}deg)`,
-                  boxShadow: "0 0 40px rgba(212,175,55,0.15) inset",
-                }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20 + i * 5, ease: "linear", repeat: Infinity }}
-              />
-            ))}
-          </motion.div>
-          {/* orbiting dots */}
-          {[0, 60, 120, 180, 240, 300].map((deg, i) => (
-            <motion.span
-              key={deg}
-              className="absolute left-1/2 top-1/2 h-2 w-2 rounded-full bg-gold shadow-[0_0_20px_rgba(212,175,55,0.9)]"
-              style={{ transform: `translate(-50%, -50%)` }}
-              animate={{
-                x: [
-                  Math.cos((deg * Math.PI) / 180) * 140,
-                  Math.cos(((deg + 360) * Math.PI) / 180) * 140,
-                ],
-                y: [
-                  Math.sin((deg * Math.PI) / 180) * 140,
-                  Math.sin(((deg + 360) * Math.PI) / 180) * 140,
-                ],
-              }}
-              transition={{ duration: 12 + i, ease: "linear", repeat: Infinity }}
-            />
-          ))}
-          <div className="absolute left-1/2 top-1/2 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-gold to-amber-700 shadow-[0_0_80px_rgba(212,175,55,0.6)]" />
-        </motion.div>
       </div>
     </SectionShell>
   );
