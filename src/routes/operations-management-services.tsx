@@ -7,6 +7,8 @@ import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/motion/SectionEyebrow";
 import { ServicePageShell, FaqBlock, CtaBlock } from "@/components/motion/ServiceShell";
 import { serviceHead } from "@/lib/service-head";
+import { ServiceCardsSection } from "@/components/motion/LandingSections";
+import { Workflow, Sparkles, PhoneCall } from "lucide-react";
 
 const WHATSAPP =
   "https://wa.me/917439668751?text=" +
@@ -93,6 +95,37 @@ function OpsPage() {
             ))}
           </div>
         }
+      />
+
+      <ServiceCardsSection
+        id="ai-services"
+        eyebrow="AI in your daily operations"
+        title={
+          <>
+            Put AI to work <span className="text-gold">across your business.</span>
+          </>
+        }
+        subtitle="We plug AI into the everyday tasks that slow your team down — so work runs itself."
+        cards={[
+          {
+            icon: <Workflow size={18} />,
+            title: "Business Automation",
+            desc: "Automate repetitive tasks, approvals, follow-ups and reporting with smart workflows.",
+            cta: { label: "Explore", to: "/business-automation" },
+          },
+          {
+            icon: <Sparkles size={18} />,
+            title: "AI Content Generation",
+            desc: "Create posts, documents and marketing content in minutes with on-brand AI.",
+            cta: { label: "Explore", to: "/ai-content-generation" },
+          },
+          {
+            icon: <PhoneCall size={18} />,
+            title: "AI Receptionist",
+            desc: "An AI that answers calls and messages 24/7, books appointments and captures leads.",
+            cta: { label: "Get a demo", href: WHATSAPP },
+          },
+        ]}
       />
 
       {/* Kanban flow */}

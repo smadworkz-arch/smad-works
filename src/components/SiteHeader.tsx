@@ -32,61 +32,32 @@ const nav = [
   ["Contact", "/#contact"],
 ] as const;
 
-type ServiceLink = { to: string; title: string };
-type Category = {
-  icon: typeof Bot;
-  heading: string;
-  description: string;
-  items: ServiceLink[];
-};
+type Solution = { icon: typeof Bot; to: string; heading: string; description: string };
 
-const categories: Category[] = [
+const solutions: Solution[] = [
   {
     icon: Bot,
-    heading: "AI & Business Automation",
-    description: "Streamline operations with intelligent workflows.",
-    items: [
-      { to: "/business-automation", title: "Business Automation" },
-      { to: "/operations-management-services", title: "Operations Management" },
-      { to: "/ai-content-generation", title: "AI Content Generation" },
-    ],
+    to: "/operations-management-services",
+    heading: "Operations Management",
+    description: "Integrate AI into your daily operations.",
   },
   {
     icon: TrendingUp,
-    heading: "Business Growth",
-    description: "Fill your pipeline and close more deals.",
-    items: [
-      { to: "/lead-generation-services", title: "Lead Generation" },
-      { to: "/lead-conversion-services", title: "Lead Conversion" },
-    ],
+    to: "/social-media-management",
+    heading: "Social Media Management",
+    description: "Content, video, analytics and Meta Ads.",
   },
   {
     icon: Palette,
-    heading: "Creative & Media",
-    description: "Brand, visuals and video that stand out.",
-    items: [
-      { to: "/logo-creative-design-services", title: "Logo & Creative Design" },
-      { to: "/video-production-ai-studio", title: "Video Production & AI Studio" },
-    ],
-  },
-  {
-    icon: ShieldCheck,
-    heading: "Quality & Research",
-    description: "Ship reliable products backed by rigorous research.",
-    items: [
-      { to: "/qa-testing-services", title: "QA Testing Services" },
-      { to: "/academic-research-services", title: "Academic Research" },
-    ],
+    to: "/video-production-ai-studio",
+    heading: "Video Production",
+    description: "Long-form, reels and pro editing.",
   },
   {
     icon: GraduationCap,
-    heading: "AI Learning",
-    description: "Practical AI courses for teams and creators.",
-    items: [
-      { to: "/ai-automation-course", title: "AI Automation Course" },
-      { to: "/ai-video-generation-course", title: "AI Video Generation Course" },
-      { to: "/ai-course-content-generation", title: "AI Course Content" },
-    ],
+    to: "/content-management-for-creators",
+    heading: "Content Management for Creators",
+    description: "Planning, scheduling and publishing.",
   },
 ];
 
@@ -99,46 +70,35 @@ function SolutionsDrawerContent({ onNavigate }: { onNavigate: () => void }) {
           Everything you need to build, automate and grow
         </SheetTitle>
         <SheetDescription className="text-white/55 text-sm">
-          Explore our services across AI, automation, growth, creative and learning.
+          Choose a solution to explore its services.
         </SheetDescription>
       </SheetHeader>
 
       <div className="flex-1 overflow-y-auto px-4 py-5">
-        <div className="space-y-4">
-          {categories.map((cat) => {
-            const Icon = cat.icon;
+        <div className="space-y-3">
+          {solutions.map((s) => {
+            const Icon = s.icon;
             return (
-              <div
-                key={cat.heading}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-colors hover:border-gold/40"
+              <Link
+                key={s.to}
+                to={s.to}
+                onClick={onNavigate}
+                className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-all hover:border-gold/50 hover:bg-white/[0.06]"
               >
-                <div className="mb-3 flex items-start gap-3">
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-gold/30 bg-gold/10 text-gold">
-                    <Icon size={16} />
-                  </span>
-                  <div>
-                    <h4 className="text-sm font-semibold tracking-tight">{cat.heading}</h4>
-                    <p className="mt-0.5 text-xs text-white/50">{cat.description}</p>
-                  </div>
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-gold/30 bg-gold/10 text-gold">
+                  <Icon size={18} />
+                </span>
+                <div className="flex-1">
+                  <h4 className="text-sm font-semibold tracking-tight group-hover:text-gold">
+                    {s.heading}
+                  </h4>
+                  <p className="mt-0.5 text-xs text-white/50">{s.description}</p>
                 </div>
-                <ul className="space-y-1">
-                  {cat.items.map((s) => (
-                    <li key={s.to}>
-                      <Link
-                        to={s.to}
-                        onClick={onNavigate}
-                        className="group flex items-center justify-between rounded-md px-2.5 py-2 text-sm text-white/75 transition-all hover:bg-white/5 hover:text-gold"
-                      >
-                        <span>{s.title}</span>
-                        <ArrowRight
-                          size={14}
-                          className="-translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
-                        />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                <ArrowRight
+                  size={16}
+                  className="text-gold/60 transition-transform group-hover:translate-x-1 group-hover:text-gold"
+                />
+              </Link>
             );
           })}
         </div>
