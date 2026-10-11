@@ -6,6 +6,7 @@ import {
   useRouter,
   HeadContent,
   Scripts,
+  type ErrorComponentProps,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 
@@ -35,7 +36,7 @@ function NotFoundComponent() {
   );
 }
 
-function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
@@ -79,22 +80,45 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "SMad Works — Design • Develop • Deliver" },
-      { name: "description", content: "SMad Works builds AI, automation and digital solutions that help modern businesses scale, simplify operations and grow." },
+      {
+        name: "description",
+        content:
+          "SMad Works builds AI, automation and digital solutions that help modern businesses scale, simplify operations and grow.",
+      },
       { name: "author", content: "SMad Works" },
       { property: "og:title", content: "SMad Works — Design • Develop • Deliver" },
-      { property: "og:description", content: "SMad Works builds AI, automation and digital solutions that help modern businesses scale, simplify operations and grow." },
+      {
+        property: "og:description",
+        content:
+          "SMad Works builds AI, automation and digital solutions that help modern businesses scale, simplify operations and grow.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "SMad Works — Design • Develop • Deliver" },
-      { name: "twitter:description", content: "SMad Works builds AI, automation and digital solutions that help modern businesses scale, simplify operations and grow." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9c24e311-7f8b-4a9e-acec-183982993707/id-preview-b0f896b4--cd82ba60-3078-4a29-b618-6e69c2a31d29.lovable.app-1781797132962.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9c24e311-7f8b-4a9e-acec-183982993707/id-preview-b0f896b4--cd82ba60-3078-4a29-b618-6e69c2a31d29.lovable.app-1781797132962.png" },
+      {
+        name: "twitter:description",
+        content:
+          "SMad Works builds AI, automation and digital solutions that help modern businesses scale, simplify operations and grow.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9c24e311-7f8b-4a9e-acec-183982993707/id-preview-b0f896b4--cd82ba60-3078-4a29-b618-6e69c2a31d29.lovable.app-1781797132962.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9c24e311-7f8b-4a9e-acec-183982993707/id-preview-b0f896b4--cd82ba60-3078-4a29-b618-6e69c2a31d29.lovable.app-1781797132962.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap",
+      },
     ],
     scripts: [
       {

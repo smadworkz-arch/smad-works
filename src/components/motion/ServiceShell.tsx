@@ -31,7 +31,13 @@ export function FaqBlock({ faqs }: { faqs: { q: string; a: string }[] }) {
   );
 }
 
-function FaqItem({ f, defaultOpen = false }: { f: { q: string; a: string }; defaultOpen?: boolean }) {
+function FaqItem({
+  f,
+  defaultOpen = false,
+}: {
+  f: { q: string; a: string };
+  defaultOpen?: boolean;
+}) {
   const [open, setOpen] = useState(defaultOpen);
   return (
     <Reveal>
@@ -71,7 +77,9 @@ export function CtaBlock({
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_50%_at_50%_50%,rgba(212,175,55,0.18),transparent_70%)]" />
       <div className="relative mx-auto max-w-4xl px-5 text-center">
         <Reveal>
-          <h2 className="font-display text-4xl leading-[1.05] tracking-tight md:text-6xl">{title}</h2>
+          <h2 className="font-display text-4xl leading-[1.05] tracking-tight md:text-6xl">
+            {title}
+          </h2>
         </Reveal>
         {subtitle && (
           <Reveal delay={0.1}>

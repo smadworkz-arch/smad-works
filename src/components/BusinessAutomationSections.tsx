@@ -1,40 +1,103 @@
 import {
-  MessageCircle, Bot, PhoneCall, Users, Mail, Workflow, CalendarClock,
-  UserPlus, BarChart3, Cog, Sparkles, Zap, TrendingUp, ShieldCheck,
-  Headphones, Target, Heart, GraduationCap, Home, ShoppingBag, Landmark,
-  Factory, UtensilsCrossed, Rocket, Clock, DollarSign, Smile, ArrowUpRight,
-  Repeat, Users2, CheckCircle2,
+  MessageCircle,
+  Bot,
+  PhoneCall,
+  Users,
+  Mail,
+  Workflow,
+  CalendarClock,
+  UserPlus,
+  BarChart3,
+  Cog,
+  Sparkles,
+  Zap,
+  TrendingUp,
+  ShieldCheck,
+  Headphones,
+  Target,
+  Heart,
+  GraduationCap,
+  Home,
+  ShoppingBag,
+  Landmark,
+  Factory,
+  UtensilsCrossed,
+  Rocket,
+  Clock,
+  DollarSign,
+  Smile,
+  ArrowUpRight,
+  Repeat,
+  Users2,
+  CheckCircle2,
 } from "lucide-react";
 
 const WHATSAPP_NUMBER = "917439668751";
-const waUrl = (msg: string) =>
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+const waUrl = (msg: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 
 const automations = [
-  { icon: MessageCircle, title: "WhatsApp Automation", desc: "Lead capture, follow-ups, reminders, notifications." },
+  {
+    icon: MessageCircle,
+    title: "WhatsApp Automation",
+    desc: "Lead capture, follow-ups, reminders, notifications.",
+  },
   { icon: Bot, title: "AI Chatbots", desc: "24/7 customer support and lead qualification." },
   { icon: PhoneCall, title: "AI Calling Agents", desc: "Outbound and inbound AI voice calls." },
   { icon: Users, title: "CRM Automation", desc: "Customer data management and pipeline updates." },
   { icon: Mail, title: "Email Automation", desc: "Welcome emails, follow-ups, campaigns." },
   { icon: Workflow, title: "Workflow Automation", desc: "Automate repetitive business tasks." },
-  { icon: CalendarClock, title: "Appointment Automation", desc: "Scheduling, reminders, calendar sync." },
-  { icon: UserPlus, title: "Lead Management", desc: "Capture, qualify and assign leads automatically." },
+  {
+    icon: CalendarClock,
+    title: "Appointment Automation",
+    desc: "Scheduling, reminders, calendar sync.",
+  },
+  {
+    icon: UserPlus,
+    title: "Lead Management",
+    desc: "Capture, qualify and assign leads automatically.",
+  },
   { icon: BarChart3, title: "Reporting & Analytics", desc: "Automated dashboards and reports." },
   { icon: Cog, title: "Business Process Automation", desc: "Streamline internal operations." },
 ];
 
 const whyChoose = [
-  { icon: Sparkles, title: "Custom AI Solutions", desc: "Tailored automation built around your business." },
+  {
+    icon: Sparkles,
+    title: "Custom AI Solutions",
+    desc: "Tailored automation built around your business.",
+  },
   { icon: Zap, title: "Faster Operations", desc: "Reduce manual work and improve productivity." },
-  { icon: TrendingUp, title: "Scalable Systems", desc: "Automation that grows with your business." },
-  { icon: ShieldCheck, title: "Secure & Reliable", desc: "Built using trusted technologies and best practices." },
+  {
+    icon: TrendingUp,
+    title: "Scalable Systems",
+    desc: "Automation that grows with your business.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Secure & Reliable",
+    desc: "Built using trusted technologies and best practices.",
+  },
   { icon: Headphones, title: "Dedicated Support", desc: "Continuous guidance and optimization." },
-  { icon: Target, title: "Measurable Results", desc: "Focus on ROI, efficiency and business growth." },
+  {
+    icon: Target,
+    title: "Measurable Results",
+    desc: "Focus on ROI, efficiency and business growth.",
+  },
 ];
 
 const technologies = [
-  "OpenAI", "Claude", "Gemini", "n8n", "Make", "Zapier",
-  "WhatsApp Business API", "Google Workspace", "Meta API", "Python", "Docker", "GitHub",
+  "OpenAI",
+  "Claude",
+  "Gemini",
+  "n8n",
+  "Make",
+  "Zapier",
+  "WhatsApp Business API",
+  "Google Workspace",
+  "Meta API",
+  "Python",
+  "Docker",
+  "GitHub",
 ];
 
 const industries = [
@@ -44,7 +107,11 @@ const industries = [
   { icon: ShoppingBag, name: "Retail", desc: "Order updates, WhatsApp catalog & support." },
   { icon: Landmark, name: "Finance", desc: "KYC reminders, onboarding & advisory workflows." },
   { icon: Factory, name: "Manufacturing", desc: "Order tracking, inventory & vendor workflows." },
-  { icon: UtensilsCrossed, name: "Hospitality", desc: "Bookings, confirmations & guest experience." },
+  {
+    icon: UtensilsCrossed,
+    name: "Hospitality",
+    desc: "Bookings, confirmations & guest experience.",
+  },
   { icon: Rocket, name: "Startups", desc: "Go-to-market automation from day one." },
 ];
 
@@ -65,8 +132,12 @@ export function BusinessAutomationSections() {
         <div className="mx-auto max-w-7xl px-5">
           <div className="max-w-2xl">
             <span className="text-[11px] uppercase tracking-[0.18em] text-gold">Capabilities</span>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">What Can We Automate?</h2>
-            <p className="mt-3 text-black/60">From conversations to operations — automate every repetitive layer of your business.</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
+              What Can We Automate?
+            </h2>
+            <p className="mt-3 text-black/60">
+              From conversations to operations — automate every repetitive layer of your business.
+            </p>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {automations.map(({ icon: Icon, title, desc }) => (
@@ -90,9 +161,15 @@ export function BusinessAutomationSections() {
         <div className="absolute inset-0 -z-0 bg-[radial-gradient(60%_60%_at_80%_10%,rgba(212,175,55,0.18),transparent_60%)]" />
         <div className="relative mx-auto max-w-7xl px-5">
           <div className="max-w-2xl">
-            <span className="text-[11px] uppercase tracking-[0.18em] text-gold">Why SMad Works</span>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Built for outcomes, not overhead</h2>
-            <p className="mt-3 text-white/65">Enterprise-grade automation delivered with startup speed.</p>
+            <span className="text-[11px] uppercase tracking-[0.18em] text-gold">
+              Why SMad Works
+            </span>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
+              Built for outcomes, not overhead
+            </h2>
+            <p className="mt-3 text-white/65">
+              Enterprise-grade automation delivered with startup speed.
+            </p>
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {whyChoose.map(({ icon: Icon, title, desc }) => (
@@ -116,8 +193,12 @@ export function BusinessAutomationSections() {
         <div className="mx-auto max-w-7xl px-5">
           <div className="max-w-2xl">
             <span className="text-[11px] uppercase tracking-[0.18em] text-gold">Stack</span>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Technologies we use</h2>
-            <p className="mt-3 text-black/60">Best-in-class AI, automation and integration platforms.</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
+              Technologies we use
+            </h2>
+            <p className="mt-3 text-black/60">
+              Best-in-class AI, automation and integration platforms.
+            </p>
           </div>
           <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
             {technologies.map((t) => (
@@ -137,8 +218,12 @@ export function BusinessAutomationSections() {
         <div className="mx-auto max-w-7xl px-5">
           <div className="max-w-2xl">
             <span className="text-[11px] uppercase tracking-[0.18em] text-gold">Industries</span>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Industries we serve</h2>
-            <p className="mt-3 text-black/60">Automation tailored to the workflows of every sector we work with.</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
+              Industries we serve
+            </h2>
+            <p className="mt-3 text-black/60">
+              Automation tailored to the workflows of every sector we work with.
+            </p>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {industries.map(({ icon: Icon, name, desc }) => (
@@ -166,8 +251,12 @@ export function BusinessAutomationSections() {
         <div className="mx-auto max-w-7xl px-5">
           <div className="max-w-2xl">
             <span className="text-[11px] uppercase tracking-[0.18em] text-gold">Benefits</span>
-            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">Why businesses automate</h2>
-            <p className="mt-3 text-black/60">Real, measurable impact across every part of the business.</p>
+            <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
+              Why businesses automate
+            </h2>
+            <p className="mt-3 text-black/60">
+              Real, measurable impact across every part of the business.
+            </p>
           </div>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map(({ icon: Icon, title }) => (
@@ -206,7 +295,8 @@ export function BusinessAutomationCta() {
                 Ready to Automate Your Business?
               </h2>
               <p className="mt-4 max-w-xl text-white/70">
-                Let's discuss how AI and automation can help your business save time, reduce costs, and grow faster.
+                Let's discuss how AI and automation can help your business save time, reduce costs,
+                and grow faster.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 md:justify-end">

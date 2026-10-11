@@ -47,13 +47,23 @@ function Nodes() {
       {nodes.map((n, i) => (
         <mesh key={i} position={n.pos.toArray()}>
           <sphereGeometry args={[0.18, 32, 32]} />
-          <meshStandardMaterial color="#d4af37" emissive="#d4af37" emissiveIntensity={0.6} roughness={0.3} />
+          <meshStandardMaterial
+            color="#d4af37"
+            emissive="#d4af37"
+            emissiveIntensity={0.6}
+            roughness={0.3}
+          />
         </mesh>
       ))}
       {/* center hub */}
       <mesh>
         <icosahedronGeometry args={[0.45, 0]} />
-        <meshStandardMaterial color="#ffffff" emissive="#d4af37" emissiveIntensity={0.3} wireframe />
+        <meshStandardMaterial
+          color="#ffffff"
+          emissive="#d4af37"
+          emissiveIntensity={0.3}
+          wireframe
+        />
       </mesh>
       <lineSegments>
         <bufferGeometry>
@@ -91,7 +101,15 @@ function Pulses() {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" args={[positions, 3]} />
       </bufferGeometry>
-      <pointsMaterial size={0.06} color="#ffffff" transparent opacity={0.7} sizeAttenuation depthWrite={false} blending={THREE.AdditiveBlending} />
+      <pointsMaterial
+        size={0.06}
+        color="#ffffff"
+        transparent
+        opacity={0.7}
+        sizeAttenuation
+        depthWrite={false}
+        blending={THREE.AdditiveBlending}
+      />
     </points>
   );
 }
@@ -100,7 +118,11 @@ export function AutomationNodesScene() {
   return (
     <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12]">
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_50%,rgba(212,175,55,0.18),transparent_70%)]" />
-      <Canvas camera={{ position: [0, 0, 6], fov: 55 }} dpr={[1, 1.5]} gl={{ antialias: true, alpha: true }}>
+      <Canvas
+        camera={{ position: [0, 0, 6], fov: 55 }}
+        dpr={[1, 1.5]}
+        gl={{ antialias: true, alpha: true }}
+      >
         <ambientLight intensity={0.6} />
         <pointLight position={[5, 5, 5]} intensity={1.2} color="#d4af37" />
         <Nodes />
@@ -108,7 +130,10 @@ export function AutomationNodesScene() {
       </Canvas>
       <div className="pointer-events-none absolute inset-x-0 bottom-0 flex flex-wrap gap-2 p-4">
         {NODE_LABELS.map((l) => (
-          <span key={l} className="rounded-full border border-gold/40 bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-gold backdrop-blur">
+          <span
+            key={l}
+            className="rounded-full border border-gold/40 bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-gold backdrop-blur"
+          >
             {l}
           </span>
         ))}

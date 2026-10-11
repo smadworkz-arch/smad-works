@@ -32,30 +32,144 @@ type Work = {
 
 const works: Work[] = [
   // AppMax — mobile app dev brand (red/black)
-  { src: appmax1.url, label: "Apps That Drive Growth", project: "AppMax", category: "Carousel", aspect: "square" },
-  { src: appmax2.url, label: "Build Beyond Ideas", project: "AppMax", category: "Image", aspect: "square" },
-  { src: appmax3.url, label: "Explore Beyond Limits", project: "AppMax", category: "Carousel", aspect: "square" },
+  {
+    src: appmax1.url,
+    label: "Apps That Drive Growth",
+    project: "AppMax",
+    category: "Carousel",
+    aspect: "square",
+  },
+  {
+    src: appmax2.url,
+    label: "Build Beyond Ideas",
+    project: "AppMax",
+    category: "Image",
+    aspect: "square",
+  },
+  {
+    src: appmax3.url,
+    label: "Explore Beyond Limits",
+    project: "AppMax",
+    category: "Carousel",
+    aspect: "square",
+  },
   // Blixeon Cloud
-  { src: bxCloud1.url, label: "Power The Cloud", project: "Blixeon Cloud", category: "Image", aspect: "square" },
-  { src: bxCloud2.url, label: "Cloud Solutions", project: "Blixeon Cloud", category: "Carousel", aspect: "square" },
-  { src: bxCloud3.url, label: "Your Business. Everywhere.", project: "Blixeon Cloud", category: "Image", aspect: "square" },
+  {
+    src: bxCloud1.url,
+    label: "Power The Cloud",
+    project: "Blixeon Cloud",
+    category: "Image",
+    aspect: "square",
+  },
+  {
+    src: bxCloud2.url,
+    label: "Cloud Solutions",
+    project: "Blixeon Cloud",
+    category: "Carousel",
+    aspect: "square",
+  },
+  {
+    src: bxCloud3.url,
+    label: "Your Business. Everywhere.",
+    project: "Blixeon Cloud",
+    category: "Image",
+    aspect: "square",
+  },
   // Blixeon Blockchain
-  { src: bxChain1.url, label: "Build On Blockchain", project: "Blixeon Blockchain", category: "Image", aspect: "square" },
-  { src: bxChain2.url, label: "Blockchain Solutions", project: "Blixeon Blockchain", category: "Carousel", aspect: "square" },
-  { src: bxChain3.url, label: "Your Idea. On-Chain.", project: "Blixeon Blockchain", category: "Carousel", aspect: "square" },
+  {
+    src: bxChain1.url,
+    label: "Build On Blockchain",
+    project: "Blixeon Blockchain",
+    category: "Image",
+    aspect: "square",
+  },
+  {
+    src: bxChain2.url,
+    label: "Blockchain Solutions",
+    project: "Blixeon Blockchain",
+    category: "Carousel",
+    aspect: "square",
+  },
+  {
+    src: bxChain3.url,
+    label: "Your Idea. On-Chain.",
+    project: "Blixeon Blockchain",
+    category: "Carousel",
+    aspect: "square",
+  },
   // Thankwoo
-  { src: twSlide1.url, label: "Human OS — Slide 1", project: "Thankwoo", category: "Carousel", aspect: "portrait" },
-  { src: twSlide2.url, label: "Manages Your Apps — Slide 2", project: "Thankwoo", category: "Carousel", aspect: "portrait" },
-  { src: twSlide3.url, label: "Calendar Schedule — Slide 3", project: "Thankwoo", category: "Carousel", aspect: "portrait" },
-  { src: twSlide4.url, label: "Who Manages Relationships — Slide 4", project: "Thankwoo", category: "Carousel", aspect: "portrait" },
-  { src: twSlide5.url, label: "Meet Thankwoo — Slide 5", project: "Thankwoo", category: "Carousel", aspect: "portrait" },
-  { src: twSlide1b.url, label: "Last Spoke", project: "Thankwoo", category: "Carousel", aspect: "portrait" },
-  { src: twSlide2b.url, label: "Still Care?", project: "Thankwoo", category: "Carousel", aspect: "portrait" },
-  { src: twFacebook.url, label: "Friendships Don't End Overnight", project: "Thankwoo", category: "Image", aspect: "portrait" },
-  { src: twPost2.url, label: "Reconnect Before It's Too Late", project: "Thankwoo", category: "Image", aspect: "portrait" },
+  {
+    src: twSlide1.url,
+    label: "Human OS — Slide 1",
+    project: "Thankwoo",
+    category: "Carousel",
+    aspect: "portrait",
+  },
+  {
+    src: twSlide2.url,
+    label: "Manages Your Apps — Slide 2",
+    project: "Thankwoo",
+    category: "Carousel",
+    aspect: "portrait",
+  },
+  {
+    src: twSlide3.url,
+    label: "Calendar Schedule — Slide 3",
+    project: "Thankwoo",
+    category: "Carousel",
+    aspect: "portrait",
+  },
+  {
+    src: twSlide4.url,
+    label: "Who Manages Relationships — Slide 4",
+    project: "Thankwoo",
+    category: "Carousel",
+    aspect: "portrait",
+  },
+  {
+    src: twSlide5.url,
+    label: "Meet Thankwoo — Slide 5",
+    project: "Thankwoo",
+    category: "Carousel",
+    aspect: "portrait",
+  },
+  {
+    src: twSlide1b.url,
+    label: "Last Spoke",
+    project: "Thankwoo",
+    category: "Carousel",
+    aspect: "portrait",
+  },
+  {
+    src: twSlide2b.url,
+    label: "Still Care?",
+    project: "Thankwoo",
+    category: "Carousel",
+    aspect: "portrait",
+  },
+  {
+    src: twFacebook.url,
+    label: "Friendships Don't End Overnight",
+    project: "Thankwoo",
+    category: "Image",
+    aspect: "portrait",
+  },
+  {
+    src: twPost2.url,
+    label: "Reconnect Before It's Too Late",
+    project: "Thankwoo",
+    category: "Image",
+    aspect: "portrait",
+  },
 ];
 
-const projectFilters = ["All", "Thankwoo", "AppMax", "Blixeon Cloud", "Blixeon Blockchain"] as const;
+const projectFilters = [
+  "All",
+  "Thankwoo",
+  "AppMax",
+  "Blixeon Cloud",
+  "Blixeon Blockchain",
+] as const;
 type ProjectFilter = (typeof projectFilters)[number];
 
 const categoryFilters = ["All types", "Carousel", "Image"] as const;
@@ -84,7 +198,8 @@ function Showcase() {
     if (lightbox === null) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setLightbox(null);
-      if (e.key === "ArrowRight") setLightbox((i) => (i === null ? null : (i + 1) % filtered.length));
+      if (e.key === "ArrowRight")
+        setLightbox((i) => (i === null ? null : (i + 1) % filtered.length));
       if (e.key === "ArrowLeft")
         setLightbox((i) => (i === null ? null : (i - 1 + filtered.length) % filtered.length));
     };
@@ -100,9 +215,7 @@ function Showcase() {
   const cardWidth = 280;
   const gap = 40;
   const radius =
-    count <= 1
-      ? 0
-      : Math.round((cardWidth / 2 + gap) / Math.tan(Math.PI / Math.max(count, 3)));
+    count <= 1 ? 0 : Math.round((cardWidth / 2 + gap) / Math.tan(Math.PI / Math.max(count, 3)));
 
   const rotateY = -active * anglePer;
 
@@ -140,7 +253,9 @@ function Showcase() {
           </div>
           <div className="text-right">
             <div className="text-3xl font-semibold tracking-tight text-gold">{works.length}+</div>
-            <div className="text-xs uppercase tracking-[0.18em] text-white/50">Pieces exhibited</div>
+            <div className="text-xs uppercase tracking-[0.18em] text-white/50">
+              Pieces exhibited
+            </div>
           </div>
         </div>
 
@@ -188,9 +303,7 @@ function Showcase() {
               style={{ perspective: "1400px", perspectiveOrigin: "50% 45%" }}
             >
               {/* Floor reflection */}
-              <div
-                className="pointer-events-none absolute left-1/2 top-[78%] h-40 w-[80%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.18),transparent_70%)] blur-2xl"
-              />
+              <div className="pointer-events-none absolute left-1/2 top-[78%] h-40 w-[80%] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.18),transparent_70%)] blur-2xl" />
               <div
                 className="relative mx-auto h-full w-full transition-transform duration-700 ease-out"
                 style={{
@@ -302,7 +415,6 @@ function Showcase() {
         )}
       </div>
 
-
       {/* Lightbox */}
       {current && lightbox !== null && (
         <div
@@ -312,19 +424,14 @@ function Showcase() {
           <button
             onClick={(e) => {
               e.stopPropagation();
-              setLightbox((i) =>
-                i === null ? null : (i - 1 + filtered.length) % filtered.length,
-              );
+              setLightbox((i) => (i === null ? null : (i - 1 + filtered.length) % filtered.length));
             }}
             className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 p-3 text-white transition hover:border-gold hover:text-gold"
             aria-label="Previous"
           >
             ←
           </button>
-          <div
-            className="relative max-h-[90vh] max-w-5xl"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="relative max-h-[90vh] max-w-5xl" onClick={(e) => e.stopPropagation()}>
             <img
               src={current.src}
               alt={`${current.project} — ${current.label}`}
@@ -384,21 +491,41 @@ export const Route = createFileRoute("/ai-content-generation")({
       title="AI Content Generation"
       headline="Create High Quality Content Faster With AI"
       description="Generate creative digital content powered by advanced AI tools."
-      benefits={["Faster production", "Lower cost than shoots", "Consistent brand visuals", "Multi-platform ready"]}
+      benefits={[
+        "Faster production",
+        "Lower cost than shoots",
+        "Consistent brand visuals",
+        "Multi-platform ready",
+      ]}
       ctaPrimary="Create AI Content"
       whatsappMessage="Hi SMad Works, I want to create AI content for my brand."
       services={[
         { title: "Visual Content", items: ["AI Videos", "AI Images", "Product Promotions"] },
-        { title: "Brand Storytelling", items: ["Brand Storytelling", "Marketing Content", "Ad Creatives"] },
+        {
+          title: "Brand Storytelling",
+          items: ["Brand Storytelling", "Marketing Content", "Ad Creatives"],
+        },
         { title: "Short Form", items: ["Social Media Creatives", "Reels & Shorts", "Thumbnails"] },
       ]}
       portfolio={<Showcase />}
       industries={["Brands", "Creators", "Businesses", "Marketing Teams"]}
       faqs={[
-        { q: "Which AI tools do you use?", a: "Best-in-class video, image and voice models combined with custom workflows." },
-        { q: "Can it match my brand?", a: "Yes — we craft style references, palettes and tone for consistent output." },
-        { q: "Do you handle posting?", a: "Optional — we can plug into your social media calendar and scheduler." },
-        { q: "What formats are delivered?", a: "9:16, 1:1, 16:9 in MP4, PNG/JPG and editable source where possible." },
+        {
+          q: "Which AI tools do you use?",
+          a: "Best-in-class video, image and voice models combined with custom workflows.",
+        },
+        {
+          q: "Can it match my brand?",
+          a: "Yes — we craft style references, palettes and tone for consistent output.",
+        },
+        {
+          q: "Do you handle posting?",
+          a: "Optional — we can plug into your social media calendar and scheduler.",
+        },
+        {
+          q: "What formats are delivered?",
+          a: "9:16, 1:1, 16:9 in MP4, PNG/JPG and editable source where possible.",
+        },
       ]}
       related={[
         { to: "/ai-video-generation-course", title: "AI Video Generation Course" },

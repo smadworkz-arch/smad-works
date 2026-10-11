@@ -1,6 +1,7 @@
 import { useMemo, useRef, useEffect } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
+import { InteractiveVideoBackground } from "@/components/InteractiveVideoBackground";
 
 function Particles({ count = 1400 }: { count?: number }) {
   const ref = useRef<THREE.Points>(null!);
@@ -80,23 +81,6 @@ function Particles({ count = 1400 }: { count?: number }) {
   );
 }
 
-function GoldOrb() {
-  const ref = useRef<THREE.Mesh>(null!);
-  useFrame((state, delta) => {
-    if (!ref.current) return;
-    ref.current.rotation.y += delta * 0.15;
-    ref.current.rotation.x += delta * 0.05;
-    const t = state.clock.elapsedTime;
-    ref.current.position.y = Math.sin(t * 0.4) * 0.3;
-  });
-  return (
-    <mesh ref={ref} position={[0, 0, -2]}>
-      <icosahedronGeometry args={[1.6, 1]} />
-      <meshBasicMaterial color="#d4af37" wireframe transparent opacity={0.12} />
-    </mesh>
-  );
-}
-
 function Resizer() {
   const { gl } = useThree();
   useEffect(() => {
@@ -107,16 +91,13 @@ function Resizer() {
 
 export function ThreeBackground() {
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,175,55,0.10),transparent_55%),radial-gradient(ellipse_at_bottom,rgba(212,175,55,0.06),transparent_60%)]" />
+    <div className="pointer-events-none fixed inset-0 -z-10 opacity-70">
       <Canvas
         camera={{ position: [0, 0, 8], fov: 60 }}
         dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       >
         <Resizer />
-        <fog attach="fog" args={["#0b0b0d", 6, 20]} />
-        <GoldOrb />
         <Particles />
       </Canvas>
     </div>

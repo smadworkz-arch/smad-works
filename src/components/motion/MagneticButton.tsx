@@ -11,7 +11,15 @@ type Props = {
   rel?: string;
 };
 
-export function MagneticButton({ children, href, onClick, className = "", strength = 20, target, rel }: Props) {
+export function MagneticButton({
+  children,
+  href,
+  onClick,
+  className = "",
+  strength = 20,
+  target,
+  rel,
+}: Props) {
   const ref = useRef<HTMLElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -31,10 +39,7 @@ export function MagneticButton({ children, href, onClick, className = "", streng
   };
 
   const Content = (
-    <motion.span
-      style={{ x: sx, y: sy, display: "inline-block" }}
-      className="pointer-events-none"
-    >
+    <motion.span style={{ x: sx, y: sy, display: "inline-block" }} className="pointer-events-none">
       {children}
     </motion.span>
   );
@@ -59,12 +64,7 @@ export function MagneticButton({ children, href, onClick, className = "", streng
     );
   }
   return (
-    <button
-      {...common}
-      ref={ref as React.Ref<HTMLButtonElement>}
-      onClick={onClick}
-      type="button"
-    >
+    <button {...common} ref={ref as React.Ref<HTMLButtonElement>} onClick={onClick} type="button">
       {Content}
     </button>
   );

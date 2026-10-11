@@ -6,8 +6,7 @@ import { AlertCircle, CheckCircle2, Sparkles, ArrowRight } from "lucide-react";
 import type { IndustryData } from "@/lib/industries-data";
 
 const WHATSAPP_NUMBER = "917439668751";
-const waUrl = (msg: string) =>
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+const waUrl = (msg: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 
 export function IndustryPage({ data }: { data: IndustryData }) {
   const Icon = data.icon;
@@ -32,7 +31,8 @@ export function IndustryPage({ data }: { data: IndustryData }) {
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href={waUrl(data.whatsappMessage)}
-                target="_blank" rel="noreferrer"
+                target="_blank"
+                rel="noreferrer"
                 className="rounded-full bg-gold px-6 py-3 text-sm font-medium text-black transition hover:bg-white"
               >
                 Book a Free Consultation
@@ -211,7 +211,9 @@ export function IndustryPage({ data }: { data: IndustryData }) {
                 className="group flex items-center justify-between rounded-2xl border border-black/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.2)]"
               >
                 <span className="font-medium">{r.title}</span>
-                <span className="text-black/50 transition group-hover:translate-x-1 group-hover:text-gold">→</span>
+                <span className="text-black/50 transition group-hover:translate-x-1 group-hover:text-gold">
+                  →
+                </span>
               </Link>
             ))}
           </div>
@@ -235,25 +237,30 @@ export function IndustryPage({ data }: { data: IndustryData }) {
             <div className="absolute inset-0 -z-0 bg-[radial-gradient(60%_60%_at_20%_20%,rgba(212,175,55,0.25),transparent_60%)]" />
             <div className="relative grid gap-8 md:grid-cols-[1.4fr_1fr] md:items-center">
               <div>
-                <span className="text-[11px] uppercase tracking-[0.2em] text-gold">Get started</span>
+                <span className="text-[11px] uppercase tracking-[0.2em] text-gold">
+                  Get started
+                </span>
                 <h2 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
                   Ready to transform your {data.name.toLowerCase()} business?
                 </h2>
                 <p className="mt-4 max-w-xl text-white/70">
-                  Book a free consultation and discover how AI & automation can help you save time, reduce costs and grow faster.
+                  Book a free consultation and discover how AI & automation can help you save time,
+                  reduce costs and grow faster.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 md:justify-end">
                 <a
                   href={waUrl(data.whatsappMessage)}
-                  target="_blank" rel="noreferrer"
+                  target="_blank"
+                  rel="noreferrer"
                   className="rounded-full bg-gold px-6 py-3 text-sm font-medium text-black transition hover:bg-white"
                 >
                   Book Free Consultation
                 </a>
                 <a
                   href={waUrl(data.whatsappMessage)}
-                  target="_blank" rel="noreferrer"
+                  target="_blank"
+                  rel="noreferrer"
                   className="rounded-full border border-white/20 px-6 py-3 text-sm font-medium text-white transition hover:border-gold hover:text-gold"
                 >
                   WhatsApp Us

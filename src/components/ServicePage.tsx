@@ -4,8 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 
 const WHATSAPP_NUMBER = "917439668751";
-const waUrl = (msg: string) =>
-  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+const waUrl = (msg: string) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 
 export type RelatedLink = { to: string; title: string };
 
@@ -35,16 +34,18 @@ export function ServicePage(props: ServicePageProps) {
       <Hero {...props} />
       <ServicesGrid services={props.services} />
       {props.portfolio}
-      {props.process && props.process.length > 0 && (
-        <Process process={props.process} />
-      )}
+      {props.process && props.process.length > 0 && <Process process={props.process} />}
       {props.industries && props.industries.length > 0 && (
         <Industries industries={props.industries} />
       )}
       {props.beforeFaq}
       <Faq faqs={props.faqs} />
       <Related related={props.related} />
-      <Contact ctaPrimary={props.ctaPrimary} whatsappMessage={props.whatsappMessage} title={props.title} />
+      <Contact
+        ctaPrimary={props.ctaPrimary}
+        whatsappMessage={props.whatsappMessage}
+        title={props.title}
+      />
       <SiteFooter />
     </div>
   );
@@ -63,7 +64,6 @@ const allServices: RelatedLink[] = [
   { to: "/lead-conversion-services", title: "Lead Conversion" },
   { to: "/logo-creative-design-services", title: "Logo & Creative Design" },
 ];
-
 
 function Hero(p: ServicePageProps) {
   return (
@@ -93,7 +93,8 @@ function Hero(p: ServicePageProps) {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={waUrl(p.whatsappMessage)}
-              target="_blank" rel="noreferrer"
+              target="_blank"
+              rel="noreferrer"
               className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white transition hover:bg-gold hover:text-black"
             >
               {p.ctaPrimary}
@@ -110,25 +111,25 @@ function Hero(p: ServicePageProps) {
           {p.illustration ? (
             <div className="relative">{p.illustration}</div>
           ) : (
-          <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-black/10 bg-gradient-to-br from-black to-black/85 p-8 text-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.4)]">
-            <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_30%_20%,rgba(212,175,55,0.35),transparent_70%)]" />
-            <div className="relative flex h-full flex-col justify-between">
-              <div>
-                <div className="text-[11px] uppercase tracking-[0.2em] text-gold">SMad Works</div>
-                <div className="mt-2 text-xl font-medium">{p.title}</div>
-              </div>
-              <div className="grid grid-cols-2 gap-3 text-xs text-white/80">
-                {(p.benefits ?? p.services[0]?.items ?? []).slice(0, 4).map((b) => (
-                  <div key={b} className="rounded-xl border border-white/10 bg-white/5 p-3">
-                    {b}
-                  </div>
-                ))}
-              </div>
-              <div className="rounded-xl border border-gold/40 bg-gold/10 p-4 text-xs">
-                Trusted by modern teams across Healthcare, E-commerce, Education & Real Estate.
+            <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-black/10 bg-gradient-to-br from-black to-black/85 p-8 text-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.4)]">
+              <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_30%_20%,rgba(212,175,55,0.35),transparent_70%)]" />
+              <div className="relative flex h-full flex-col justify-between">
+                <div>
+                  <div className="text-[11px] uppercase tracking-[0.2em] text-gold">SMad Works</div>
+                  <div className="mt-2 text-xl font-medium">{p.title}</div>
+                </div>
+                <div className="grid grid-cols-2 gap-3 text-xs text-white/80">
+                  {(p.benefits ?? p.services[0]?.items ?? []).slice(0, 4).map((b) => (
+                    <div key={b} className="rounded-xl border border-white/10 bg-white/5 p-3">
+                      {b}
+                    </div>
+                  ))}
+                </div>
+                <div className="rounded-xl border border-gold/40 bg-gold/10 p-4 text-xs">
+                  Trusted by modern teams across Healthcare, E-commerce, Education & Real Estate.
+                </div>
               </div>
             </div>
-          </div>
           )}
         </div>
       </div>
@@ -142,13 +143,20 @@ function ServicesGrid({ services }: { services: ServicePageProps["services"] }) 
       <div className="mx-auto max-w-7xl px-5">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">What we provide</h2>
-          <p className="mt-3 text-black/60">Outcome-driven services designed to deliver measurable results.</p>
+          <p className="mt-3 text-black/60">
+            Outcome-driven services designed to deliver measurable results.
+          </p>
         </div>
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
-            <div key={s.title} className="group rounded-2xl border border-black/10 bg-white p-6 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]">
+            <div
+              key={s.title}
+              className="group rounded-2xl border border-black/10 bg-white p-6 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
+            >
               <div className="flex items-center gap-3">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-black text-gold transition group-hover:bg-gold group-hover:text-black">✦</span>
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-black text-gold transition group-hover:bg-gold group-hover:text-black">
+                  ✦
+                </span>
                 <h3 className="text-lg font-semibold">{s.title}</h3>
               </div>
               <ul className="mt-4 space-y-2 text-sm text-black/70">
@@ -171,7 +179,9 @@ function Process({ process }: { process: NonNullable<ServicePageProps["process"]
     <section className="border-b border-black/5 bg-[#fafafa] py-20">
       <div className="mx-auto max-w-7xl px-5">
         <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">How we work</h2>
-        <p className="mt-3 max-w-xl text-black/60">A clear, transparent process from discovery to delivery.</p>
+        <p className="mt-3 max-w-xl text-black/60">
+          A clear, transparent process from discovery to delivery.
+        </p>
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {process.map((p) => (
             <div key={p.title} className="rounded-2xl border border-black/10 bg-white p-6">
@@ -193,7 +203,10 @@ function Industries({ industries }: { industries: string[] }) {
         <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Who we serve</h2>
         <div className="mt-8 flex flex-wrap gap-2">
           {industries.map((i) => (
-            <span key={i} className="rounded-full border border-black/10 bg-white px-4 py-2 text-sm text-black/75 transition hover:border-gold hover:text-black">
+            <span
+              key={i}
+              className="rounded-full border border-black/10 bg-white px-4 py-2 text-sm text-black/75 transition hover:border-gold hover:text-black"
+            >
               {i}
             </span>
           ))}
@@ -208,23 +221,25 @@ function Faq({ faqs }: { faqs: ServicePageProps["faqs"] }) {
   return (
     <section className="border-b border-black/5 bg-[#fafafa] py-20">
       <div className="mx-auto max-w-3xl px-5">
-        <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">Frequently asked questions</h2>
+        <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+          Frequently asked questions
+        </h2>
         <div className="mt-8 divide-y divide-black/10 rounded-2xl border border-black/10 bg-white">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <button
-                key={f.q}
-                onClick={() => setOpen(isOpen ? null : i)}
-                className="w-full px-5 py-4 text-left transition hover:bg-black/[0.02]"
-                aria-expanded={isOpen}
-              >
-                <div className="flex items-center justify-between gap-4">
+              <div key={f.q} className="px-5 py-4">
+                <button
+                  type="button"
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  className="flex w-full items-center justify-between gap-4 text-left transition hover:opacity-80"
+                  aria-expanded={isOpen}
+                >
                   <span className="font-medium">{f.q}</span>
-                  <span className="text-gold">{isOpen ? "–" : "+"}</span>
-                </div>
-                {isOpen && <p className="mt-2 text-sm leading-relaxed text-black/65">{f.a}</p>}
-              </button>
+                  <span className="text-gold font-bold">{isOpen ? "–" : "+"}</span>
+                </button>
+                {isOpen && <p className="mt-3 text-sm leading-relaxed text-black/65">{f.a}</p>}
+              </div>
             );
           })}
         </div>
@@ -246,7 +261,9 @@ function Related({ related }: { related: RelatedLink[] }) {
               className="group flex items-center justify-between rounded-2xl border border-black/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.2)]"
             >
               <span className="font-medium">{r.title}</span>
-              <span className="text-black/50 transition group-hover:translate-x-1 group-hover:text-gold">→</span>
+              <span className="text-black/50 transition group-hover:translate-x-1 group-hover:text-gold">
+                →
+              </span>
             </Link>
           ))}
         </div>
@@ -255,7 +272,15 @@ function Related({ related }: { related: RelatedLink[] }) {
   );
 }
 
-function Contact({ ctaPrimary, whatsappMessage, title }: { ctaPrimary: string; whatsappMessage: string; title: string }) {
+function Contact({
+  ctaPrimary,
+  whatsappMessage,
+  title,
+}: {
+  ctaPrimary: string;
+  whatsappMessage: string;
+  title: string;
+}) {
   const [sent, setSent] = useState(false);
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -277,19 +302,39 @@ function Contact({ ctaPrimary, whatsappMessage, title }: { ctaPrimary: string; w
             Tell us about your goals and we'll get back to you on WhatsApp within hours.
           </p>
           <div className="mt-6 space-y-2 text-sm text-black/70">
-            <div>📞 <a className="hover:text-black" href="tel:+917439668751">+91 74396 68751</a></div>
-            <div>✉️ <a className="hover:text-black" href="mailto:smadworkz@gmail.com">smadworkz@gmail.com</a></div>
+            <div>
+              📞{" "}
+              <a className="hover:text-black" href="tel:+917439668751">
+                +91 74396 68751
+              </a>
+            </div>
+            <div>
+              ✉️{" "}
+              <a className="hover:text-black" href="mailto:smadworkz@gmail.com">
+                smadworkz@gmail.com
+              </a>
+            </div>
           </div>
         </div>
-        <form onSubmit={onSubmit} className="rounded-2xl border border-black/10 bg-white p-6 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.2)]">
+        <form
+          onSubmit={onSubmit}
+          className="rounded-2xl border border-black/10 bg-white p-6 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.2)]"
+        >
           <div className="grid gap-4">
             <Field name="name" label="Name" required />
             <Field name="phone" label="Phone" required />
             <Field name="email" label="Email" type="email" />
             <div>
-              <label htmlFor="message" className="text-xs font-medium uppercase tracking-[0.14em] text-black/60">Message</label>
+              <label
+                htmlFor="message"
+                className="text-xs font-medium uppercase tracking-[0.14em] text-black/60"
+              >
+                Message
+              </label>
               <textarea
-                id="message" name="message" rows={4}
+                id="message"
+                name="message"
+                rows={4}
                 className="mt-1 w-full rounded-lg border border-black/15 bg-white px-3 py-2 text-sm outline-none transition focus:border-gold"
                 placeholder={`Tell us about your ${title.toLowerCase()} requirements...`}
               />
@@ -307,12 +352,31 @@ function Contact({ ctaPrimary, whatsappMessage, title }: { ctaPrimary: string; w
   );
 }
 
-function Field({ name, label, type = "text", required }: { name: string; label: string; type?: string; required?: boolean }) {
+function Field({
+  name,
+  label,
+  type = "text",
+  required,
+}: {
+  name: string;
+  label: string;
+  type?: string;
+  required?: boolean;
+}) {
+  const inputId = name === "name" ? "contact-name" : name;
   return (
     <div>
-      <label htmlFor={name} className="text-xs font-medium uppercase tracking-[0.14em] text-black/60">{label}</label>
+      <label
+        htmlFor={inputId}
+        className="text-xs font-medium uppercase tracking-[0.14em] text-black/60"
+      >
+        {label}
+      </label>
       <input
-        id={name} name={name} type={type} required={required}
+        id={inputId}
+        name={name}
+        type={type}
+        required={required}
         className="mt-1 w-full rounded-lg border border-black/15 bg-white px-3 py-2 text-sm outline-none transition focus:border-gold"
       />
     </div>

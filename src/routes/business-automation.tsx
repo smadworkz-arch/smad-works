@@ -13,18 +13,46 @@ import { MagneticButton } from "@/components/motion/MagneticButton";
 import { serviceHead } from "@/lib/service-head";
 
 const AutomationNodesScene = lazy(() =>
-  import("@/components/three/AutomationNodesScene").then((m) => ({ default: m.AutomationNodesScene })),
+  import("@/components/three/AutomationNodesScene").then((m) => ({
+    default: m.AutomationNodesScene,
+  })),
 );
 
-const WHATSAPP = "https://wa.me/917439668751?text=" + encodeURIComponent("Hi SMad Works, I want to automate my business workflows.");
+const WHATSAPP =
+  "https://wa.me/917439668751?text=" +
+  encodeURIComponent("Hi SMad Works, I want to automate my business workflows.");
 
 const capabilities = [
-  { t: "WhatsApp Automation", d: "Auto-replies, chatbots, broadcasts, lead capture on the official Cloud API.", icon: "◐" },
-  { t: "AI Calling Agents", d: "AI voice agents that qualify leads, book calls and follow up 24/7.", icon: "◑" },
-  { t: "CRM Automation", d: "Pipelines, follow-ups and reports that update themselves.", icon: "◒" },
-  { t: "Appointment Systems", d: "Smart booking synced to calendars with reminders and confirmations.", icon: "◓" },
-  { t: "Workflow Automation", d: "Zapier / n8n / Make flows connecting every tool you use.", icon: "◔" },
-  { t: "Support Automation", d: "AI handles tier-1 queries and hands off complex cases seamlessly.", icon: "◕" },
+  {
+    t: "WhatsApp Automation",
+    d: "Auto-replies, chatbots, broadcasts, lead capture on the official Cloud API.",
+    icon: "◐",
+  },
+  {
+    t: "AI Calling Agents",
+    d: "AI voice agents that qualify leads, book calls and follow up 24/7.",
+    icon: "◑",
+  },
+  {
+    t: "CRM Automation",
+    d: "Pipelines, follow-ups and reports that update themselves.",
+    icon: "◒",
+  },
+  {
+    t: "Appointment Systems",
+    d: "Smart booking synced to calendars with reminders and confirmations.",
+    icon: "◓",
+  },
+  {
+    t: "Workflow Automation",
+    d: "Zapier / n8n / Make flows connecting every tool you use.",
+    icon: "◔",
+  },
+  {
+    t: "Support Automation",
+    d: "AI handles tier-1 queries and hands off complex cases seamlessly.",
+    icon: "◕",
+  },
 ];
 
 const processSteps = [
@@ -43,7 +71,16 @@ const outcomes = [
   { k: "1–3 wks", v: "Typical go-live" },
 ];
 
-const industries = ["Healthcare", "Real Estate", "Education", "E-commerce", "Hospitality", "Finance", "SMBs", "Startups"];
+const industries = [
+  "Healthcare",
+  "Real Estate",
+  "Education",
+  "E-commerce",
+  "Hospitality",
+  "Finance",
+  "SMBs",
+  "Startups",
+];
 
 const tools: { name: string; domain: string }[] = [
   { name: "WhatsApp Cloud API", domain: "whatsapp.com" },
@@ -61,10 +98,22 @@ const tools: { name: string; domain: string }[] = [
 ];
 
 const faqs = [
-  { q: "How long does setup take?", a: "Most projects go live in 1–3 weeks depending on scope and integrations." },
-  { q: "Will it work with my existing CRM?", a: "Yes — we integrate with HubSpot, Zoho, Salesforce, Google Sheets, Notion and more." },
-  { q: "Do you handle WhatsApp Business API?", a: "Yes — Cloud API setup, templates, approvals end-to-end." },
-  { q: "What is typical ROI?", a: "Clients see 3–10× ROI from reduced manual work and improved conversion." },
+  {
+    q: "How long does setup take?",
+    a: "Most projects go live in 1–3 weeks depending on scope and integrations.",
+  },
+  {
+    q: "Will it work with my existing CRM?",
+    a: "Yes — we integrate with HubSpot, Zoho, Salesforce, Google Sheets, Notion and more.",
+  },
+  {
+    q: "Do you handle WhatsApp Business API?",
+    a: "Yes — Cloud API setup, templates, approvals end-to-end.",
+  },
+  {
+    q: "What is typical ROI?",
+    a: "Clients see 3–10× ROI from reduced manual work and improved conversion.",
+  },
 ];
 
 export const Route = createFileRoute("/business-automation")({
@@ -88,7 +137,8 @@ function BusinessAutomationPage() {
         eyebrow="Business Automation"
         title={
           <>
-            Automate the work.<br />
+            Automate the work.
+            <br />
             <span className="text-gold">Amplify the business.</span>
           </>
         }
@@ -97,9 +147,15 @@ function BusinessAutomationPage() {
         secondaryCta={{ label: "See how it works", href: "#process" }}
         scene={
           <ClientOnly
-            fallback={<div className="aspect-square w-full rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12]" />}
+            fallback={
+              <div className="aspect-square w-full rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12]" />
+            }
           >
-            <Suspense fallback={<div className="aspect-square w-full rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12]" />}>
+            <Suspense
+              fallback={
+                <div className="aspect-square w-full rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12]" />
+              }
+            >
               <AutomationNodesScene />
             </Suspense>
           </ClientOnly>
@@ -107,9 +163,14 @@ function BusinessAutomationPage() {
         meta={
           <div className="grid max-w-md grid-cols-4 gap-4">
             {outcomes.map((o) => (
-              <div key={o.v} className="rounded-xl border border-white/10 bg-white/[0.03] p-3 text-center backdrop-blur">
+              <div
+                key={o.v}
+                className="rounded-xl border border-white/10 bg-white/[0.03] p-3 text-center backdrop-blur"
+              >
                 <div className="text-lg font-semibold text-gold md:text-xl">{o.k}</div>
-                <div className="mt-1 text-[10px] uppercase tracking-[0.12em] text-white/50">{o.v}</div>
+                <div className="mt-1 text-[10px] uppercase tracking-[0.12em] text-white/50">
+                  {o.v}
+                </div>
               </div>
             ))}
           </div>
@@ -121,7 +182,11 @@ function BusinessAutomationPage() {
         <div className="mx-auto max-w-7xl px-5">
           <SectionHeading
             eyebrow="What we automate"
-            title={<>Six systems. <span className="text-gold">One connected engine.</span></>}
+            title={
+              <>
+                Six systems. <span className="text-gold">One connected engine.</span>
+              </>
+            }
             subtitle="Pick any capability — or stack them into an always-on operations layer."
           />
           <StaggerGroup className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
@@ -150,7 +215,10 @@ function BusinessAutomationPage() {
         </Reveal>
         <Marquee>
           {tools.map((t) => (
-            <span key={t.name} className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-sm text-white/80">
+            <span
+              key={t.name}
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-sm text-white/80"
+            >
               <img
                 src={`https://www.google.com/s2/favicons?domain=${t.domain}&sz=64`}
                 alt=""
@@ -171,7 +239,11 @@ function BusinessAutomationPage() {
         <div className="mx-auto max-w-7xl px-5">
           <SectionHeading
             eyebrow="Who we serve"
-            title={<>Automations tuned to <span className="text-gold">your industry.</span></>}
+            title={
+              <>
+                Automations tuned to <span className="text-gold">your industry.</span>
+              </>
+            }
           />
           <StaggerGroup className="mt-10 flex flex-wrap gap-3" stagger={0.04}>
             {industries.map((i) => (
@@ -208,7 +280,8 @@ function BusinessAutomationPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="mx-auto mt-5 max-w-xl text-white/60">
-              Book a free consultation. We'll map the workflow, quote the build and ship your first automation this month.
+              Book a free consultation. We'll map the workflow, quote the build and ship your first
+              automation this month.
             </p>
           </Reveal>
           <Reveal delay={0.2}>
@@ -245,24 +318,37 @@ function ProcessSpine() {
       <div className="mx-auto max-w-7xl px-5">
         <SectionHeading
           eyebrow="Our process"
-          title={<>From audit to <span className="text-gold">always-on.</span></>}
+          title={
+            <>
+              From audit to <span className="text-gold">always-on.</span>
+            </>
+          }
           subtitle="A transparent six-step build — you always know what's next."
         />
         <div className="relative mt-16 pl-6 md:pl-0">
           <div className="absolute left-2 top-0 h-full w-px bg-white/10 md:left-1/2" />
-          <motion.div style={{ height: line }} className="absolute left-2 top-0 w-px bg-gradient-to-b from-gold to-transparent md:left-1/2" />
+          <motion.div
+            style={{ height: line }}
+            className="absolute left-2 top-0 w-px bg-gradient-to-b from-gold to-transparent md:left-1/2"
+          />
           <div className="space-y-10">
             {processSteps.map((s, i) => {
               const isLeft = i % 2 === 0;
               return (
                 <Reveal key={s.n} direction={isLeft ? "right" : "left"}>
-                  <div className={`relative flex md:items-center ${isLeft ? "md:justify-start" : "md:justify-end"}`}>
+                  <div
+                    className={`relative flex md:items-center ${isLeft ? "md:justify-start" : "md:justify-end"}`}
+                  >
                     <div className="absolute left-2 -translate-x-1/2 md:left-1/2">
                       <div className="h-4 w-4 rounded-full bg-gold shadow-[0_0_20px_rgba(212,175,55,0.8)]" />
                     </div>
-                    <div className={`ml-10 max-w-md md:ml-0 md:w-[calc(50%-3rem)] ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
+                    <div
+                      className={`ml-10 max-w-md md:ml-0 md:w-[calc(50%-3rem)] ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12"}`}
+                    >
                       <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur">
-                        <div className="text-[11px] uppercase tracking-[0.24em] text-gold">Step {s.n}</div>
+                        <div className="text-[11px] uppercase tracking-[0.24em] text-gold">
+                          Step {s.n}
+                        </div>
                         <div className="mt-2 text-2xl font-semibold">{s.t}</div>
                         <p className="mt-2 text-sm text-white/60">{s.d}</p>
                       </div>
@@ -278,7 +364,13 @@ function ProcessSpine() {
   );
 }
 
-function FaqItem({ f, defaultOpen = false }: { f: { q: string; a: string }; defaultOpen?: boolean }) {
+function FaqItem({
+  f,
+  defaultOpen = false,
+}: {
+  f: { q: string; a: string };
+  defaultOpen?: boolean;
+}) {
   const [open, setOpen] = useState(defaultOpen);
   return (
     <Reveal>

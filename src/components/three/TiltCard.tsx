@@ -19,12 +19,19 @@ export function TiltCard({ children, className = "", style, intensity = 12, glow
   const rotateY = useTransform(sx, [-0.5, 0.5], [-intensity, intensity]);
   const glowX = useTransform(sx, [-0.5, 0.5], ["0%", "100%"]);
   const glowY = useTransform(sy, [-0.5, 0.5], ["0%", "100%"]);
+  const glowBg = useTransform(
+    [glowX, glowY],
+    ([x, y]) =>
+      `radial-gradient(400px circle at ${x} ${y}, rgba(212,175,55,0.25), transparent 45%)`,
+  );
 
   return (
     <motion.div
       ref={ref}
       onMouseMove={(e) => {
-        const r = ref.current!.getBoundingClientRect();
+        if (!ref.current) return;
+        const r = ref.current.getBoundingClientRect();
+        if (r.width === 0 || r.height === 0) return;
         mx.set((e.clientX - r.left) / r.width - 0.5);
         my.set((e.clientY - r.top) / r.height - 0.5);
       }}
@@ -32,20 +39,14 @@ export function TiltCard({ children, className = "", style, intensity = 12, glow
         mx.set(0);
         my.set(0);
       }}
-      style={{ rotateX, rotateY, transformStyle: "preserve-3d", ...style }}
+      style={{ perspective: 1000, rotateX, rotateY, transformStyle: "preserve-3d", ...style }}
       className={`relative ${className}`}
     >
       {glow && (
         <motion.div
           aria-hidden
-          className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-70 mix-blend-screen"
-          style={{
-            background: useTransform(
-              [glowX, glowY],
-              ([x, y]) =>
-                `radial-gradient(400px circle at ${x} ${y}, rgba(212,175,55,0.25), transparent 45%)`,
-            ),
-          }}
+          className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-60"
+          style={{ background: glowBg }}
         />
       )}
       <div style={{ transform: "translateZ(30px)" }} className="relative h-full">

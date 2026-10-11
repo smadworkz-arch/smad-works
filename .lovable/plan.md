@@ -17,20 +17,20 @@ Transform all 11 service pages from the shared informational `ServicePage` templ
 
 ## Per-page motion concept
 
-| Page | Signature 3D / motion concept |
-|---|---|
-| Business Automation | Orbiting node graph (n8n-style) — draggable nodes wiring themselves in on scroll |
-| Operations Management | Animated Kanban / pipeline that flows tasks left→right as you scroll |
-| QA Testing | "Bug hunt" — floating glitch cubes that get caught into a checklist grid |
-| Academic Research | Layered paper stack + typewriter reveal + citation constellation |
-| AI Content Generation | Keep the existing 3D museum carousel + add parallax hero and generative-grid intro |
-| AI Course Content | Book/module unfolding in 3D, chapter cards flipping on scroll |
-| AI Video Generation Course | Film-strip scroll — frames advance as you scroll, gold play-head |
-| AI Automation Course | Circuit-board grid with pulses traveling along paths on scroll |
-| Lead Generation | Magnet + particle stream — particles pulled toward a gold funnel |
-| Lead Conversion | Funnel morph — wide → narrow → conversion burst on scroll |
-| Logo & Creative Design | Rotating 3D logo mark showcase + brand-mark morph gallery |
-| Video Production & AI Studio | Keep existing reels/gallery + add cinematic dark hero + timeline scrubber |
+| Page                         | Signature 3D / motion concept                                                      |
+| ---------------------------- | ---------------------------------------------------------------------------------- |
+| Business Automation          | Orbiting node graph (n8n-style) — draggable nodes wiring themselves in on scroll   |
+| Operations Management        | Animated Kanban / pipeline that flows tasks left→right as you scroll               |
+| QA Testing                   | "Bug hunt" — floating glitch cubes that get caught into a checklist grid           |
+| Academic Research            | Layered paper stack + typewriter reveal + citation constellation                   |
+| AI Content Generation        | Keep the existing 3D museum carousel + add parallax hero and generative-grid intro |
+| AI Course Content            | Book/module unfolding in 3D, chapter cards flipping on scroll                      |
+| AI Video Generation Course   | Film-strip scroll — frames advance as you scroll, gold play-head                   |
+| AI Automation Course         | Circuit-board grid with pulses traveling along paths on scroll                     |
+| Lead Generation              | Magnet + particle stream — particles pulled toward a gold funnel                   |
+| Lead Conversion              | Funnel morph — wide → narrow → conversion burst on scroll                          |
+| Logo & Creative Design       | Rotating 3D logo mark showcase + brand-mark morph gallery                          |
+| Video Production & AI Studio | Keep existing reels/gallery + add cinematic dark hero + timeline scrubber          |
 
 ## Rollout (12 batches — one per page + kit)
 

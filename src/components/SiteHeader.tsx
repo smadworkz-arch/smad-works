@@ -1,7 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Bot, TrendingUp, Palette, ShieldCheck, GraduationCap, ArrowRight, PanelLeft } from "lucide-react";
-import logo from "@/assets/logo.png.asset.json";
+import {
+  Bot,
+  TrendingUp,
+  Palette,
+  ShieldCheck,
+  GraduationCap,
+  ArrowRight,
+  PanelLeft,
+  Menu,
+  X,
+} from "lucide-react";
+import smadworksLogo from "@/assets/smadworks-logo.jpg";
 import {
   Sheet,
   SheetContent,
@@ -157,7 +167,10 @@ function SolutionsDrawerContent({ onNavigate }: { onNavigate: () => void }) {
               Book a Free Consultation
             </h4>
           </div>
-          <ArrowRight size={16} className="text-gold transition-transform group-hover:translate-x-1" />
+          <ArrowRight
+            size={16}
+            className="text-gold transition-transform group-hover:translate-x-1"
+          />
         </a>
       </div>
     </div>
@@ -174,10 +187,14 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
         <Link to="/" className="flex items-center gap-3">
-          <span className="grid h-14 w-14 place-items-center rounded-xl bg-black sm:h-16 sm:w-16">
-            <img src={logo.url} alt="SMad Works" className="h-12 w-12 object-contain sm:h-14 sm:w-14" />
+          <span className="grid h-10 w-10 place-items-center overflow-hidden rounded-xl bg-black border border-gold/30 p-1 sm:h-12 sm:w-12 shrink-0">
+            <img
+              src={smadworksLogo}
+              alt="SMadWorks Logo"
+              className="h-full w-full object-contain"
+            />
           </span>
-          <span className="text-lg font-semibold tracking-tight text-black sm:text-xl">
+          <span className="text-lg font-semibold tracking-tight text-foreground sm:text-xl">
             SMad<span className="text-gold">Works</span>
           </span>
         </Link>
@@ -194,15 +211,22 @@ export function SiteHeader() {
                     <PanelLeft size={14} className="opacity-60" />
                   </button>
                 </SheetTrigger>
-                <SheetContent side="left" className="w-full border-r border-gold/20 bg-black p-0 text-white sm:max-w-md">
+                <SheetContent
+                  side="left"
+                  className="w-full border-r border-gold/20 bg-black p-0 text-white sm:max-w-md"
+                >
                   <SolutionsDrawerContent onNavigate={closeDrawer} />
                 </SheetContent>
               </Sheet>
             ) : (
-              <a key={l} href={h} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+              <a
+                key={l}
+                href={h}
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
                 {l}
               </a>
-            )
+            ),
           )}
         </nav>
         <div className="flex items-center gap-3">
@@ -214,10 +238,10 @@ export function SiteHeader() {
           </a>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="grid h-9 w-9 place-items-center rounded-md border border-border lg:hidden"
-            aria-label="Menu"
+            className="grid h-9 w-9 place-items-center rounded-md border border-border text-foreground transition-colors hover:bg-muted lg:hidden"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
           >
-            <span className="block h-px w-4 bg-foreground" />
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </div>
@@ -226,16 +250,18 @@ export function SiteHeader() {
       {menuOpen && (
         <div className="border-t border-border lg:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
-            {nav.filter(([l]) => l !== "Solutions").map(([l, h]) => (
-              <a
-                key={l}
-                href={h}
-                onClick={() => setMenuOpen(false)}
-                className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
-              >
-                {l}
-              </a>
-            ))}
+            {nav
+              .filter(([l]) => l !== "Solutions")
+              .map(([l, h]) => (
+                <a
+                  key={l}
+                  href={h}
+                  onClick={() => setMenuOpen(false)}
+                  className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+                >
+                  {l}
+                </a>
+              ))}
             <Sheet open={drawerOpen} onOpenChange={setDrawerOpen}>
               <SheetTrigger asChild>
                 <button
@@ -246,7 +272,10 @@ export function SiteHeader() {
                   <PanelLeft size={16} />
                 </button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-full border-r border-gold/20 bg-black p-0 text-white sm:max-w-md">
+              <SheetContent
+                side="left"
+                className="w-full border-r border-gold/20 bg-black p-0 text-white sm:max-w-md"
+              >
                 <SolutionsDrawerContent onNavigate={closeDrawer} />
               </SheetContent>
             </Sheet>
