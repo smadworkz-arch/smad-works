@@ -19,6 +19,11 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/qa-testing-services", changefreq: "monthly", priority: "0.9" },
           { path: "/academic-research-services", changefreq: "monthly", priority: "0.9" },
           { path: "/operations-management-services", changefreq: "monthly", priority: "0.9" },
+          { path: "/operations-management", changefreq: "monthly", priority: "0.9" },
+          { path: "/social-media-management", changefreq: "monthly", priority: "0.9" },
+          { path: "/video-production-ai-studio", changefreq: "monthly", priority: "0.9" },
+          { path: "/video-production", changefreq: "monthly", priority: "0.9" },
+          { path: "/content-management-for-creators", changefreq: "monthly", priority: "0.9" },
           { path: "/ai-content-generation", changefreq: "monthly", priority: "0.9" },
           { path: "/ai-course-content-generation", changefreq: "monthly", priority: "0.9" },
           { path: "/ai-video-generation-course", changefreq: "monthly", priority: "0.9" },
@@ -26,7 +31,6 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/lead-generation-services", changefreq: "monthly", priority: "0.9" },
           { path: "/lead-conversion-services", changefreq: "monthly", priority: "0.9" },
           { path: "/logo-creative-design-services", changefreq: "monthly", priority: "0.9" },
-          { path: "/video-production-ai-studio", changefreq: "monthly", priority: "0.9" },
         ];
 
         const urls = entries.map((e) =>

@@ -1,30 +1,37 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import {
-  Bot,
-  TrendingUp,
-  Palette,
-  ShieldCheck,
-  GraduationCap,
-  ArrowRight,
-  PanelLeft,
-  Menu,
-  X,
-} from "lucide-react";
+import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
 import smadworksLogo from "@/assets/smadworks-logo.jpg";
 import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const solutions = [
+  {
+    to: "/operations-management-services",
+    heading: "Operations Management",
+  },
+  {
+    to: "/social-media-management",
+    heading: "Social Media Management",
+  },
+  {
+    to: "/video-production-ai-studio",
+    heading: "Video Production",
+  },
+  {
+    to: "/content-management-for-creators",
+    heading: "Content Management for Creators",
+  },
+] as const;
 
 const nav = [
   ["Home", "/#home"],
   ["About", "/#about"],
-  ["Solutions", "__drawer__"],
+  ["Solutions", "__dropdown__"],
   ["Automations", "/#automations"],
   ["Process", "/#process"],
   ["Industries", "/#industries"],
@@ -32,116 +39,9 @@ const nav = [
   ["Contact", "/#contact"],
 ] as const;
 
-type Solution = { icon: typeof Bot; to: string; heading: string; description: string };
-
-const solutions: Solution[] = [
-  {
-    icon: Bot,
-    to: "/operations-management-services",
-    heading: "Operations Management",
-    description: "Integrate AI into your daily operations.",
-  },
-  {
-    icon: TrendingUp,
-    to: "/social-media-management",
-    heading: "Social Media Management",
-    description: "Content, video, analytics and Meta Ads.",
-  },
-  {
-    icon: Palette,
-    to: "/video-production-ai-studio",
-    heading: "Video Production",
-    description: "Long-form, reels and pro editing.",
-  },
-  {
-    icon: GraduationCap,
-    to: "/content-management-for-creators",
-    heading: "Content Management for Creators",
-    description: "Planning, scheduling and publishing.",
-  },
-];
-
-function SolutionsDrawerContent({ onNavigate }: { onNavigate: () => void }) {
-  return (
-    <div className="flex h-full flex-col bg-black text-white">
-      <SheetHeader className="border-b border-white/10 px-6 py-5 text-left">
-        <p className="text-[11px] uppercase tracking-[0.22em] text-gold">Our Solutions</p>
-        <SheetTitle className="text-white text-xl font-semibold tracking-tight">
-          Everything you need to build, automate and grow
-        </SheetTitle>
-        <SheetDescription className="text-white/55 text-sm">
-          Choose a solution to explore its services.
-        </SheetDescription>
-      </SheetHeader>
-
-      <div className="flex-1 overflow-y-auto px-4 py-5">
-        <div className="space-y-3">
-          {solutions.map((s) => {
-            const Icon = s.icon;
-            return (
-              <Link
-                key={s.to}
-                to={s.to}
-                onClick={onNavigate}
-                className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-all hover:border-gold/50 hover:bg-white/[0.06]"
-              >
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-gold/30 bg-gold/10 text-gold">
-                  <Icon size={18} />
-                </span>
-                <div className="flex-1">
-                  <h4 className="text-sm font-semibold tracking-tight group-hover:text-gold">
-                    {s.heading}
-                  </h4>
-                  <p className="mt-0.5 text-xs text-white/50">{s.description}</p>
-                </div>
-                <ArrowRight
-                  size={16}
-                  className="text-gold/60 transition-transform group-hover:translate-x-1 group-hover:text-gold"
-                />
-              </Link>
-            );
-          })}
-        </div>
-      </div>
-
-      <div className="border-t border-white/10 p-4">
-        <a
-          href="/#contact"
-          onClick={(e) => {
-            e.preventDefault();
-            onNavigate();
-            window.location.href = "/#contact";
-            setTimeout(() => {
-              const firstField = document.getElementById("contact-name");
-              if (firstField) {
-                firstField.scrollIntoView({ behavior: "smooth", block: "center" });
-                firstField.focus({ preventScroll: true });
-              }
-            }, 350);
-          }}
-          className="group relative flex items-center justify-between overflow-hidden rounded-xl border border-gold/40 bg-gradient-to-br from-gold/25 via-gold/10 to-transparent px-4 py-3.5 transition-all hover:border-gold hover:shadow-[0_0_40px_-10px_rgba(212,175,55,0.5)]"
-        >
-          <div>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-gold">Get started</p>
-            <h4 className="mt-0.5 text-sm font-semibold tracking-tight text-white">
-              Book a Free Consultation
-            </h4>
-          </div>
-          <ArrowRight
-            size={16}
-            className="text-gold transition-transform group-hover:translate-x-1"
-          />
-        </a>
-      </div>
-    </div>
-  );
-}
-
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const closeDrawer = () => setDrawerOpen(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
@@ -158,26 +58,48 @@ export function SiteHeader() {
             SMad<span className="text-gold">Works</span>
           </span>
         </Link>
+
+        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 lg:flex">
           {nav.map(([l, h]) =>
             l === "Solutions" ? (
-              <Sheet key={l} open={drawerOpen} onOpenChange={setDrawerOpen}>
-                <SheetTrigger asChild>
+              <DropdownMenu key={l} open={solutionsOpen} onOpenChange={setSolutionsOpen}>
+                <DropdownMenuTrigger asChild>
                   <button
-                    className="flex items-center gap-1.5 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    aria-label="Open solutions"
+                    className="group flex items-center gap-1.5 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground outline-none data-[state=open]:text-foreground"
+                    aria-label="Open solutions menu"
                   >
-                    {l}
-                    <PanelLeft size={14} className="opacity-60" />
+                    <span>Solutions</span>
+                    <ChevronDown
+                      size={14}
+                      className="text-gold opacity-70 transition-transform duration-200 group-data-[state=open]:rotate-180"
+                    />
                   </button>
-                </SheetTrigger>
-                <SheetContent
-                  side="left"
-                  className="w-full border-r border-gold/20 bg-black p-0 text-white sm:max-w-md"
+                </DropdownMenuTrigger>
+                <DropdownMenuContent
+                  align="start"
+                  sideOffset={12}
+                  className="z-50 min-w-[280px] rounded-2xl border border-gold/30 bg-[#0a0a0d]/95 p-2 text-white shadow-[0_20px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(212,175,55,0.12)] backdrop-blur-xl animate-in fade-in-0 zoom-in-95"
                 >
-                  <SolutionsDrawerContent onNavigate={closeDrawer} />
-                </SheetContent>
-              </Sheet>
+                  <div className="space-y-1">
+                    {solutions.map((item) => (
+                      <DropdownMenuItem key={item.to} asChild>
+                        <Link
+                          to={item.to}
+                          onClick={() => setSolutionsOpen(false)}
+                          className="group flex cursor-pointer items-center justify-between rounded-xl px-3.5 py-3 text-sm font-medium text-white/90 transition-all hover:bg-white/[0.08] hover:text-gold"
+                        >
+                          <span>{item.heading}</span>
+                          <ArrowRight
+                            size={14}
+                            className="-translate-x-1 text-gold opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100"
+                          />
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </div>
+                </DropdownMenuContent>
+              </DropdownMenu>
             ) : (
               <a
                 key={l}
@@ -189,6 +111,7 @@ export function SiteHeader() {
             ),
           )}
         </nav>
+
         <div className="flex items-center gap-3">
           <a
             href="/#contact"
@@ -208,37 +131,81 @@ export function SiteHeader() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="border-t border-border lg:hidden">
+        <div className="border-t border-border bg-background/95 backdrop-blur-lg lg:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-4">
-            {nav
-              .filter(([l]) => l !== "Solutions")
-              .map(([l, h]) => (
-                <a
-                  key={l}
-                  href={h}
-                  onClick={() => setMenuOpen(false)}
-                  className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
-                >
-                  {l}
-                </a>
-              ))}
-            <Sheet open={drawerOpen} onOpenChange={setDrawerOpen}>
-              <SheetTrigger asChild>
-                <button
-                  onClick={() => setMenuOpen(false)}
-                  className="mt-2 flex items-center justify-between rounded-lg border border-gold/40 bg-gold/10 px-3 py-2.5 text-sm font-medium text-gold"
-                >
-                  Solutions
-                  <PanelLeft size={16} />
-                </button>
-              </SheetTrigger>
-              <SheetContent
-                side="left"
-                className="w-full border-r border-gold/20 bg-black p-0 text-white sm:max-w-md"
-              >
-                <SolutionsDrawerContent onNavigate={closeDrawer} />
-              </SheetContent>
-            </Sheet>
+            <a
+              href="/#home"
+              onClick={() => setMenuOpen(false)}
+              className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+            >
+              Home
+            </a>
+            <a
+              href="/#about"
+              onClick={() => setMenuOpen(false)}
+              className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+            >
+              About
+            </a>
+
+            {/* Solutions Section in Mobile Nav: Displays ONLY the 4 clickable headings */}
+            <div className="my-2 rounded-xl border border-gold/30 bg-gold/[0.04] p-2.5">
+              <div className="px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-gold">
+                Solutions
+              </div>
+              <div className="mt-1 space-y-1">
+                {solutions.map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    onClick={() => setMenuOpen(false)}
+                    className="group flex items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-white/5 hover:text-gold"
+                  >
+                    <span>{item.heading}</span>
+                    <ArrowRight
+                      size={14}
+                      className="text-gold opacity-60 transition-transform group-hover:translate-x-0.5 group-hover:opacity-100"
+                    />
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <a
+              href="/#automations"
+              onClick={() => setMenuOpen(false)}
+              className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+            >
+              Automations
+            </a>
+            <a
+              href="/#process"
+              onClick={() => setMenuOpen(false)}
+              className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+            >
+              Process
+            </a>
+            <a
+              href="/#industries"
+              onClick={() => setMenuOpen(false)}
+              className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+            >
+              Industries
+            </a>
+            <a
+              href="/#reviews"
+              onClick={() => setMenuOpen(false)}
+              className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+            >
+              Reviews
+            </a>
+            <a
+              href="/#contact"
+              onClick={() => setMenuOpen(false)}
+              className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-muted hover:text-foreground"
+            >
+              Contact
+            </a>
           </nav>
         </div>
       )}

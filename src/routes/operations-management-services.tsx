@@ -60,7 +60,7 @@ export const Route = createFileRoute("/operations-management-services")({
   component: OpsPage,
 });
 
-function OpsPage() {
+export function OpsPage() {
   return (
     <ServicePageShell>
       <PageHero3D
@@ -110,20 +110,27 @@ function OpsPage() {
           {
             icon: <Workflow size={18} />,
             title: "Business Automation",
-            desc: "Automate repetitive tasks, approvals, follow-ups and reporting with smart workflows.",
-            cta: { label: "Explore", to: "/business-automation" },
+            desc: "Connect your apps and automate repetitive tasks, CRM pipelines, client onboarding, and multi-channel workflows without manual work.",
+            cta: { label: "Explore Business Automation", to: "/business-automation" },
           },
           {
             icon: <Sparkles size={18} />,
             title: "AI Content Generation",
-            desc: "Create posts, documents and marketing content in minutes with on-brand AI.",
-            cta: { label: "Explore", to: "/ai-content-generation" },
+            desc: "Accelerate your daily marketing, documentation, and external asset production with custom on-brand AI generation pipelines.",
+            cta: { label: "Explore AI Content Generation", to: "/ai-content-generation" },
           },
           {
             icon: <PhoneCall size={18} />,
             title: "AI Receptionist",
-            desc: "An AI that answers calls and messages 24/7, books appointments and captures leads.",
-            cta: { label: "Get a demo", href: WHATSAPP },
+            desc: "Deploy 24/7 intelligent voice and chat agents that answer calls, qualify inbound leads, and schedule appointments into your calendar.",
+            cta: {
+              label: "Book AI Receptionist Demo",
+              href:
+                "https://wa.me/917439668751?text=" +
+                encodeURIComponent(
+                  "Hi SMad Works, I want a live demo of the AI Receptionist system.",
+                ),
+            },
           },
         ]}
       />

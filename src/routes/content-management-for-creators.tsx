@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarDays, Clock, Send, FolderKanban } from "lucide-react";
+import { CalendarDays, Clock, Send, FolderKanban, Repeat } from "lucide-react";
 import { PageHero3D } from "@/components/three/PageHero3D";
 import { ServicePageShell, FaqBlock, CtaBlock } from "@/components/motion/ServiceShell";
 import {
@@ -65,8 +65,14 @@ function CreatorsPage() {
           {
             icon: <Send size={18} />,
             title: "Publishing",
-            desc: "Titles, captions, thumbnails, hashtags and uploads handled for you.",
+            desc: "Titles, captions, thumbnails, hashtags and uploads handled for you across all platforms.",
             cta: { label: "Get started", href: WHATSAPP },
+          },
+          {
+            icon: <Repeat size={18} />,
+            title: "Content Repurposing",
+            desc: "Extract maximum leverage: turn 1 recording into 10+ reels, carousels, newsletters and threads.",
+            cta: { label: "Multiply content", href: WHATSAPP },
           },
           {
             icon: <FolderKanban size={18} />,
@@ -99,9 +105,15 @@ function CreatorsPage() {
       />
       <FaqBlock
         faqs={[
-          { q: "Do you also edit my videos?", a: "Yes — pair this with our Video Production service." },
+          {
+            q: "Do you also edit my videos?",
+            a: "Yes — pair this with our Video Production service.",
+          },
           { q: "Which platforms?", a: "YouTube, Instagram, TikTok, LinkedIn and more." },
-          { q: "Do I keep control?", a: "Always. You approve the calendar before anything goes live." },
+          {
+            q: "Do I keep control?",
+            a: "Always. You approve the calendar before anything goes live.",
+          },
         ]}
       />
       <CtaBlock

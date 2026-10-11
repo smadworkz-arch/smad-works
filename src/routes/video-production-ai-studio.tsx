@@ -67,7 +67,7 @@ export const Route = createFileRoute("/video-production-ai-studio")({
   component: VideoProductionPage,
 });
 
-function VideoProductionPage() {
+export function VideoProductionPage() {
   const [active, setActive] = useState<(typeof CATEGORIES)[number]>("All");
   const [featured, setFeatured] = useState<Video>(VIDEOS[0]);
   const [autoplay, setAutoplay] = useState(false);
@@ -326,6 +326,17 @@ function VideoProductionPage() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-6 pt-4 border-t border-black/5">
+                  <a
+                    href={waUrl(s.cta.msg)}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full bg-black px-4 py-2 text-xs font-semibold text-white transition hover:bg-gold hover:text-black"
+                  >
+                    <span>{s.cta.label}</span>
+                    <span>→</span>
+                  </a>
+                </div>
               </div>
             ))}
           </div>
@@ -492,42 +503,55 @@ function VideoProductionPage() {
 
 const SERVICES = [
   {
+    icon: "🎬",
+    title: "Long-Form Video Editing",
+    description:
+      "Comprehensive storytelling for YouTube videos, podcasts, corporate documentaries, and webinars with multicam synchronization, sound design, color grading, and narrative pacing.",
+    features: [
+      "YouTube Videos & Series",
+      "Podcast Episodes & Multicam Sync",
+      "Documentary & Corporate Stories",
+      "Motion Graphics & Lower Thirds",
+      "Audio Leveling & Foley Sweetening",
+    ],
+    cta: {
+      label: "Get Long-Form Quote",
+      msg: "Hi SMad Works, I want to discuss Long-Form Video Editing (YouTube / Podcasts / Corporate).",
+    },
+  },
+  {
+    icon: "📱",
+    title: "Short-Form Videos & Reels",
+    description:
+      "High-retention vertical videos engineered for Instagram Reels, YouTube Shorts, and TikTok with 3-second viral hooks, kinetic animated captions, zooms, and trending sound integration.",
+    features: [
+      "Viral 3-Second Hook Engineering",
+      "Kinetic Animated Subtitles",
+      "Dynamic Zooms & Sound Effects",
+      "9:16 Vertical Optimization",
+      "High-Volume Batch Production",
+    ],
+    cta: {
+      label: "Order Reels Package",
+      msg: "Hi SMad Works, I'm interested in Short-Form Videos & Reels (Instagram / TikTok / Shorts).",
+    },
+  },
+  {
     icon: "✂",
-    title: "Professional Video Editing",
+    title: "Professional Video Editing by Skilled Editors",
     description:
-      "Clean cuts, cinematic transitions, motion graphics, color grading, captions, effects, and storytelling edits.",
+      "Human creative mastery powered by seasoned senior video editors using Adobe Premiere Pro, DaVinci Resolve, and After Effects for bespoke, broadcast-grade storytelling.",
     features: [
-      "Reels & Shorts Editing",
-      "YouTube Videos",
-      "Podcast Editing",
-      "Corporate Videos",
-      "Promotional Content",
+      "Dedicated Senior Video Editor",
+      "Lossless 4K Master Delivery",
+      "DaVinci & Premiere Workflows",
+      "Bespoke Brand Style Guides",
+      "Rapid Collaborative Revisions",
     ],
-  },
-  {
-    icon: "✦",
-    title: "AI Video Generation",
-    description:
-      "Create futuristic videos using advanced AI workflows from scripts, ideas, images, and concepts.",
-    features: [
-      "AI Avatar Videos",
-      "Text-to-Video Creation",
-      "AI Product Videos",
-      "AI Explainer Videos",
-      "AI Visual Effects",
-    ],
-  },
-  {
-    icon: "◆",
-    title: "Content Creation",
-    description: "Complete video solutions from idea planning to final production.",
-    features: [
-      "Script Writing",
-      "Storyboarding",
-      "Creative Direction",
-      "Branding Videos",
-      "Social Media Campaign Videos",
-    ],
+    cta: {
+      label: "Hire a Video Editor",
+      msg: "Hi SMad Works, I want to hire a dedicated skilled video editor for my brand.",
+    },
   },
 ];
 

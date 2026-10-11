@@ -3,10 +3,11 @@ import smadworksLogo from "@/assets/smadworks-logo.jpg";
 
 const footerLinks = [
   { to: "/#home", label: "Home" },
+  { to: "/operations-management-services", label: "Operations" },
+  { to: "/social-media-management", label: "Social Media" },
+  { to: "/video-production-ai-studio", label: "Video Production" },
+  { to: "/content-management-for-creators", label: "Creators" },
   { to: "/business-automation", label: "Automation" },
-  { to: "/lead-generation-services", label: "Growth" },
-  { to: "/qa-testing-services", label: "QA Testing" },
-  { to: "/ai-automation-course", label: "AI Courses" },
   { to: "/#contact", label: "Contact" },
 ];
 
