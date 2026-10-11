@@ -150,6 +150,51 @@ function VideoProductionPage() {
         </div>
       </section>
 
+      {/* Core video services */}
+      <section id="services" className="border-b border-black/5 py-20">
+        <div className="mx-auto max-w-7xl px-5">
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Our services</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+            Professional video production &amp; editing
+          </h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {[
+              {
+                t: "Long-Form Video Editing",
+                d: "YouTube videos, podcasts, webinars and courses — cut, colour-graded, mixed and story-driven.",
+                c: "Edit my long-form",
+              },
+              {
+                t: "Short-Form Videos & Reels",
+                d: "Hook-first Reels, Shorts and TikToks with captions, motion text and trending pacing.",
+                c: "Get reels made",
+              },
+              {
+                t: "Skilled Professional Editors",
+                d: "A dedicated team of experienced editors who learn your style and deliver on time, every time.",
+                c: "Hire our editors",
+              },
+            ].map((s) => (
+              <div
+                key={s.t}
+                className="flex flex-col rounded-2xl border border-black/10 bg-white p-6 transition hover:-translate-y-1 hover:border-gold"
+              >
+                <h3 className="text-xl font-semibold">{s.t}</h3>
+                <p className="mt-2 text-sm text-black/60">{s.d}</p>
+                <a
+                  href={`https://wa.me/917439668751?text=${encodeURIComponent(`Hi SMad Works, I'm interested in ${s.t}.`)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-6 inline-flex w-fit items-center gap-2 rounded-full bg-black px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-gold transition hover:bg-gold hover:text-black"
+                >
+                  {s.c} →
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Showcase */}
       <section id="showcase" className="border-b border-black/5 py-20">
         <div className="mx-auto max-w-7xl px-5">

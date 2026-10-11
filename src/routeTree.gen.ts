@@ -10,12 +10,14 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VideoProductionAiStudioRouteImport } from './routes/video-production-ai-studio'
+import { Route as SocialMediaManagementRouteImport } from './routes/social-media-management'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as QaTestingServicesRouteImport } from './routes/qa-testing-services'
 import { Route as OperationsManagementServicesRouteImport } from './routes/operations-management-services'
 import { Route as LogoCreativeDesignServicesRouteImport } from './routes/logo-creative-design-services'
 import { Route as LeadGenerationServicesRouteImport } from './routes/lead-generation-services'
 import { Route as LeadConversionServicesRouteImport } from './routes/lead-conversion-services'
+import { Route as ContentManagementForCreatorsRouteImport } from './routes/content-management-for-creators'
 import { Route as BusinessAutomationRouteImport } from './routes/business-automation'
 import { Route as AiVideoGenerationCourseRouteImport } from './routes/ai-video-generation-course'
 import { Route as AiCourseContentGenerationRouteImport } from './routes/ai-course-content-generation'
@@ -35,6 +37,11 @@ import { Route as IndustriesEducationRouteImport } from './routes/industries.edu
 const VideoProductionAiStudioRoute = VideoProductionAiStudioRouteImport.update({
   id: '/video-production-ai-studio',
   path: '/video-production-ai-studio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SocialMediaManagementRoute = SocialMediaManagementRouteImport.update({
+  id: '/social-media-management',
+  path: '/social-media-management',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -69,6 +76,12 @@ const LeadConversionServicesRoute = LeadConversionServicesRouteImport.update({
   path: '/lead-conversion-services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContentManagementForCreatorsRoute =
+  ContentManagementForCreatorsRouteImport.update({
+    id: '/content-management-for-creators',
+    path: '/content-management-for-creators',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BusinessAutomationRoute = BusinessAutomationRouteImport.update({
   id: '/business-automation',
   path: '/business-automation',
@@ -157,12 +170,14 @@ export interface FileRoutesByFullPath {
   '/ai-course-content-generation': typeof AiCourseContentGenerationRoute
   '/ai-video-generation-course': typeof AiVideoGenerationCourseRoute
   '/business-automation': typeof BusinessAutomationRoute
+  '/content-management-for-creators': typeof ContentManagementForCreatorsRoute
   '/lead-conversion-services': typeof LeadConversionServicesRoute
   '/lead-generation-services': typeof LeadGenerationServicesRoute
   '/logo-creative-design-services': typeof LogoCreativeDesignServicesRoute
   '/operations-management-services': typeof OperationsManagementServicesRoute
   '/qa-testing-services': typeof QaTestingServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/social-media-management': typeof SocialMediaManagementRoute
   '/video-production-ai-studio': typeof VideoProductionAiStudioRoute
   '/industries/education': typeof IndustriesEducationRoute
   '/industries/finance-insurance': typeof IndustriesFinanceInsuranceRoute
@@ -181,12 +196,14 @@ export interface FileRoutesByTo {
   '/ai-course-content-generation': typeof AiCourseContentGenerationRoute
   '/ai-video-generation-course': typeof AiVideoGenerationCourseRoute
   '/business-automation': typeof BusinessAutomationRoute
+  '/content-management-for-creators': typeof ContentManagementForCreatorsRoute
   '/lead-conversion-services': typeof LeadConversionServicesRoute
   '/lead-generation-services': typeof LeadGenerationServicesRoute
   '/logo-creative-design-services': typeof LogoCreativeDesignServicesRoute
   '/operations-management-services': typeof OperationsManagementServicesRoute
   '/qa-testing-services': typeof QaTestingServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/social-media-management': typeof SocialMediaManagementRoute
   '/video-production-ai-studio': typeof VideoProductionAiStudioRoute
   '/industries/education': typeof IndustriesEducationRoute
   '/industries/finance-insurance': typeof IndustriesFinanceInsuranceRoute
@@ -206,12 +223,14 @@ export interface FileRoutesById {
   '/ai-course-content-generation': typeof AiCourseContentGenerationRoute
   '/ai-video-generation-course': typeof AiVideoGenerationCourseRoute
   '/business-automation': typeof BusinessAutomationRoute
+  '/content-management-for-creators': typeof ContentManagementForCreatorsRoute
   '/lead-conversion-services': typeof LeadConversionServicesRoute
   '/lead-generation-services': typeof LeadGenerationServicesRoute
   '/logo-creative-design-services': typeof LogoCreativeDesignServicesRoute
   '/operations-management-services': typeof OperationsManagementServicesRoute
   '/qa-testing-services': typeof QaTestingServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/social-media-management': typeof SocialMediaManagementRoute
   '/video-production-ai-studio': typeof VideoProductionAiStudioRoute
   '/industries/education': typeof IndustriesEducationRoute
   '/industries/finance-insurance': typeof IndustriesFinanceInsuranceRoute
@@ -232,12 +251,14 @@ export interface FileRouteTypes {
     | '/ai-course-content-generation'
     | '/ai-video-generation-course'
     | '/business-automation'
+    | '/content-management-for-creators'
     | '/lead-conversion-services'
     | '/lead-generation-services'
     | '/logo-creative-design-services'
     | '/operations-management-services'
     | '/qa-testing-services'
     | '/sitemap.xml'
+    | '/social-media-management'
     | '/video-production-ai-studio'
     | '/industries/education'
     | '/industries/finance-insurance'
@@ -256,12 +277,14 @@ export interface FileRouteTypes {
     | '/ai-course-content-generation'
     | '/ai-video-generation-course'
     | '/business-automation'
+    | '/content-management-for-creators'
     | '/lead-conversion-services'
     | '/lead-generation-services'
     | '/logo-creative-design-services'
     | '/operations-management-services'
     | '/qa-testing-services'
     | '/sitemap.xml'
+    | '/social-media-management'
     | '/video-production-ai-studio'
     | '/industries/education'
     | '/industries/finance-insurance'
@@ -280,12 +303,14 @@ export interface FileRouteTypes {
     | '/ai-course-content-generation'
     | '/ai-video-generation-course'
     | '/business-automation'
+    | '/content-management-for-creators'
     | '/lead-conversion-services'
     | '/lead-generation-services'
     | '/logo-creative-design-services'
     | '/operations-management-services'
     | '/qa-testing-services'
     | '/sitemap.xml'
+    | '/social-media-management'
     | '/video-production-ai-studio'
     | '/industries/education'
     | '/industries/finance-insurance'
@@ -305,12 +330,14 @@ export interface RootRouteChildren {
   AiCourseContentGenerationRoute: typeof AiCourseContentGenerationRoute
   AiVideoGenerationCourseRoute: typeof AiVideoGenerationCourseRoute
   BusinessAutomationRoute: typeof BusinessAutomationRoute
+  ContentManagementForCreatorsRoute: typeof ContentManagementForCreatorsRoute
   LeadConversionServicesRoute: typeof LeadConversionServicesRoute
   LeadGenerationServicesRoute: typeof LeadGenerationServicesRoute
   LogoCreativeDesignServicesRoute: typeof LogoCreativeDesignServicesRoute
   OperationsManagementServicesRoute: typeof OperationsManagementServicesRoute
   QaTestingServicesRoute: typeof QaTestingServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SocialMediaManagementRoute: typeof SocialMediaManagementRoute
   VideoProductionAiStudioRoute: typeof VideoProductionAiStudioRoute
   IndustriesEducationRoute: typeof IndustriesEducationRoute
   IndustriesFinanceInsuranceRoute: typeof IndustriesFinanceInsuranceRoute
@@ -329,6 +356,13 @@ declare module '@tanstack/react-router' {
       path: '/video-production-ai-studio'
       fullPath: '/video-production-ai-studio'
       preLoaderRoute: typeof VideoProductionAiStudioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/social-media-management': {
+      id: '/social-media-management'
+      path: '/social-media-management'
+      fullPath: '/social-media-management'
+      preLoaderRoute: typeof SocialMediaManagementRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -371,6 +405,13 @@ declare module '@tanstack/react-router' {
       path: '/lead-conversion-services'
       fullPath: '/lead-conversion-services'
       preLoaderRoute: typeof LeadConversionServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/content-management-for-creators': {
+      id: '/content-management-for-creators'
+      path: '/content-management-for-creators'
+      fullPath: '/content-management-for-creators'
+      preLoaderRoute: typeof ContentManagementForCreatorsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/business-automation': {
@@ -489,12 +530,14 @@ const rootRouteChildren: RootRouteChildren = {
   AiCourseContentGenerationRoute: AiCourseContentGenerationRoute,
   AiVideoGenerationCourseRoute: AiVideoGenerationCourseRoute,
   BusinessAutomationRoute: BusinessAutomationRoute,
+  ContentManagementForCreatorsRoute: ContentManagementForCreatorsRoute,
   LeadConversionServicesRoute: LeadConversionServicesRoute,
   LeadGenerationServicesRoute: LeadGenerationServicesRoute,
   LogoCreativeDesignServicesRoute: LogoCreativeDesignServicesRoute,
   OperationsManagementServicesRoute: OperationsManagementServicesRoute,
   QaTestingServicesRoute: QaTestingServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SocialMediaManagementRoute: SocialMediaManagementRoute,
   VideoProductionAiStudioRoute: VideoProductionAiStudioRoute,
   IndustriesEducationRoute: IndustriesEducationRoute,
   IndustriesFinanceInsuranceRoute: IndustriesFinanceInsuranceRoute,
