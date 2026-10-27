@@ -165,7 +165,7 @@ function SocialPage() {
                 <Link
                   key={item.title}
                   to={item.link}
-                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:-translate-y-1 hover:border-gold/50"
+                  className="group relative overflow-hidden rounded-2xl border border-white/20 bg-white/[0.06] transition hover:-translate-y-1 hover:border-gold/50"
                 >
                   <div className="aspect-square w-full overflow-hidden bg-black/60">
                     <img
@@ -205,7 +205,7 @@ function SocialPage() {
                 <Link
                   key={v.id}
                   to="/video-production-ai-studio"
-                  className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition hover:border-gold/50"
+                  className="group overflow-hidden rounded-2xl border border-white/20 bg-white/[0.06] transition hover:border-gold/50"
                 >
                   <div className="relative aspect-video w-full overflow-hidden bg-black">
                     <img

@@ -75,7 +75,7 @@ function CoursePage() {
           <StaggerGroup className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
             {services.map((s) => (
               <StaggerItem key={s.t}>
-                <TiltCard className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition hover:border-gold/40">
+                <TiltCard className="h-full rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur transition hover:border-gold/40">
                   <div className="text-3xl text-gold">{s.icon}</div>
                   <h3 className="mt-4 text-xl font-semibold">{s.t}</h3>
                   <p className="mt-2 text-sm text-white/60">{s.d}</p>
@@ -105,7 +105,7 @@ function CoursePage() {
                 whileInView={{ rotateY: 0, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: i * 0.1 }}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur"
+                className="rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur"
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="text-[10px] uppercase tracking-[0.22em] text-gold">
@@ -143,7 +143,7 @@ function CoursePage() {
 function BookUnfoldScene() {
   return (
     <div
-      className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12] p-8"
+      className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-black to-[#0f0f12] p-8"
       style={{ perspective: "1200px" }}
     >
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_50%,rgba(212,175,55,0.15),transparent_70%)]" />
@@ -154,7 +154,7 @@ function BookUnfoldScene() {
             initial={{ rotateY: 0 }}
             animate={{ rotateY: i === 0 ? 0 : i * 25 }}
             transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", delay: i * 0.3 }}
-            className="mx-1 h-64 w-40 rounded-md border border-white/10 bg-white/[0.05] p-4 backdrop-blur"
+            className="mx-1 h-64 w-40 rounded-md border border-white/20 bg-white/[0.05] p-4 backdrop-blur"
             style={{
               transformOrigin: i < 0 ? "right center" : i > 0 ? "left center" : "center",
               transformStyle: "preserve-3d",

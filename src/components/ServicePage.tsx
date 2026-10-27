@@ -71,7 +71,7 @@ function Hero(p: ServicePageProps) {
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_80%_0%,rgba(212,175,55,0.12),transparent_60%)]" />
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-[1.1fr_0.9fr] md:py-28">
         <div>
-          <span className="inline-flex items-center rounded-full border border-black/10 bg-black/5 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-black/70">
+          <span className="inline-flex items-center rounded-full border border-black/20 bg-black/5 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-black/70">
             {p.eyebrow}
           </span>
           <h1 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
@@ -111,7 +111,7 @@ function Hero(p: ServicePageProps) {
           {p.illustration ? (
             <div className="relative">{p.illustration}</div>
           ) : (
-            <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-black/10 bg-gradient-to-br from-black to-black/85 p-8 text-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.4)]">
+            <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-black/20 bg-gradient-to-br from-black to-black/85 p-8 text-white shadow-[0_30px_80px_-30px_rgba(0,0,0,0.4)]">
               <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_30%_20%,rgba(212,175,55,0.35),transparent_70%)]" />
               <div className="relative flex h-full flex-col justify-between">
                 <div>
@@ -120,7 +120,7 @@ function Hero(p: ServicePageProps) {
                 </div>
                 <div className="grid grid-cols-2 gap-3 text-xs text-white/80">
                   {(p.benefits ?? p.services[0]?.items ?? []).slice(0, 4).map((b) => (
-                    <div key={b} className="rounded-xl border border-white/10 bg-white/5 p-3">
+                    <div key={b} className="rounded-xl border border-white/20 bg-white/5 p-3">
                       {b}
                     </div>
                   ))}
@@ -151,7 +151,7 @@ function ServicesGrid({ services }: { services: ServicePageProps["services"] }) 
           {services.map((s) => (
             <div
               key={s.title}
-              className="group rounded-2xl border border-black/10 bg-white p-6 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
+              className="group rounded-2xl border border-black/20 bg-white p-6 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
             >
               <div className="flex items-center gap-3">
                 <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-black text-gold transition group-hover:bg-gold group-hover:text-black">
@@ -184,7 +184,7 @@ function Process({ process }: { process: NonNullable<ServicePageProps["process"]
         </p>
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {process.map((p) => (
-            <div key={p.title} className="rounded-2xl border border-black/10 bg-white p-6">
+            <div key={p.title} className="rounded-2xl border border-black/20 bg-white p-6">
               <div className="text-xs font-medium tracking-[0.18em] text-gold">{p.step}</div>
               <div className="mt-2 text-lg font-semibold">{p.title}</div>
               {p.desc && <p className="mt-2 text-sm text-black/60">{p.desc}</p>}
@@ -205,7 +205,7 @@ function Industries({ industries }: { industries: string[] }) {
           {industries.map((i) => (
             <span
               key={i}
-              className="rounded-full border border-black/10 bg-white px-4 py-2 text-sm text-black/75 transition hover:border-gold hover:text-black"
+              className="rounded-full border border-black/20 bg-white px-4 py-2 text-sm text-black/75 transition hover:border-gold hover:text-black"
             >
               {i}
             </span>
@@ -224,7 +224,7 @@ function Faq({ faqs }: { faqs: ServicePageProps["faqs"] }) {
         <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
           Frequently asked questions
         </h2>
-        <div className="mt-8 divide-y divide-black/10 rounded-2xl border border-black/10 bg-white">
+        <div className="mt-8 divide-y divide-black/10 rounded-2xl border border-black/20 bg-white">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
@@ -258,7 +258,7 @@ function Related({ related }: { related: RelatedLink[] }) {
             <Link
               key={r.to}
               to={r.to}
-              className="group flex items-center justify-between rounded-2xl border border-black/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.2)]"
+              className="group flex items-center justify-between rounded-2xl border border-black/20 bg-white p-5 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.2)]"
             >
               <span className="font-medium">{r.title}</span>
               <span className="text-black/50 transition group-hover:translate-x-1 group-hover:text-gold">
@@ -318,7 +318,7 @@ function Contact({
         </div>
         <form
           onSubmit={onSubmit}
-          className="rounded-2xl border border-black/10 bg-white p-6 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.2)]"
+          className="rounded-2xl border border-black/20 bg-white p-6 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.2)]"
         >
           <div className="grid gap-4">
             <Field name="name" label="Name" required />

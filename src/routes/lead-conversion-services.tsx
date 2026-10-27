@@ -92,7 +92,7 @@ function ConversionPage() {
           <StaggerGroup className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
             {services.map((s) => (
               <StaggerItem key={s.t}>
-                <TiltCard className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition hover:border-gold/40">
+                <TiltCard className="h-full rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur transition hover:border-gold/40">
                   <div className="text-3xl text-gold">{s.icon}</div>
                   <h3 className="mt-4 text-xl font-semibold">{s.t}</h3>
                   <p className="mt-2 text-sm text-white/60">{s.d}</p>
@@ -151,7 +151,7 @@ function ConversionPage() {
 
 function FunnelBurstScene() {
   return (
-    <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12]">
+    <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-black to-[#0f0f12]">
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_80%,rgba(212,175,55,0.2),transparent_70%)]" />
       <svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full">
         <path

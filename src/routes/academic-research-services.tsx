@@ -87,7 +87,7 @@ function AcademicPage() {
             ].map((o) => (
               <div
                 key={o.v}
-                className="rounded-xl border border-white/10 bg-white/[0.03] p-3 text-center backdrop-blur"
+                className="rounded-xl border border-white/20 bg-white/[0.06] p-3 text-center backdrop-blur"
               >
                 <div className="text-lg font-semibold text-gold md:text-xl">{o.k}</div>
                 <div className="mt-1 text-[10px] uppercase tracking-[0.12em] text-white/50">
@@ -112,7 +112,7 @@ function AcademicPage() {
           <StaggerGroup className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
             {services.map((s) => (
               <StaggerItem key={s.t}>
-                <TiltCard className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition hover:border-gold/40">
+                <TiltCard className="h-full rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur transition hover:border-gold/40">
                   <div className="text-3xl text-gold">{s.icon}</div>
                   <h3 className="mt-4 text-xl font-semibold">{s.t}</h3>
                   <p className="mt-2 text-sm text-white/60">{s.d}</p>
@@ -180,7 +180,7 @@ function AcademicPage() {
 
 function PaperStackScene() {
   return (
-    <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12] p-8">
+    <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-black to-[#0f0f12] p-8">
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_40%,rgba(212,175,55,0.15),transparent_70%)]" />
       <div
         className="relative flex h-full items-center justify-center"
@@ -192,7 +192,7 @@ function PaperStackScene() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: i * 0.12 }}
-            className="absolute h-64 w-48 rounded-md border border-white/10 bg-white/[0.04] p-3 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.8)] backdrop-blur"
+            className="absolute h-64 w-48 rounded-md border border-white/20 bg-white/[0.07] p-3 shadow-[0_20px_40px_-20px_rgba(0,0,0,0.8)] backdrop-blur"
             style={{
               transform: `rotateX(55deg) translateY(${i * -18}px) translateZ(${i * 12}px) rotateZ(${(i - 2) * 4}deg)`,
             }}

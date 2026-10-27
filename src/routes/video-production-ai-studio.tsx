@@ -93,7 +93,7 @@ export function VideoProductionPage() {
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_80%_0%,rgba(212,175,55,0.18),transparent_60%),radial-gradient(50%_50%_at_10%_100%,rgba(0,0,0,0.06),transparent_60%)]" />
         <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-[1.1fr_0.9fr] md:py-28">
           <div className="animate-fade-in">
-            <span className="inline-flex items-center rounded-full border border-black/10 bg-black/5 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-black/70">
+            <span className="inline-flex items-center rounded-full border border-black/20 bg-black/5 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-black/70">
               Video Production & AI Studio
             </span>
             <h1 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
@@ -177,7 +177,7 @@ export function VideoProductionPage() {
             ].map((s) => (
               <div
                 key={s.t}
-                className="flex flex-col rounded-2xl border border-black/10 bg-white p-6 transition hover:-translate-y-1 hover:border-gold"
+                className="flex flex-col rounded-2xl border border-black/20 bg-white p-6 transition hover:-translate-y-1 hover:border-gold"
               >
                 <h3 className="text-xl font-semibold">{s.t}</h3>
                 <p className="mt-2 text-sm text-black/60">{s.d}</p>
@@ -220,7 +220,7 @@ export function VideoProductionPage() {
           {/* Featured */}
           <div
             id="featured-player"
-            className="mt-8 overflow-hidden rounded-3xl border border-black/10 bg-black shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
+            className="mt-8 overflow-hidden rounded-3xl border border-black/20 bg-black shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
           >
             <div className="aspect-video w-full">
               <iframe
@@ -270,7 +270,7 @@ export function VideoProductionPage() {
                   className={`group overflow-hidden rounded-2xl border bg-white text-left transition hover:-translate-y-0.5 ${
                     isActive
                       ? "border-gold shadow-[0_20px_50px_-25px_rgba(212,175,55,0.5)]"
-                      : "border-black/10 hover:border-gold"
+                      : "border-black/20 hover:border-gold"
                   }`}
                 >
                   <div className="relative aspect-video w-full overflow-hidden bg-black">
@@ -310,7 +310,7 @@ export function VideoProductionPage() {
             {SERVICES.map((s) => (
               <div
                 key={s.title}
-                className="group rounded-2xl border border-black/10 bg-white p-6 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
+                className="group rounded-2xl border border-black/20 bg-white p-6 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
               >
                 <div className="flex items-center gap-3">
                   <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-black text-gold transition group-hover:bg-gold group-hover:text-black">
@@ -380,7 +380,7 @@ export function VideoProductionPage() {
             ].map((c) => (
               <div
                 key={c.t}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm transition hover:border-gold/60"
+                className="rounded-2xl border border-white/20 bg-white/[0.07] p-5 backdrop-blur-sm transition hover:border-gold/60"
               >
                 <div className="text-[11px] uppercase tracking-[0.18em] text-gold">{c.t}</div>
                 <div className="mt-2 text-sm text-white/80">{c.d}</div>
@@ -399,7 +399,7 @@ export function VideoProductionPage() {
           </p>
           <div className="mt-10 grid gap-4 md:grid-cols-5">
             {["Idea", "Script", "Creation", "Editing", "Delivery"].map((step, i) => (
-              <div key={step} className="relative rounded-2xl border border-black/10 bg-white p-5">
+              <div key={step} className="relative rounded-2xl border border-black/20 bg-white p-5">
                 <div className="text-[11px] font-medium tracking-[0.18em] text-gold">
                   STEP {i + 1}
                 </div>
@@ -428,7 +428,7 @@ export function VideoProductionPage() {
             ].map((i) => (
               <span
                 key={i}
-                className="rounded-full border border-black/10 bg-white px-4 py-2 text-sm text-black/75 transition hover:border-gold"
+                className="rounded-full border border-black/20 bg-white px-4 py-2 text-sm text-black/75 transition hover:border-gold"
               >
                 {i}
               </span>
@@ -453,7 +453,7 @@ export function VideoProductionPage() {
               <Link
                 key={r.to}
                 to={r.to}
-                className="group flex items-center justify-between rounded-2xl border border-black/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-gold"
+                className="group flex items-center justify-between rounded-2xl border border-black/20 bg-white p-5 transition hover:-translate-y-0.5 hover:border-gold"
               >
                 <span className="font-medium">{r.title}</span>
                 <span className="text-black/50 transition group-hover:translate-x-1 group-hover:text-gold">
@@ -593,7 +593,7 @@ function Faq() {
         <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
           Frequently asked questions
         </h2>
-        <div className="mt-8 divide-y divide-black/10 rounded-2xl border border-black/10 bg-white">
+        <div className="mt-8 divide-y divide-black/10 rounded-2xl border border-black/20 bg-white">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (

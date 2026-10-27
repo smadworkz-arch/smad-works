@@ -19,7 +19,7 @@ export function IndustryPage({ data }: { data: IndustryData }) {
         <div className="absolute inset-0 -z-0 bg-[radial-gradient(60%_60%_at_80%_10%,rgba(212,175,55,0.22),transparent_60%)]" />
         <div className="relative mx-auto max-w-7xl px-5 py-24 md:py-32">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-gold">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-gold">
               <Icon size={14} /> {data.eyebrow}
             </span>
             <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight md:text-6xl">
@@ -64,7 +64,7 @@ export function IndustryPage({ data }: { data: IndustryData }) {
             {data.challenges.map((c) => (
               <div
                 key={c.title}
-                className="group rounded-2xl border border-black/10 bg-white p-6 transition hover:-translate-y-1 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
+                className="group rounded-2xl border border-black/20 bg-white p-6 transition hover:-translate-y-1 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
               >
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-black text-gold transition group-hover:bg-gold group-hover:text-black">
                   <AlertCircle size={18} />
@@ -94,7 +94,7 @@ export function IndustryPage({ data }: { data: IndustryData }) {
             {data.howWeSolve.map((s) => (
               <div
                 key={s.title}
-                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition hover:-translate-y-1 hover:border-gold/50 hover:bg-white/[0.06]"
+                className="group rounded-2xl border border-white/20 bg-white/[0.07] p-6 backdrop-blur transition hover:-translate-y-1 hover:border-gold/50 hover:bg-white/[0.06]"
               >
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold transition group-hover:bg-gold group-hover:text-black">
                   <Sparkles size={18} />
@@ -133,14 +133,14 @@ export function IndustryPage({ data }: { data: IndustryData }) {
                 <Link
                   key={s.title}
                   to={s.to}
-                  className="group flex items-center justify-between rounded-2xl border border-black/10 bg-white px-5 py-4 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.2)]"
+                  className="group flex items-center justify-between rounded-2xl border border-black/20 bg-white px-5 py-4 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.2)]"
                 >
                   {inner}
                 </Link>
               ) : (
                 <div
                   key={s.title}
-                  className="group flex items-center justify-between rounded-2xl border border-black/10 bg-white px-5 py-4"
+                  className="group flex items-center justify-between rounded-2xl border border-black/20 bg-white px-5 py-4"
                 >
                   {inner}
                 </div>
@@ -163,7 +163,7 @@ export function IndustryPage({ data }: { data: IndustryData }) {
             {data.benefits.map((b) => (
               <div
                 key={b}
-                className="flex items-start gap-3 rounded-2xl border border-black/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.2)]"
+                className="flex items-start gap-3 rounded-2xl border border-black/20 bg-white p-5 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.2)]"
               >
                 <CheckCircle2 size={20} className="mt-0.5 shrink-0 text-gold" />
                 <span className="text-sm font-medium">{b}</span>
@@ -184,7 +184,7 @@ export function IndustryPage({ data }: { data: IndustryData }) {
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
             {data.process.map((p) => (
-              <div key={p.title} className="rounded-2xl border border-black/10 bg-white p-6">
+              <div key={p.title} className="rounded-2xl border border-black/20 bg-white p-6">
                 <div className="text-xs font-medium tracking-[0.18em] text-gold">{p.step}</div>
                 <div className="mt-2 text-lg font-semibold">{p.title}</div>
                 {p.desc && <p className="mt-2 text-sm text-black/60">{p.desc}</p>}
@@ -208,7 +208,7 @@ export function IndustryPage({ data }: { data: IndustryData }) {
               <Link
                 key={r.to}
                 to={r.to}
-                className="group flex items-center justify-between rounded-2xl border border-black/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.2)]"
+                className="group flex items-center justify-between rounded-2xl border border-black/20 bg-white p-5 transition hover:-translate-y-0.5 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.2)]"
               >
                 <span className="font-medium">{r.title}</span>
                 <span className="text-black/50 transition group-hover:translate-x-1 group-hover:text-gold">
@@ -279,7 +279,7 @@ export function IndustryPage({ data }: { data: IndustryData }) {
 function IndustryFaq({ faqs }: { faqs: IndustryData["faqs"] }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <div className="mt-8 divide-y divide-black/10 rounded-2xl border border-black/10 bg-white">
+    <div className="mt-8 divide-y divide-black/10 rounded-2xl border border-black/20 bg-white">
       {faqs.map((f, i) => {
         const isOpen = open === i;
         return (

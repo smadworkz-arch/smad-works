@@ -116,7 +116,7 @@ function Pulses() {
 
 export function AutomationNodesScene() {
   return (
-    <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12]">
+    <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-black to-[#0f0f12]">
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_50%,rgba(212,175,55,0.18),transparent_70%)]" />
       <Canvas
         camera={{ position: [0, 0, 6], fov: 55 }}

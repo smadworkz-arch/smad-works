@@ -35,7 +35,7 @@ export function ServiceCardsSection({
         >
           {cards.map((c) => (
             <StaggerItem key={c.title}>
-              <div className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition hover:-translate-y-1 hover:border-gold/50">
+              <div className="flex h-full flex-col rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur transition hover:-translate-y-1 hover:border-gold/50">
                 <span className="grid h-11 w-11 place-items-center rounded-xl border border-gold/30 bg-gold/10 text-gold">
                   {c.icon}
                 </span>
@@ -93,7 +93,7 @@ export function BenefitsSection({
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((b, i) => (
             <Reveal key={b.k} delay={i * 0.06}>
-              <div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+              <div className="h-full rounded-2xl border border-white/20 bg-white/[0.06] p-6">
                 <div className="text-lg font-semibold text-gold">{b.k}</div>
                 <p className="mt-2 text-sm text-white/60">{b.v}</p>
               </div>
@@ -120,7 +120,7 @@ export function ProcessSection({ steps }: { steps: { t: string; d: string }[] })
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (
             <Reveal key={s.t} delay={i * 0.08}>
-              <div className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+              <div className="h-full rounded-2xl border border-white/20 bg-white/[0.06] p-6">
                 <div className="text-[11px] uppercase tracking-[0.24em] text-gold">
                   Step {String(i + 1).padStart(2, "0")}
                 </div>

@@ -284,7 +284,7 @@ function Showcase() {
                 className={`rounded-full border px-3 py-1 text-xs font-medium uppercase tracking-[0.14em] transition ${
                   category === c
                     ? "border-gold bg-gold/15 text-gold"
-                    : "border-white/10 bg-white/5 text-white/60 hover:border-gold/60"
+                    : "border-white/20 bg-white/5 text-white/60 hover:border-gold/60"
                 }`}
               >
                 {c}
@@ -320,7 +320,7 @@ function Showcase() {
                         if (isActive) setLightbox(i);
                         else setActive(i);
                       }}
-                      className="group absolute left-1/2 top-1/2 h-[380px] w-[280px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-white/10 bg-white/5 text-left shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)] backdrop-blur transition-all duration-500"
+                      className="group absolute left-1/2 top-1/2 h-[380px] w-[280px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border border-white/20 bg-white/5 text-left shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)] backdrop-blur transition-all duration-500"
                       style={{
                         transform: `rotateY(${i * anglePer}deg) translateZ(${radius}px)`,
                         opacity: isActive ? 1 : 0.55,
@@ -344,7 +344,7 @@ function Showcase() {
                         </span>
                       </div>
                       {/* Plaque */}
-                      <div className="flex h-[80px] flex-col justify-center gap-1 border-t border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.02] px-4">
+                      <div className="flex h-[80px] flex-col justify-center gap-1 border-t border-white/20 bg-gradient-to-b from-white/[0.04] to-white/[0.02] px-4">
                         <span className="truncate text-[11px] font-medium uppercase tracking-[0.18em] text-gold">
                           {w.project}
                         </span>
@@ -384,7 +384,7 @@ function Showcase() {
             </div>
 
             {/* Auto-rotate controls */}
-            <div className="mx-auto mt-5 flex max-w-md flex-wrap items-center justify-center gap-4 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2.5 backdrop-blur">
+            <div className="mx-auto mt-5 flex max-w-md flex-wrap items-center justify-center gap-4 rounded-full border border-white/20 bg-white/[0.06] px-5 py-2.5 backdrop-blur">
               <button
                 onClick={() => setAutoPlay((p) => !p)}
                 className="flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.14em] text-white/80 transition hover:border-gold hover:text-gold"
@@ -483,7 +483,7 @@ export const Route = createFileRoute("/ai-content-generation")({
         <img
           src={heroImg.url}
           alt="SMad Works AI Content Generation poster featuring AI videos, AI images, social media content and marketing content"
-          className="w-full rounded-3xl border border-black/10 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
+          className="w-full rounded-3xl border border-black/20 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.35)]"
           loading="eager"
         />
       }

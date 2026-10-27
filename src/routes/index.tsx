@@ -373,7 +373,7 @@ function ServicesSection() {
           >
             <Link
               to={s.href}
-              className="group block h-full rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition hover:border-gold/50"
+              className="group block h-full rounded-3xl border border-white/20 bg-white/[0.06] backdrop-blur-sm transition hover:border-gold/50"
             >
               <TiltCard className="h-full p-8">
                 <div className="flex items-center justify-between">
@@ -384,7 +384,7 @@ function ServicesSection() {
                 </div>
                 <h3 className="mt-6 font-display text-2xl text-white">{s.title}</h3>
                 <p className="mt-3 text-sm text-white/60">{s.desc}</p>
-                <ul className="mt-6 space-y-2 border-t border-white/10 pt-5 text-sm">
+                <ul className="mt-6 space-y-2 border-t border-white/20 pt-5 text-sm">
                   {s.items.map((it) => (
                     <li key={it} className="flex items-center gap-2 text-white/80">
                       <span className="h-1 w-1 rounded-full bg-gold" />
@@ -401,7 +401,7 @@ function ServicesSection() {
         ))}
       </div>
 
-      <div className="mt-12 rounded-3xl border border-white/10 bg-white/[0.02] p-6 md:p-8 backdrop-blur">
+      <div className="mt-12 rounded-3xl border border-white/20 bg-white/[0.04] p-6 md:p-8 backdrop-blur">
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">All services</p>
         <h3 className="mt-2 font-display text-2xl text-white">
           Dedicated pages for every service we offer.
@@ -411,7 +411,7 @@ function ServicesSection() {
             <Link
               key={p.to}
               to={p.to}
-              className="flex items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white/80 transition hover:border-gold/50 hover:text-gold hover:-translate-y-0.5"
+              className="flex items-center justify-between rounded-xl border border-white/20 bg-white/[0.06] px-4 py-3 text-sm text-white/80 transition hover:border-gold/50 hover:text-gold hover:-translate-y-0.5"
             >
               <span>{p.title}</span>
               <span aria-hidden>→</span>
@@ -450,7 +450,7 @@ function ShowcaseSection() {
               key={i}
               whileHover={{ rotateY: 0, scale: 1.02, z: 40 }}
               style={{ transformStyle: "preserve-3d", rotateY: i % 2 === 0 ? -8 : 8 }}
-              className="group relative w-[min(78vw,520px)] shrink-0 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] shadow-[0_30px_80px_-30px_rgba(212,175,55,0.3)] transition"
+              className="group relative w-[min(78vw,520px)] shrink-0 overflow-hidden rounded-3xl border border-white/20 bg-white/[0.06] shadow-[0_30px_80px_-30px_rgba(212,175,55,0.3)] transition"
             >
               <img
                 src={item.src}
@@ -458,7 +458,7 @@ function ShowcaseSection() {
                 className="aspect-[16/10] w-full object-cover"
                 draggable={false}
               />
-              <div className="border-t border-white/10 px-6 py-5">
+              <div className="border-t border-white/20 px-6 py-5">
                 <span className="inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-white/70">
                   {item.label}
                 </span>
@@ -546,7 +546,7 @@ function AutomationOrbit() {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="rounded-3xl border border-gold/40 bg-white/[0.03] p-8 backdrop-blur"
+          className="rounded-3xl border border-gold/40 bg-white/[0.06] p-8 backdrop-blur"
         >
           <div className="font-display text-4xl text-gold">{activeItem.n}</div>
           <h3 className="mt-3 text-2xl font-semibold text-white">{activeItem.t}</h3>
@@ -555,7 +555,7 @@ function AutomationOrbit() {
             {activeItem.f.map((x) => (
               <li
                 key={x}
-                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70"
+                className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs text-white/70"
               >
                 {x}
               </li>
@@ -603,7 +603,7 @@ function ProcessTimeline() {
                 className={`relative grid gap-4 md:grid-cols-2 md:gap-16 ${left ? "" : "md:[&>*:first-child]:col-start-2"}`}
               >
                 <div
-                  className={`rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur ${left ? "md:text-right" : ""}`}
+                  className={`rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur ${left ? "md:text-right" : ""}`}
                 >
                   <div className="font-display text-3xl text-gold">{n}</div>
                   <div className="mt-2 text-xl font-semibold text-white">{t}</div>
@@ -649,9 +649,9 @@ function AutomationRealSection() {
           },
         ].map((item, i) => (
           <RevealOnScroll key={i} delay={i * 0.1}>
-            <TiltCard className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
+            <TiltCard className="overflow-hidden rounded-3xl border border-white/20 bg-white/[0.06]">
               <img src={item.src} alt={item.title} className="w-full object-cover" />
-              <div className="border-t border-white/10 px-6 py-4">
+              <div className="border-t border-white/20 px-6 py-4">
                 <div className="font-semibold text-white">{item.title}</div>
                 <div className="text-sm text-white/60">{item.desc}</div>
               </div>
@@ -662,7 +662,7 @@ function AutomationRealSection() {
 
       <RevealOnScroll delay={0.2}>
         <TiltCard
-          className="mt-6 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]"
+          className="mt-6 overflow-hidden rounded-3xl border border-white/20 bg-white/[0.06]"
           intensity={5}
         >
           <div className="relative h-[380px] overflow-hidden">
@@ -680,7 +680,7 @@ function AutomationRealSection() {
               />
             </div>
           </div>
-          <div className="border-t border-white/10 px-6 py-4 text-sm text-white/70">
+          <div className="border-t border-white/20 px-6 py-4 text-sm text-white/70">
             <span className="font-semibold text-white">WhatsApp Automation</span> · Multi-language
             conversational flows
           </div>
@@ -730,7 +730,7 @@ function IndustriesSection() {
               transition={{ duration: 0.6, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
             >
               <TiltCard
-                className="h-full rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition hover:border-gold/50"
+                className="h-full rounded-3xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur transition hover:border-gold/50"
                 intensity={14}
               >
                 <Link
@@ -774,7 +774,7 @@ function ReviewsSection() {
 
       <RevealOnScroll delay={0.1}>
         <TiltCard
-          className="mt-12 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]"
+          className="mt-12 overflow-hidden rounded-3xl border border-white/20 bg-white/[0.06]"
           intensity={4}
         >
           <div className="relative h-[460px] overflow-hidden">
@@ -813,7 +813,7 @@ function WhySection() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
             whileHover={{ y: -6, rotateY: 8 }}
-            className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur"
+            className="rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur"
           >
             <span className="grid h-8 w-8 place-items-center rounded-full bg-gold/20 text-gold">
               ✓
@@ -858,7 +858,7 @@ function ContactSection() {
 
         <RevealOnScroll delay={0.15}>
           <TiltCard
-            className="rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur"
+            className="rounded-3xl border border-white/20 bg-white/[0.06] p-8 backdrop-blur"
             intensity={4}
           >
             <form

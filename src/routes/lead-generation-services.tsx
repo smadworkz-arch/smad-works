@@ -77,7 +77,7 @@ function LeadGenPage() {
           <StaggerGroup className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
             {services.map((s) => (
               <StaggerItem key={s.t}>
-                <TiltCard className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition hover:border-gold/40">
+                <TiltCard className="h-full rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur transition hover:border-gold/40">
                   <div className="text-3xl text-gold">{s.icon}</div>
                   <h3 className="mt-4 text-xl font-semibold">{s.t}</h3>
                   <p className="mt-2 text-sm text-white/60">{s.d}</p>
@@ -106,7 +106,7 @@ function MagnetScene() {
   return (
     <div
       id="funnel"
-      className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12]"
+      className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-black to-[#0f0f12]"
     >
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_75%_50%,rgba(212,175,55,0.18),transparent_65%)]" />
       {particles.map((_, i) => {

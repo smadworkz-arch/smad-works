@@ -43,7 +43,7 @@ function FaqItem({
     <Reveal>
       <button
         onClick={() => setOpen(!open)}
-        className="w-full rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-left transition hover:border-gold/40"
+        className="w-full rounded-2xl border border-white/20 bg-white/[0.06] p-5 text-left transition hover:border-gold/40"
         aria-expanded={open}
       >
         <div className="flex items-center justify-between gap-4">

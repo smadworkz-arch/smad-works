@@ -85,7 +85,7 @@ export function OpsPage() {
             ].map((o) => (
               <div
                 key={o.v}
-                className="rounded-xl border border-white/10 bg-white/[0.03] p-3 text-center backdrop-blur"
+                className="rounded-xl border border-white/20 bg-white/[0.06] p-3 text-center backdrop-blur"
               >
                 <div className="text-lg font-semibold text-gold md:text-xl">{o.k}</div>
                 <div className="mt-1 text-[10px] uppercase tracking-[0.12em] text-white/50">
@@ -165,7 +165,7 @@ export function OpsPage() {
           <StaggerGroup className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
             {services.map((s) => (
               <StaggerItem key={s.t}>
-                <TiltCard className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition hover:border-gold/40">
+                <TiltCard className="h-full rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur transition hover:border-gold/40">
                   <div className="text-3xl text-gold">{s.icon}</div>
                   <h3 className="mt-4 text-xl font-semibold">{s.t}</h3>
                   <p className="mt-2 text-sm text-white/60">{s.d}</p>
@@ -190,7 +190,7 @@ export function OpsPage() {
           <div className="mt-14 grid gap-4 md:grid-cols-5">
             {stages.map((st, i) => (
               <Reveal key={st.s} delay={i * 0.08}>
-                <div className="relative rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur">
+                <div className="relative rounded-2xl border border-white/20 bg-white/[0.06] p-5 backdrop-blur">
                   <div className="text-[11px] uppercase tracking-[0.24em] text-gold">
                     Stage {i + 1}
                   </div>
@@ -219,11 +219,11 @@ export function OpsPage() {
 
 function OpsPipelineScene() {
   return (
-    <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12] p-6">
+    <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-black to-[#0f0f12] p-6">
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_50%,rgba(212,175,55,0.15),transparent_70%)]" />
       <div className="relative grid h-full grid-cols-3 gap-3">
         {["Backlog", "Doing", "Done"].map((col, ci) => (
-          <div key={col} className="rounded-xl border border-white/10 bg-white/[0.03] p-3">
+          <div key={col} className="rounded-xl border border-white/20 bg-white/[0.06] p-3">
             <div className="mb-2 text-[10px] uppercase tracking-[0.18em] text-gold/80">{col}</div>
             <div className="space-y-2">
               {Array.from({ length: 4 }).map((_, i) => (
@@ -238,7 +238,7 @@ function OpsPipelineScene() {
                     repeatType: "reverse",
                     repeatDelay: 3,
                   }}
-                  className="rounded-md border border-white/10 bg-black/40 p-2"
+                  className="rounded-md border border-white/20 bg-black/40 p-2"
                 >
                   <div className="h-1 w-8 rounded bg-gold/60" />
                   <div className="mt-1.5 h-1 w-full rounded bg-white/10" />
@@ -260,14 +260,14 @@ function KanbanFlow() {
   return (
     <div
       ref={ref}
-      className="mt-14 overflow-hidden rounded-3xl border border-white/10 bg-[#0a0a0d] p-8"
+      className="mt-14 overflow-hidden rounded-3xl border border-white/20 bg-[#0a0a0d] p-8"
     >
       <motion.div style={{ x }} className="flex gap-4">
         {["Intake", "Triage", "Plan", "Build", "Review", "Ship", "Retro", "Improve"].map(
           (step, i) => (
             <div
               key={step}
-              className="min-w-[220px] rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur"
+              className="min-w-[220px] rounded-2xl border border-white/20 bg-white/[0.06] p-5 backdrop-blur"
             >
               <div className="text-[10px] uppercase tracking-[0.2em] text-gold">Step {i + 1}</div>
               <div className="mt-2 text-lg font-semibold">{step}</div>
