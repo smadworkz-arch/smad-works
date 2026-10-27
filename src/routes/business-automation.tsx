@@ -148,12 +148,12 @@ function BusinessAutomationPage() {
         scene={
           <ClientOnly
             fallback={
-              <div className="aspect-square w-full rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12]" />
+              <div className="aspect-square w-full rounded-3xl border border-white/20 bg-gradient-to-br from-black to-[#0f0f12]" />
             }
           >
             <Suspense
               fallback={
-                <div className="aspect-square w-full rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12]" />
+                <div className="aspect-square w-full rounded-3xl border border-white/20 bg-gradient-to-br from-black to-[#0f0f12]" />
               }
             >
               <AutomationNodesScene />
@@ -165,7 +165,7 @@ function BusinessAutomationPage() {
             {outcomes.map((o) => (
               <div
                 key={o.v}
-                className="rounded-xl border border-white/10 bg-white/[0.03] p-3 text-center backdrop-blur"
+                className="rounded-xl border border-white/20 bg-white/[0.06] p-3 text-center backdrop-blur"
               >
                 <div className="text-lg font-semibold text-gold md:text-xl">{o.k}</div>
                 <div className="mt-1 text-[10px] uppercase tracking-[0.12em] text-white/50">
@@ -192,7 +192,7 @@ function BusinessAutomationPage() {
           <StaggerGroup className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
             {capabilities.map((c) => (
               <StaggerItem key={c.t}>
-                <TiltCard className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition hover:border-gold/40">
+                <TiltCard className="h-full rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur transition hover:border-gold/40">
                   <div className="text-3xl text-gold">{c.icon}</div>
                   <h3 className="mt-4 text-xl font-semibold text-white">{c.t}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-white/60">{c.d}</p>
@@ -217,7 +217,7 @@ function BusinessAutomationPage() {
           {tools.map((t) => (
             <span
               key={t.name}
-              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-sm text-white/80"
+              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/20 bg-white/[0.06] px-5 py-2 text-sm text-white/80"
             >
               <img
                 src={`https://www.google.com/s2/favicons?domain=${t.domain}&sz=64`}
@@ -248,7 +248,7 @@ function BusinessAutomationPage() {
           <StaggerGroup className="mt-10 flex flex-wrap gap-3" stagger={0.04}>
             {industries.map((i) => (
               <StaggerItem key={i}>
-                <span className="inline-flex rounded-full border border-white/15 bg-white/[0.03] px-5 py-2.5 text-sm text-white/80 transition hover:border-gold hover:text-gold">
+                <span className="inline-flex rounded-full border border-white/15 bg-white/[0.06] px-5 py-2.5 text-sm text-white/80 transition hover:border-gold hover:text-gold">
                   {i}
                 </span>
               </StaggerItem>
@@ -345,7 +345,7 @@ function ProcessSpine() {
                     <div
                       className={`ml-10 max-w-md md:ml-0 md:w-[calc(50%-3rem)] ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12"}`}
                     >
-                      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur">
+                      <div className="rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur">
                         <div className="text-[11px] uppercase tracking-[0.24em] text-gold">
                           Step {s.n}
                         </div>
@@ -376,7 +376,7 @@ function FaqItem({
     <Reveal>
       <button
         onClick={() => setOpen(!open)}
-        className="w-full rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-left transition hover:border-gold/40"
+        className="w-full rounded-2xl border border-white/20 bg-white/[0.06] p-5 text-left transition hover:border-gold/40"
         aria-expanded={open}
       >
         <div className="flex items-center justify-between gap-4">

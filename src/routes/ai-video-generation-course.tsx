@@ -78,7 +78,7 @@ function VideoCoursePage() {
           <StaggerGroup className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
             {modules.map((m) => (
               <StaggerItem key={m.t}>
-                <TiltCard className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition hover:border-gold/40">
+                <TiltCard className="h-full rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur transition hover:border-gold/40">
                   <div className="text-3xl text-gold">{m.icon}</div>
                   <h3 className="mt-4 text-xl font-semibold">{m.t}</h3>
                   <p className="mt-2 text-sm text-white/60">{m.d}</p>
@@ -106,14 +106,14 @@ function VideoCoursePage() {
 
 function FilmStripHeroScene() {
   return (
-    <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12]">
+    <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-black to-[#0f0f12]">
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_50%,rgba(212,175,55,0.15),transparent_70%)]" />
-      <div className="absolute inset-y-0 left-0 w-6 border-r border-white/10 bg-black/60">
+      <div className="absolute inset-y-0 left-0 w-6 border-r border-white/20 bg-black/60">
         {Array.from({ length: 12 }).map((_, i) => (
           <div key={i} className="mx-1 my-2 h-4 rounded-sm border border-white/20" />
         ))}
       </div>
-      <div className="absolute inset-y-0 right-0 w-6 border-l border-white/10 bg-black/60">
+      <div className="absolute inset-y-0 right-0 w-6 border-l border-white/20 bg-black/60">
         {Array.from({ length: 12 }).map((_, i) => (
           <div key={i} className="mx-1 my-2 h-4 rounded-sm border border-white/20" />
         ))}
@@ -126,7 +126,7 @@ function FilmStripHeroScene() {
         {Array.from({ length: 5 }).map((_, i) => (
           <div
             key={i}
-            className="aspect-video rounded-md border border-white/10 bg-gradient-to-br from-white/[0.08] to-white/[0.02]"
+            className="aspect-video rounded-md border border-white/20 bg-gradient-to-br from-white/[0.08] to-white/[0.02]"
           >
             <div className="flex h-full items-center justify-center">
               <div className="h-8 w-8 rounded-full border border-gold bg-gold/20" />
@@ -160,10 +160,10 @@ function FilmStripScroll() {
           {Array.from({ length: 14 }).map((_, i) => (
             <div
               key={i}
-              className="relative flex min-w-[220px] flex-col overflow-hidden rounded-lg border border-white/10 bg-black/40"
+              className="relative flex min-w-[220px] flex-col overflow-hidden rounded-lg border border-white/20 bg-black/40"
             >
               <div className="aspect-video bg-gradient-to-br from-gold/20 via-white/5 to-black/60" />
-              <div className="flex items-center justify-between border-t border-white/10 px-2 py-1 font-mono text-[10px] text-white/50">
+              <div className="flex items-center justify-between border-t border-white/20 px-2 py-1 font-mono text-[10px] text-white/50">
                 <span>FRAME {String(i + 1).padStart(3, "0")}</span>
                 <span className="text-gold">24fps</span>
               </div>

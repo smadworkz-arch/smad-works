@@ -77,7 +77,7 @@ function AutomationCoursePage() {
           <StaggerGroup className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3" stagger={0.06}>
             {modules.map((m) => (
               <StaggerItem key={m.t}>
-                <TiltCard className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition hover:border-gold/40">
+                <TiltCard className="h-full rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur transition hover:border-gold/40">
                   <div className="text-3xl text-gold">{m.icon}</div>
                   <h3 className="mt-4 text-xl font-semibold">{m.t}</h3>
                   <p className="mt-2 text-sm text-white/60">{m.d}</p>
@@ -117,7 +117,7 @@ function AutomationCoursePage() {
 
 function CircuitBoardScene() {
   return (
-    <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-black to-[#0f0f12]">
+    <div className="relative aspect-square w-full overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-black to-[#0f0f12]">
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_50%,rgba(212,175,55,0.15),transparent_70%)]" />
       <svg viewBox="0 0 400 400" className="absolute inset-0 h-full w-full">
         <defs>
@@ -186,7 +186,7 @@ function CircuitBoardScene() {
 function CircuitGrid() {
   const nodes = ["Trigger", "AI Agent", "CRM", "WhatsApp", "Sheet", "Notify"];
   return (
-    <div className="relative mt-14 overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-8">
+    <div className="relative mt-14 overflow-hidden rounded-3xl border border-white/20 bg-black/40 p-8">
       <div className="grid grid-cols-2 gap-6 md:grid-cols-3">
         {nodes.map((n, i) => (
           <motion.div

@@ -143,7 +143,7 @@ export function BusinessAutomationSections() {
             {automations.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="group rounded-2xl border border-black/10 bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
+                className="group rounded-2xl border border-black/20 bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
               >
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-black text-gold transition group-hover:bg-gold group-hover:text-black">
                   <Icon size={18} />
@@ -175,7 +175,7 @@ export function BusinessAutomationSections() {
             {whyChoose.map(({ icon: Icon, title, desc }) => (
               <div
                 key={title}
-                className="group rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-white/[0.06]"
+                className="group rounded-2xl border border-white/20 bg-white/[0.07] p-6 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-gold/50 hover:bg-white/[0.06]"
               >
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-gold/15 text-gold transition group-hover:bg-gold group-hover:text-black">
                   <Icon size={18} />
@@ -204,7 +204,7 @@ export function BusinessAutomationSections() {
             {technologies.map((t) => (
               <div
                 key={t}
-                className="group flex items-center justify-center rounded-xl border border-black/10 bg-white px-4 py-5 text-center text-sm font-medium text-black/75 transition duration-300 hover:-translate-y-0.5 hover:border-gold hover:text-black hover:shadow-[0_15px_40px_-25px_rgba(0,0,0,0.25)]"
+                className="group flex items-center justify-center rounded-xl border border-black/20 bg-white px-4 py-5 text-center text-sm font-medium text-black/75 transition duration-300 hover:-translate-y-0.5 hover:border-gold hover:text-black hover:shadow-[0_15px_40px_-25px_rgba(0,0,0,0.25)]"
               >
                 {t}
               </div>
@@ -230,7 +230,7 @@ export function BusinessAutomationSections() {
               <a
                 key={name}
                 href={`#industry-${name.toLowerCase()}`}
-                className="group rounded-2xl border border-black/10 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
+                className="group rounded-2xl border border-black/20 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
               >
                 <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-black text-gold transition group-hover:bg-gold group-hover:text-black">
                   <Icon size={18} />
@@ -262,7 +262,7 @@ export function BusinessAutomationSections() {
             {benefits.map(({ icon: Icon, title }) => (
               <div
                 key={title}
-                className="group flex items-start gap-4 rounded-2xl border border-black/10 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
+                className="group flex items-start gap-4 rounded-2xl border border-black/20 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-[0_20px_50px_-25px_rgba(0,0,0,0.25)]"
               >
                 <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-black text-gold transition group-hover:bg-gold group-hover:text-black">
                   <CheckCircle2 size={18} />
