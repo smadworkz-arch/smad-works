@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, Suspense, lazy } from "react";
 import { motion, useReducedMotion, useScroll, useTransform, useSpring } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
+import { ServiceFinder } from "@/components/ServiceFinder";
 import { ClientOnly } from "@/components/ClientOnly";
 import { TiltCard } from "@/components/three/TiltCard";
 import { InteractiveVideoBackground } from "@/components/InteractiveVideoBackground";
@@ -1062,6 +1063,7 @@ function Index() {
         <IndustriesSection />
         <ReviewsSection />
         <WhySection />
+        <ServiceFinder />
         <ContactSection />
       </div>
 
