@@ -1063,11 +1063,11 @@ function Index() {
         <IndustriesSection />
         <ReviewsSection />
         <WhySection />
-        <ServiceFinder />
         <ContactSection />
       </div>
 
       <SiteFooter />
+      <ServiceFinder />
     </div>
   );
 }
