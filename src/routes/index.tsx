@@ -86,75 +86,26 @@ export const Route = createFileRoute("/")({
 
 const services = [
   {
-    title: "AI Video Creation",
-    desc: "Create professional AI-powered visual content that helps brands tell better stories.",
-    items: ["AI Generated Videos", "Product Videos", "Social Media Content", "Brand Storytelling"],
-    href: "/ai-video-generation-course" as const,
+    title: "Operations Management",
+    desc: "Build smoother, more efficient business operations.",
+    href: "/operations-management-services" as const,
   },
   {
-    title: "Business Automation",
-    desc: "Reduce manual work and scale operations with intelligent automation systems.",
-    items: [
-      "WhatsApp Automation",
-      "AI Calling Agents",
-      "CRM Automation",
-      "Appointment Systems",
-      "HR Automation",
-      "Review Automation",
-    ],
-    href: "/business-automation" as const,
+    title: "Social Media Management",
+    desc: "Create a consistent presence and grow your audience.",
+    href: "/social-media-management" as const,
   },
   {
-    title: "QA Testing & QA",
-    desc: "We make sure your software works perfectly before your users experience it.",
-    items: [
-      "Functional Testing",
-      "UI/UX Testing",
-      "Bug Reporting",
-      "Performance Testing",
-      "Compatibility Testing",
-    ],
-    href: "/qa-testing-services" as const,
+    title: "Video Production",
+    desc: "Professional editing and video creation for your brand.",
+    href: "/video-production-ai-studio" as const,
   },
   {
-    title: "Academic Research",
-    desc: "Helping students and researchers build successful technology projects.",
-    items: [
-      "Research Guidance",
-      "AI/ML Projects",
-      "Data Analytics",
-      "Implementation Support",
-      "Documentation",
-    ],
-    href: "/academic-research-services" as const,
-  },
-  {
-    title: "Creative Design",
-    desc: "Creating professional designs that communicate your business effectively.",
-    items: [
-      "Company Profiles",
-      "Presentations",
-      "Brochures",
-      "Marketing Creatives",
-      "Brand Materials",
-    ],
-    href: "/logo-creative-design-services" as const,
+    title: "Content Management",
+    desc: "Plan, publish, and manage content with confidence.",
+    href: "/content-management-for-creators" as const,
   },
 ];
-
-const allServicePages = [
-  { to: "/business-automation", title: "Business Automation" },
-  { to: "/qa-testing-services", title: "QA Testing Services" },
-  { to: "/academic-research-services", title: "Academic Research" },
-  { to: "/operations-management-services", title: "Operations Management" },
-  { to: "/ai-content-generation", title: "AI Content Generation" },
-  { to: "/ai-course-content-generation", title: "AI Course Content" },
-  { to: "/ai-video-generation-course", title: "AI Video Generation Course" },
-  { to: "/ai-automation-course", title: "AI Automation Course" },
-  { to: "/lead-generation-services", title: "Lead Generation" },
-  { to: "/lead-conversion-services", title: "Lead Conversion" },
-  { to: "/logo-creative-design-services", title: "Logo & Creative Design" },
-] as const;
 
 const automations = [
   {
@@ -351,19 +302,14 @@ function AboutSection() {
 function ServicesSection() {
   return (
     <SectionShell id="services">
-      <div className="flex flex-wrap items-end justify-between gap-6">
-        <RevealOnScroll>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">What we do</p>
-          <h2 className="mt-4 max-w-2xl font-display text-4xl sm:text-5xl text-white">
-            Services crafted around outcomes, not features.
-          </h2>
-        </RevealOnScroll>
-        <p className="max-w-sm text-white/60">
-          From AI video to enterprise automation — one team, end-to-end.
-        </p>
-      </div>
+      <RevealOnScroll>
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Solutions</p>
+        <h2 className="mt-4 max-w-2xl font-display text-4xl text-white sm:text-5xl">
+          The right support to move your business forward.
+        </h2>
+      </RevealOnScroll>
 
-      <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3 [perspective:1500px]">
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 [perspective:1500px]">
         {services.map((s, i) => (
           <motion.div
             key={s.title}
@@ -374,27 +320,19 @@ function ServicesSection() {
           >
             <Link
               to={s.href}
-              className="group block h-full rounded-3xl border border-white/20 bg-white/[0.06] backdrop-blur-sm transition hover:border-gold/50"
+              className="group block h-full rounded-2xl border border-white/20 bg-white/[0.06] backdrop-blur-sm transition hover:border-gold/50"
             >
-              <TiltCard className="h-full p-8">
+              <TiltCard className="h-full p-6">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-medium text-white/50">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="h-1.5 w-1.5 rounded-full bg-gold" />
                 </div>
-                <h3 className="mt-6 font-display text-2xl text-white">{s.title}</h3>
-                <p className="mt-3 text-sm text-white/60">{s.desc}</p>
-                <ul className="mt-6 space-y-2 border-t border-white/20 pt-5 text-sm">
-                  {s.items.map((it) => (
-                    <li key={it} className="flex items-center gap-2 text-white/80">
-                      <span className="h-1 w-1 rounded-full bg-gold" />
-                      {it}
-                    </li>
-                  ))}
-                </ul>
-                <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-gold transition group-hover:bg-gold group-hover:text-black">
-                  Explore service <span aria-hidden>→</span>
+                <h3 className="mt-8 font-display text-xl text-white">{s.title}</h3>
+                <p className="mt-2 min-h-10 text-sm leading-relaxed text-white/65">{s.desc}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-gold transition group-hover:gap-3">
+                  Explore <span aria-hidden>→</span>
                 </span>
               </TiltCard>
             </Link>
@@ -402,73 +340,30 @@ function ServicesSection() {
         ))}
       </div>
 
-      <div className="mt-12 rounded-3xl border border-white/20 bg-white/[0.04] p-6 md:p-8 backdrop-blur">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">All services</p>
-        <h3 className="mt-2 font-display text-2xl text-white">
-          Dedicated pages for every service we offer.
-        </h3>
-        <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-          {allServicePages.map((p) => (
-            <Link
-              key={p.to}
-              to={p.to}
-              className="flex items-center justify-between rounded-xl border border-white/20 bg-white/[0.06] px-4 py-3 text-sm text-white/80 transition hover:border-gold/50 hover:text-gold hover:-translate-y-0.5"
-            >
-              <span>{p.title}</span>
-              <span aria-hidden>→</span>
-            </Link>
-          ))}
-        </div>
-      </div>
     </SectionShell>
   );
 }
 
 function ShowcaseSection() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
   return (
-    <SectionShell tone="darker">
-      <div className="max-w-2xl">
-        <RevealOnScroll>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">
-            Service showcase
-          </p>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl text-white">
-            See what we build across automation, content, research and delivery.
-          </h2>
-          <p className="mt-5 text-white/60">
-            A cinematic scroll through our recent client-facing work.
-          </p>
-        </RevealOnScroll>
-      </div>
+    <SectionShell id="work" tone="darker">
+      <RevealOnScroll>
+        <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Selected work</p>
+        <h2 className="mt-4 font-display text-4xl text-white sm:text-5xl">A look at what we do.</h2>
+      </RevealOnScroll>
 
-      <div ref={ref} className="relative mt-12 overflow-hidden [perspective:1400px]">
-        <motion.div style={{ x }} className="flex gap-6 will-change-transform">
-          {serviceShowcase.concat(serviceShowcase).map((item, i) => (
-            <motion.article
-              key={i}
-              whileHover={{ rotateY: 0, scale: 1.02, z: 40 }}
-              style={{ transformStyle: "preserve-3d", rotateY: i % 2 === 0 ? -8 : 8 }}
-              className="group relative w-[min(78vw,520px)] shrink-0 overflow-hidden rounded-3xl border border-white/20 bg-white/[0.06] shadow-[0_30px_80px_-30px_rgba(212,175,55,0.3)] transition"
-            >
-              <img
-                src={item.src}
-                alt={item.title}
-                className="aspect-[16/10] w-full object-cover"
-                draggable={false}
-              />
-              <div className="border-t border-white/20 px-6 py-5">
-                <span className="inline-flex rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.16em] text-white/70">
-                  {item.label}
-                </span>
-                <h3 className="mt-3 text-xl font-semibold text-white">{item.title}</h3>
-                <p className="mt-2 text-sm text-white/60">{item.desc}</p>
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {serviceShowcase.slice(0, 4).map((item, i) => (
+          <RevealOnScroll key={item.title} delay={i * 0.06}>
+            <article className="h-full overflow-hidden rounded-2xl border border-white/20 bg-white/[0.06] transition hover:border-gold/50">
+              <img src={item.src} alt={item.title} className="aspect-[4/3] w-full object-cover" />
+              <div className="px-4 py-4">
+                <p className="text-[11px] font-medium uppercase text-gold">{item.label}</p>
+                <h3 className="mt-2 font-display text-lg leading-snug text-white">{item.title}</h3>
               </div>
-            </motion.article>
-          ))}
-        </motion.div>
+            </article>
+          </RevealOnScroll>
+        ))}
       </div>
     </SectionShell>
   );
@@ -569,51 +464,19 @@ function AutomationOrbit() {
 }
 
 function ProcessTimeline() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 80%", "end 20%"] });
-  const height = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   return (
-    <SectionShell id="process">
-      <div className="flex flex-wrap items-end justify-between gap-6">
+    <SectionShell id="process" tone="darker">
+      <div className="flex flex-wrap items-center justify-between gap-6">
         <RevealOnScroll>
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">How we work</p>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl text-white">
-            A clear path from idea to launch.
-          </h2>
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Our approach</p>
+          <h2 className="mt-3 font-display text-3xl text-white sm:text-4xl">Clear from day one.</h2>
         </RevealOnScroll>
-      </div>
-
-      <div ref={ref} className="relative mt-16 [perspective:1000px]">
-        {/* Center rail */}
-        <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-white/10 md:block" />
-        <motion.div
-          style={{ height }}
-          className="absolute left-1/2 top-0 hidden w-px -translate-x-1/2 bg-gradient-to-b from-gold via-gold/60 to-transparent shadow-[0_0_20px_rgba(212,175,55,0.6)] md:block"
-        />
-
-        <div className="space-y-10">
-          {processSteps.map(([n, t, d], i) => {
-            const left = i % 2 === 0;
-            return (
-              <motion.div
-                key={n}
-                initial={{ opacity: 0, x: left ? -80 : 80, rotateY: left ? 20 : -20 }}
-                whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-                viewport={{ once: true, amount: 0.4 }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative grid gap-4 md:grid-cols-2 md:gap-16 ${left ? "" : "md:[&>*:first-child]:col-start-2"}`}
-              >
-                <div
-                  className={`rounded-2xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur ${left ? "md:text-right" : ""}`}
-                >
-                  <div className="font-display text-3xl text-gold">{n}</div>
-                  <div className="mt-2 text-xl font-semibold text-white">{t}</div>
-                  <p className="mt-2 text-sm text-white/60">{d}</p>
-                </div>
-                <span className="absolute left-1/2 top-8 hidden h-4 w-4 -translate-x-1/2 rounded-full border-2 border-gold bg-black shadow-[0_0_20px_rgba(212,175,55,0.7)] md:block" />
-              </motion.div>
-            );
-          })}
+        <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/75">
+          {["01  Discover", "02  Design", "03  Deliver"].map((step) => (
+            <span key={step} className="whitespace-nowrap">
+              <span className="text-gold">{step.slice(0, 2)}</span>{step.slice(2)}
+            </span>
+          ))}
         </div>
       </div>
     </SectionShell>
