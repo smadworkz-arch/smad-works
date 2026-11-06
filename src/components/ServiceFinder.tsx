@@ -174,6 +174,33 @@ export function ServiceFinder() {
         )}
       </AnimatePresence>
 
+      <AnimatePresence>
+        {!open && (
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 6 }}
+            transition={{ duration: 0.2 }}
+            className="absolute bottom-[4.25rem] right-0 w-[min(20rem,calc(100vw-2rem))]"
+          >
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setOpen(true)}
+              className="h-auto w-full justify-start gap-3 whitespace-normal rounded-xl border border-white/20 bg-black/95 px-4 py-3 text-left text-white shadow-xl transition hover:border-gold/60 hover:bg-black"
+            >
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-gold/50 bg-gold/15 text-gold">
+                <MessageCircle size={17} aria-hidden="true" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold">Need help finding the right service?</span>
+                <span className="mt-1 block text-xs leading-relaxed text-white/65">Tell us what you’re working toward. Let’s chat.</span>
+              </span>
+            </Button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <Button
         type="button"
         aria-expanded={open}
