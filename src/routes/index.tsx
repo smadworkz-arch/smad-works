@@ -11,9 +11,6 @@ import heroVideo from "@/assets/smad-home-hero.mp4.asset.json";
 import heroVideoWebm from "@/assets/smad-home-hero.webm.asset.json";
 import heroVideoPoster from "@/assets/smad-home-hero-poster.jpg.asset.json";
 import reviewsImg from "@/assets/reviews.png.asset.json";
-import n8n1 from "@/assets/n8n-1.png.asset.json";
-import n8n2 from "@/assets/n8n-2.png.asset.json";
-import whatsappAuto from "@/assets/whatsapp-auto.png.asset.json";
 import qaTesting from "@/assets/qa-testing.png.asset.json";
 import aiVideoShowcase from "@/assets/ai-video-showcase.png.asset.json";
 import aiCallingAgent from "@/assets/ai-calling-agent.png.asset.json";
@@ -246,7 +243,7 @@ function SectionShell({
       id={id}
       className={`relative border-t border-white/5 ${tone === "darker" ? "bg-black/40" : "bg-transparent"}`}
     >
-      <div className="mx-auto max-w-7xl px-6 py-24">{children}</div>
+      <div className="mx-auto max-w-7xl px-6 py-20">{children}</div>
     </section>
   );
 }
@@ -262,11 +259,10 @@ function RevealOnScroll({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y, rotateX: -8 }}
-      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+      initial={{ opacity: 0, y: Math.min(y, 18) }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
-      style={{ transformPerspective: 1000 }}
+      transition={{ duration: 0.55, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       {children}
     </motion.div>
@@ -309,27 +305,27 @@ function ServicesSection() {
         </h2>
       </RevealOnScroll>
 
-      <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 [perspective:1500px]">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {services.map((s, i) => (
           <motion.div
             key={s.title}
-            initial={{ opacity: 0, y: 60, rotateY: -25 }}
-            whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.7, delay: i * 0.08, ease: [0.16, 1, 0.3, 1] }}
           >
             <Link
               to={s.href}
-              className="group block h-full rounded-2xl border border-white/20 bg-white/[0.06] backdrop-blur-sm transition hover:border-gold/50"
+              className="group block h-full rounded-xl border border-white/20 bg-white/[0.06] transition-colors hover:border-gold/50"
             >
-              <TiltCard className="h-full p-6">
+              <TiltCard className="h-full p-5" intensity={5} glow={false}>
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-medium text-white/50">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="h-1.5 w-1.5 rounded-full bg-gold" />
                 </div>
-                <h3 className="mt-8 font-display text-xl text-white">{s.title}</h3>
+                <h3 className="mt-6 font-display text-xl text-white">{s.title}</h3>
                 <p className="mt-2 min-h-10 text-sm leading-relaxed text-white/65">{s.desc}</p>
                 <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-gold transition group-hover:gap-3">
                   Explore <span aria-hidden>→</span>
@@ -378,7 +374,7 @@ function AutomationOrbit() {
   const negRot = useTransform(rot, (v) => -v);
 
   useEffect(() => {
-    const id = window.setInterval(() => setActive((a) => (a + 1) % automations.length), 3200);
+    const id = window.setInterval(() => setActive((a) => (a + 1) % automations.length), 5200);
     return () => window.clearInterval(id);
   }, []);
 
@@ -390,21 +386,20 @@ function AutomationOrbit() {
         <RevealOnScroll>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Automations</p>
           <h2 className="mt-4 font-display text-4xl sm:text-5xl text-white">
-            Seven systems in perpetual motion.
+            Practical business automation.
           </h2>
           <p className="mt-5 text-white/60">
-            Scroll to spin the orbit — each node is a battle-tested workflow replacing manual work
-            with always-on automation.
+            Everyday workflows, handled with less manual effort.
           </p>
         </RevealOnScroll>
       </div>
 
-      <div ref={ref} className="mt-16 grid gap-10 lg:grid-cols-[1.2fr_1fr] items-center">
-        <div className="relative mx-auto h-[460px] w-[460px] max-w-full [perspective:1200px]">
+      <div ref={ref} className="mt-12 grid gap-8 lg:grid-cols-[1.2fr_1fr] items-center">
+        <div className="relative mx-auto h-[420px] w-[420px] max-w-full [perspective:1200px]">
           <motion.div style={{ rotate: rot }} className="absolute inset-0">
             {automations.map((a, i) => {
               const angle = (i / automations.length) * Math.PI * 2;
-              const r = 190;
+              const r = 170;
               const x = Math.cos(angle) * r;
               const y = Math.sin(angle) * r;
               const isActive = i === active;
@@ -415,10 +410,10 @@ function AutomationOrbit() {
                   className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-2xl border text-center backdrop-blur transition"
                   style={{ x, y }}
                   animate={{
-                    scale: isActive ? 1.15 : 1,
-                    borderColor: isActive ? "rgba(212,175,55,0.9)" : "rgba(255,255,255,0.12)",
-                    backgroundColor: isActive ? "rgba(212,175,55,0.15)" : "rgba(255,255,255,0.03)",
-                    boxShadow: isActive ? "0 0 40px rgba(212,175,55,0.5)" : "0 0 0 rgba(0,0,0,0)",
+                    scale: isActive ? 1.04 : 1,
+                    borderColor: isActive ? "rgba(212,175,55,0.62)" : "rgba(255,255,255,0.18)",
+                    backgroundColor: isActive ? "rgba(212,175,55,0.08)" : "rgba(255,255,255,0.04)",
+                    boxShadow: isActive ? "0 0 18px rgba(212,175,55,0.16)" : "0 0 0 rgba(0,0,0,0)",
                   }}
                 >
                   <motion.div style={{ rotate: negRot }} className="flex flex-col items-center">
@@ -432,8 +427,8 @@ function AutomationOrbit() {
             })}
           </motion.div>
           {/* Core */}
-          <div className="absolute left-1/2 top-1/2 h-28 w-28 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-gold via-amber-500 to-amber-800 shadow-[0_0_80px_rgba(212,175,55,0.7)]">
-            <div className="absolute inset-0 animate-pulse rounded-full bg-gold/40 blur-2xl" />
+          <div className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full border border-gold/50 bg-gold/10 shadow-[0_0_24px_rgba(212,175,55,0.18)]">
+            <div className="absolute inset-2 rounded-full border border-gold/20" />
           </div>
         </div>
 
@@ -588,14 +583,14 @@ function IndustriesSection() {
           return (
             <motion.div
               key={i.slug}
-              initial={{ opacity: 0, y: 60, rotateX: -15 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: idx * 0.05, ease: [0.16, 1, 0.3, 1] }}
             >
               <TiltCard
                 className="h-full rounded-3xl border border-white/20 bg-white/[0.06] p-6 backdrop-blur transition hover:border-gold/50"
-                intensity={14}
+                intensity={5}
               >
                 <Link
                   to={`/industries/${i.slug}` as string as "/industries/healthcare"}
@@ -922,7 +917,6 @@ function Index() {
         <ShowcaseSection />
         <AutomationOrbit />
         <ProcessTimeline />
-        <AutomationRealSection />
         <IndustriesSection />
         <ReviewsSection />
         <WhySection />
