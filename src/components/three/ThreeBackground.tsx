@@ -3,7 +3,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { InteractiveVideoBackground } from "@/components/InteractiveVideoBackground";
 
-function Particles({ count = 1400 }: { count?: number }) {
+function Particles({ count = 650 }: { count?: number }) {
   const ref = useRef<THREE.Points>(null!);
   const mouse = useRef({ x: 0, y: 0 });
   const scrollVel = useRef(0);
@@ -52,8 +52,8 @@ function Particles({ count = 1400 }: { count?: number }) {
 
   useFrame((_, delta) => {
     if (!ref.current) return;
-    const baseSpeed = 0.04;
-    const boost = Math.min(0.6, Math.abs(scrollVel.current) * 0.4);
+    const baseSpeed = 0.015;
+    const boost = Math.min(0.12, Math.abs(scrollVel.current) * 0.1);
     ref.current.rotation.y += delta * (baseSpeed + boost);
     ref.current.rotation.x += delta * 0.015;
     // parallax
@@ -69,10 +69,10 @@ function Particles({ count = 1400 }: { count?: number }) {
         <bufferAttribute attach="attributes-color" args={[colors, 3]} />
       </bufferGeometry>
       <pointsMaterial
-        size={0.035}
+        size={0.026}
         vertexColors
         transparent
-        opacity={0.9}
+        opacity={0.48}
         sizeAttenuation
         depthWrite={false}
         blending={THREE.AdditiveBlending}
@@ -91,7 +91,7 @@ function Resizer() {
 
 export function ThreeBackground() {
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 opacity-70">
+    <div className="pointer-events-none fixed inset-0 -z-10 opacity-35">
       <Canvas
         camera={{ position: [0, 0, 8], fov: 60 }}
         dpr={[1, 1.5]}

@@ -62,12 +62,12 @@ export function InteractiveVideoBackground({
 
       if (videoWrapperRef.current) {
         // Translation + subtle 3D tilt perspective
-        const moveX = x * 36;
-        const moveY = y * 26;
-        const rotateX = -y * 4.5;
-        const rotateY = x * 4.5;
+        const moveX = x * 14;
+        const moveY = y * 10;
+        const rotateX = -y * 1.5;
+        const rotateY = x * 1.5;
 
-        videoWrapperRef.current.style.transform = `perspective(1000px) translate3d(${moveX}px, ${moveY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.12)`;
+        videoWrapperRef.current.style.transform = `perspective(1000px) translate3d(${moveX}px, ${moveY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
       }
 
       animationFrameId.current = requestAnimationFrame(updateTransform);
@@ -92,7 +92,7 @@ export function InteractiveVideoBackground({
       <div
         ref={videoWrapperRef}
         className="relative h-full w-full will-change-transform transition-transform duration-75 ease-out"
-        style={{ transform: "scale(1.12)" }}
+        style={{ transform: "scale(1.06)" }}
       >
         <video
           ref={videoRef}
@@ -102,7 +102,7 @@ export function InteractiveVideoBackground({
           loop
           playsInline
           preload="auto"
-          className="h-full w-full object-cover object-center saturate-[1.15] contrast-[1.08] brightness-[0.8]"
+          className="h-full w-full object-cover object-center saturate-[0.88] contrast-[1.02] brightness-[0.62]"
         />
       </div>
 
@@ -110,12 +110,12 @@ export function InteractiveVideoBackground({
       <div
         ref={spotlightRef}
         aria-hidden="true"
-        className="pointer-events-none absolute h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,var(--gold,rgba(212,175,55,0.3)),transparent_70%)] opacity-60 blur-3xl transition-opacity duration-300"
+        className="pointer-events-none absolute h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,var(--gold,rgba(212,175,55,0.3)),transparent_70%)] opacity-25 blur-3xl transition-opacity duration-300"
       />
 
       {/* Color Theme Blend & Gradient Overlays */}
       <div
-        className="pointer-events-none absolute inset-0 bg-gold/15 mix-blend-color transition-colors duration-500"
+        className="pointer-events-none absolute inset-0 bg-gold/5 mix-blend-color transition-colors duration-500"
         aria-hidden="true"
       />
       <div
