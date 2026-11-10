@@ -1,10 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useRef, useState, Suspense, lazy } from "react";
-import { motion, useReducedMotion, useScroll, useTransform, useSpring } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ServiceFinder } from "@/components/ServiceFinder";
-import { ClientOnly } from "@/components/ClientOnly";
 import { TiltCard } from "@/components/three/TiltCard";
 import { InteractiveVideoBackground } from "@/components/InteractiveVideoBackground";
 import heroVideo from "@/assets/smad-home-hero.mp4.asset.json";
@@ -18,8 +17,9 @@ import academicResearch from "@/assets/academic-research.png.asset.json";
 import automationThatWorks from "@/assets/automation-that-works.png.asset.json";
 import operationsManagement from "@/assets/operations-management.png.asset.json";
 import aiCourseContent from "@/assets/ai-course-content.png.asset.json";
-
-const ThreeBackground = lazy(() => import("@/components/three/ThreeBackground"));
+import n8n1 from "@/assets/n8n-1.png.asset.json";
+import n8n2 from "@/assets/n8n-2.png.asset.json";
+import whatsappAuto from "@/assets/whatsapp-auto.png.asset.json";
 
 const WHATSAPP_NUMBER = "917439668751";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi SMad Works, I'd like to know more about your services.")}`;
@@ -149,15 +149,6 @@ const automations = [
   },
 ];
 
-const processSteps = [
-  ["01", "Discover", "We understand your requirements."],
-  ["02", "Strategy", "We design the perfect solution."],
-  ["03", "Build", "We develop your system."],
-  ["04", "Test", "We ensure everything works."],
-  ["05", "Launch", "Your solution goes live."],
-  ["06", "Support", "We continuously improve."],
-] as const;
-
 import { industries as industryList } from "@/lib/industries-data";
 
 const SERVICE_OPTIONS: string[] = [
@@ -243,7 +234,7 @@ function SectionShell({
       id={id}
       className={`relative border-t border-white/5 ${tone === "darker" ? "bg-black/40" : "bg-transparent"}`}
     >
-      <div className="mx-auto max-w-7xl px-6 py-20">{children}</div>
+      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20">{children}</div>
     </section>
   );
 }
@@ -274,20 +265,15 @@ function RevealOnScroll({
 function AboutSection() {
   return (
     <SectionShell id="about">
-      <div className="max-w-3xl">
+      <div className="max-w-2xl">
         <RevealOnScroll>
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">About</p>
-          <h2 className="mt-4 font-display text-4xl sm:text-5xl text-white">
+          <h2 className="mt-4 font-display text-4xl text-white sm:text-5xl">
             A technology partner built for modern businesses.
           </h2>
-          <p className="mt-6 text-white/70">
-            SMad Works creates intelligent solutions for organizations that want to automate
-            workflows, improve efficiency, enhance customer experience, and build scalable digital
-            products.
-          </p>
-          <p className="mt-4 text-white/70">
-            Our goal is simple: understand your challenge, design the right solution, and deliver
-            measurable results.
+          <p className="mt-5 leading-relaxed text-white/65">
+            We bring together automation, content, and digital services to help teams work more
+            efficiently and grow with confidence.
           </p>
         </RevealOnScroll>
       </div>
@@ -301,7 +287,7 @@ function ServicesSection() {
       <RevealOnScroll>
         <p className="text-xs font-medium uppercase tracking-[0.2em] text-gold">Solutions</p>
         <h2 className="mt-4 max-w-2xl font-display text-4xl text-white sm:text-5xl">
-          The right support to move your business forward.
+          Focused expertise. Practical outcomes.
         </h2>
       </RevealOnScroll>
 
@@ -369,14 +355,11 @@ function AutomationOrbit() {
   const [active, setActive] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const baseRotation = useTransform(scrollYProgress, [0, 1], [0, 360]);
-  const rot = useSpring(baseRotation, { stiffness: 40, damping: 20 });
+  const rot = useSpring(useTransform(scrollYProgress, [0, 1], [0, 55]), {
+    stiffness: 40,
+    damping: 24,
+  });
   const negRot = useTransform(rot, (v) => -v);
-
-  useEffect(() => {
-    const id = window.setInterval(() => setActive((a) => (a + 1) % automations.length), 5200);
-    return () => window.clearInterval(id);
-  }, []);
 
   const activeItem = automations[active];
 
@@ -395,11 +378,11 @@ function AutomationOrbit() {
       </div>
 
       <div ref={ref} className="mt-12 grid gap-8 lg:grid-cols-[1.2fr_1fr] items-center">
-        <div className="relative mx-auto h-[420px] w-[420px] max-w-full [perspective:1200px]">
+        <div className="relative mx-auto h-[360px] w-[360px] max-w-full [perspective:1200px]">
           <motion.div style={{ rotate: rot }} className="absolute inset-0">
             {automations.map((a, i) => {
               const angle = (i / automations.length) * Math.PI * 2;
-              const r = 170;
+              const r = 142;
               const x = Math.cos(angle) * r;
               const y = Math.sin(angle) * r;
               const isActive = i === active;
@@ -841,18 +824,19 @@ function VideoHero() {
   return (
     <section
       id="home"
-      className="relative z-20 isolate min-h-[640px] overflow-hidden bg-transparent text-white"
+      className="relative z-20 isolate min-h-[580px] overflow-hidden bg-transparent text-white"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/50 to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-[#0a0a0d] via-[#0a0a0d]/60 to-transparent" />
+      <InteractiveVideoBackground fixed={false} className="z-0 opacity-75" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-black/85 via-black/55 to-black/15" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-32 bg-gradient-to-t from-[#0a0a0d] via-[#0a0a0d]/60 to-transparent" />
 
-      <div className="relative z-20 mx-auto max-w-7xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32 lg:pt-36 lg:pb-40">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-20 pb-20 sm:pt-28 sm:pb-24 lg:pt-32 lg:pb-28">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-3.5 py-1 text-xs font-medium text-white/90 backdrop-blur-md shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_8px_rgba(212,175,55,0.8)]" />
             Design • Develop • Deliver
           </div>
-          <h1 className="mt-6 font-display text-5xl leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl text-white drop-shadow-md">
+          <h1 className="mt-6 max-w-3xl font-display text-5xl leading-[1.08] tracking-tight text-white drop-shadow-md sm:text-6xl">
             Build Smarter. Automate Faster. Grow Without Limits.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg drop-shadow-sm">
@@ -873,19 +857,6 @@ function VideoHero() {
               Start Your Project
             </a>
           </div>
-          <dl className="mt-14 grid max-w-2xl grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
-            {[
-              ["100+", "Projects Delivered"],
-              ["95%", "Client Satisfaction"],
-              ["AI", "Smart Solutions"],
-              ["Fast", "Delivery"],
-            ].map(([n, l]) => (
-              <div key={l}>
-                <dt className="font-display text-3xl text-white">{n}</dt>
-                <dd className="mt-1 text-xs uppercase tracking-wider text-white/60">{l}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
       </div>
     </section>
@@ -897,21 +868,11 @@ function VideoHero() {
 function Index() {
   return (
     <div className="relative min-h-screen bg-[#0a0a0d] text-white font-sans">
-      {/* Global Interactive Video Background */}
-      <InteractiveVideoBackground fixed={true} />
-
       <SiteHeader />
 
       <VideoHero />
 
-      {/* EVERYTHING BELOW HERO — 3D + motion */}
-      <div className="relative z-10 isolate overflow-hidden bg-transparent">
-        <ClientOnly>
-          <Suspense fallback={null}>
-            <ThreeBackground />
-          </Suspense>
-        </ClientOnly>
-
+      <div className="relative z-10 isolate overflow-hidden bg-[#0a0a0d]">
         <AboutSection />
         <ServicesSection />
         <ShowcaseSection />
