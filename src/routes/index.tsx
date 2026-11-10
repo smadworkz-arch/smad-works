@@ -18,6 +18,9 @@ import academicResearch from "@/assets/academic-research.png.asset.json";
 import automationThatWorks from "@/assets/automation-that-works.png.asset.json";
 import operationsManagement from "@/assets/operations-management.png.asset.json";
 import aiCourseContent from "@/assets/ai-course-content.png.asset.json";
+import n8n1 from "@/assets/n8n-1.png.asset.json";
+import n8n2 from "@/assets/n8n-2.png.asset.json";
+import whatsappAuto from "@/assets/whatsapp-auto.png.asset.json";
 
 const ThreeBackground = lazy(() => import("@/components/three/ThreeBackground"));
 
@@ -370,13 +373,11 @@ function AutomationOrbit() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
   const baseRotation = useTransform(scrollYProgress, [0, 1], [0, 360]);
-  const rot = useSpring(baseRotation, { stiffness: 40, damping: 20 });
+  const rot = useSpring(useTransform(scrollYProgress, [0, 1], [0, 55]), {
+    stiffness: 40,
+    damping: 24,
+  });
   const negRot = useTransform(rot, (v) => -v);
-
-  useEffect(() => {
-    const id = window.setInterval(() => setActive((a) => (a + 1) % automations.length), 5200);
-    return () => window.clearInterval(id);
-  }, []);
 
   const activeItem = automations[active];
 
@@ -395,11 +396,11 @@ function AutomationOrbit() {
       </div>
 
       <div ref={ref} className="mt-12 grid gap-8 lg:grid-cols-[1.2fr_1fr] items-center">
-        <div className="relative mx-auto h-[420px] w-[420px] max-w-full [perspective:1200px]">
+        <div className="relative mx-auto h-[360px] w-[360px] max-w-full [perspective:1200px]">
           <motion.div style={{ rotate: rot }} className="absolute inset-0">
             {automations.map((a, i) => {
               const angle = (i / automations.length) * Math.PI * 2;
-              const r = 170;
+              const r = 142;
               const x = Math.cos(angle) * r;
               const y = Math.sin(angle) * r;
               const isActive = i === active;
