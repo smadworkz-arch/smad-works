@@ -1,10 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useRef, useState, Suspense, lazy } from "react";
+import { useRef, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ServiceFinder } from "@/components/ServiceFinder";
-import { ClientOnly } from "@/components/ClientOnly";
 import { TiltCard } from "@/components/three/TiltCard";
 import { InteractiveVideoBackground } from "@/components/InteractiveVideoBackground";
 import heroVideo from "@/assets/smad-home-hero.mp4.asset.json";
@@ -21,8 +20,6 @@ import aiCourseContent from "@/assets/ai-course-content.png.asset.json";
 import n8n1 from "@/assets/n8n-1.png.asset.json";
 import n8n2 from "@/assets/n8n-2.png.asset.json";
 import whatsappAuto from "@/assets/whatsapp-auto.png.asset.json";
-
-const ThreeBackground = lazy(() => import("@/components/three/ThreeBackground"));
 
 const WHATSAPP_NUMBER = "917439668751";
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi SMad Works, I'd like to know more about your services.")}`;
@@ -829,10 +826,11 @@ function VideoHero() {
       id="home"
       className="relative z-20 isolate min-h-[580px] overflow-hidden bg-transparent text-white"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/50 to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-32 bg-gradient-to-t from-[#0a0a0d] via-[#0a0a0d]/60 to-transparent" />
+      <InteractiveVideoBackground fixed={false} className="z-0 opacity-75" />
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-black/85 via-black/55 to-black/15" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-32 bg-gradient-to-t from-[#0a0a0d] via-[#0a0a0d]/60 to-transparent" />
 
-      <div className="relative z-20 mx-auto max-w-7xl px-6 pt-20 pb-20 sm:pt-28 sm:pb-24 lg:pt-32 lg:pb-28">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-20 pb-20 sm:pt-28 sm:pb-24 lg:pt-32 lg:pb-28">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-3.5 py-1 text-xs font-medium text-white/90 backdrop-blur-md shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_8px_rgba(212,175,55,0.8)]" />
@@ -870,21 +868,11 @@ function VideoHero() {
 function Index() {
   return (
     <div className="relative min-h-screen bg-[#0a0a0d] text-white font-sans">
-      {/* Global Interactive Video Background */}
-      <InteractiveVideoBackground fixed={true} />
-
       <SiteHeader />
 
       <VideoHero />
 
-      {/* EVERYTHING BELOW HERO — 3D + motion */}
-      <div className="relative z-10 isolate overflow-hidden bg-transparent">
-        <ClientOnly>
-          <Suspense fallback={null}>
-            <ThreeBackground />
-          </Suspense>
-        </ClientOnly>
-
+      <div className="relative z-10 isolate overflow-hidden bg-[#0a0a0d]">
         <AboutSection />
         <ServicesSection />
         <ShowcaseSection />
